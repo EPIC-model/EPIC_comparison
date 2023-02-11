@@ -8,6 +8,7 @@ from mpic_utils import (
     get_mpic_projection_coordinates,
 )
 from utils import write_field_to_file
+import xarray as xr
 
 MAIN_DIR = "/home/stevenboeing/epic_comparison_klad"
 RESOLUTIONS = [32]
@@ -22,6 +23,9 @@ REFINEMENT = [64, 16, 16]
 
 for resolution in RESOLUTIONS:
     # Set up file paths
+    monc_input_file_name = (
+        MAIN_DIR + "/monc_mpic_smooth_" + str(resolution) + "/mpic_diagnostic_3d_3.nc"
+    )
     epic_input_file_name = (
         MAIN_DIR + "/epic_rev_" + str(resolution) + "/moist_0000000012_parcels.nc"
     )
@@ -40,6 +44,9 @@ for resolution in RESOLUTIONS:
         + "/grids_"
         + MPIC_RES_TSTEP_DICT[resolution]
         + ".nc"
+    )
+    epic_grid_file_name = (
+        MAIN_DIR + "/epic_rev_" + str(resolution) + "/moist_fields.nc"
     )
     for mindex, method in enumerate(METHODS):
         # EPIC work
@@ -87,3 +94,16 @@ for resolution in RESOLUTIONS:
             cross_type="xz",
             mode="w",
         )
+    ds_nc = xr.open_dataset(monc_input_file_name)
+    qt_monc= (ds_nc["q_cloud_liquid_mass"][0,:,:,1:]+ds_nc["q_vapour"][0,:,:,1:]).interp(y=resolution*xz_loc/6.28, method="nearest").data
+    x_monc=(ds_nc["x"].data+0.5)*(6.28/resolution)
+    z_monc=ds_nc["zn"].data[1:]
+    write_field_to_file(
+        qt_monc,
+        x_monc,
+        z_monc,
+        "humidity",
+        "monc_" + str(resolution) + "_t6.nc",
+        cross_type="xz",
+        mode="w",
+    )
