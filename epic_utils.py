@@ -4,7 +4,7 @@ import numpy as np
 from utils import check_file
 
 MAX_ANISOTROPY_FAC = 5.0
-NTHREADS = 4
+NTHREADS = 8
 
 set_num_threads(NTHREADS)
 

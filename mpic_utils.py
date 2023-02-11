@@ -4,7 +4,7 @@ import netCDF4 as nc
 import numpy as np
 from utils import check_file
 
-NTHREADS = 4
+NTHREADS = 8
 
 set_num_threads(NTHREADS)
 
