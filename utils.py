@@ -25,13 +25,13 @@ def write_field_to_file(
         for index, dim in enumerate(dimlist):
             ncfile.createDimension(dim, len(coords[index]))
             nc_dims = {}
-            nc_dims[dim] = ncfile.createVariable(dim, "f8", (dim,), zlib=True, least_significant_digit=6)
+            nc_dims[dim] = ncfile.createVariable(
+                dim, "f8", (dim,), zlib=True, least_significant_digit=6
+            )
             nc_dims[dim].units = "m"
             nc_dims[dim].axis = dim  # Optional
             nc_dims[dim].standard_name = "projection_" + dim.lower() + "_coordinate"
-            nc_dims[dim].long_name = (
-                dim.lower() + "-coordinate"
-            )
+            nc_dims[dim].long_name = dim.lower() + "-coordinate"
             nc_dims[dim][:] = coords[index]
     elif not mode == "a":
         raise ValueError("netCDF access mode not implemented")

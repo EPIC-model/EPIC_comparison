@@ -120,7 +120,7 @@ def produce_epic_cross_section(
         raise ValueError("kernel type not valid")
     if r_limit_fac is None:
         if kernel == "third":
-            r_limit_fac = 5.0
+            r_limit_fac = 3.0
         elif kernel == "sharp":
             r_limit_fac = 1.0
     x, y, z = get_epic_parcel_coordinates(input_file_name)
@@ -150,6 +150,70 @@ def produce_epic_cross_section(
         kernel,
         r_limit_fac,
     )
+    return np.sum(cross_field_thread, axis=0) / np.sum(cross_volg_thread, axis=0)
+
+def get_limited_coordinates(input_file_name,cross_type="xz",box=None,ndir=4096):
+    xp, yp, zp = get_epic_projection_coordinates(input_file_name,1)
+    if len(box) != 4:
+        raise ValueError("bounding box definition not right")
+    if cross_type not in ["xz", "xy", "yz"]:
+        raise ValueError("cross-section type not value")
+    # overwrite required coordinates
+    if(cross_type=="xz"):
+        xp = np.linspace(box[0],box[2],ndir+1)
+        zp = np.linspace(box[1],box[3],ndir+1)
+    elif(cross_type=="xy"):
+        xp = np.linspace(box[0],box[2],ndir+1)
+        yp = np.linspace(box[1],box[3],ndir+1)
+    elif(cross_type=="yz"):
+        yp = np.linspace(box[0],box[2],ndir+1)
+        zp = np.linspace(box[1],box[3],ndir+1)
+    return xp,yp,zp
+
+def produce_limited_cross_section(
+    input_file_name,
+    xp, 
+    yp, 
+    zp,
+    loc=0.0,
+    cross_type="xz",
+    kernel="third",
+    r_limit_fac=None,
+    ):
+    if kernel not in ["third", "sharp"]:
+        raise ValueError("kernel type not valid")
+    if r_limit_fac is None:
+        if kernel == "third":
+            r_limit_fac = 3.0
+        elif kernel == "sharp":
+            r_limit_fac = 1.0
+    x, y, z = get_epic_parcel_coordinates(input_file_name)
+    bb1, bb2, bb3, bb4, bb5 = get_epic_parcel_shape(input_file_name)
+    vol = get_epic_parcel_volume(input_file_name)
+    # len_condense, q_scale = get_idealised_moist_parameters(input_file_name)
+    h = get_epic_parcel_humidity(input_file_name)
+    extent = get_epic_extent(input_file_name)
+    cross_field_thread, cross_volg_thread = epic_cross_section_inner(
+        cross_type,
+        loc,
+        x,
+        y,
+        z,
+        bb1,
+        bb2,
+        bb3,
+        bb4,
+        bb5,
+        vol,
+        h,
+        xp,
+        yp,
+        zp,
+        extent,
+        kernel,
+        r_limit_fac,
+        l_periodic=False
+        )
     return np.sum(cross_field_thread, axis=0) / np.sum(cross_volg_thread, axis=0)
 
 
@@ -186,6 +250,12 @@ def get_abs_dist_periodic(x1, x2, x_extent):
     delx = delx - x_extent * round(delx / x_extent)
     return abs(delx)
 
+@njit
+def get_dist_periodic(x1, x2, x_extent):
+    delx = x1 - x2
+    delx = delx - x_extent * round(delx / x_extent)
+    return delx
+
 
 @njit(parallel=True)
 def epic_cross_section_inner(
@@ -207,6 +277,7 @@ def epic_cross_section_inner(
     extent,
     kernel,
     r_limit_fac,
+    l_periodic=True
 ):
     dx_project = xp[1] - xp[0]
     dy_project = yp[1] - yp[0]
@@ -257,6 +328,18 @@ def epic_cross_section_inner(
                 and get_abs_dist_periodic(loc, x_now, extent[0]) > r_max
             ):
                 continue
+            if(x_now<xp[0]-r_max):
+                continue
+            if(x_now>xp[-1]+r_max):
+                continue
+            if(y_now<yp[0]-r_max):
+                continue
+            if(y_now>yp[-1]+r_max):
+                continue
+            if(z_now<zp[0]-r_max):
+                continue
+            if(z_now>zp[-1]+r_max):
+                continue
             # Now let's do this property
             b1 = bb1[i]
             b2 = bb2[i]
@@ -289,10 +372,28 @@ def epic_cross_section_inner(
                 continue
             if cross_type == "yz" and (loc < x_now - r_max or loc > x_now + r_max):
                 continue
-            xlower = int(dxi_project * ((x_now - r_max) - x_origin)) + 1
-            xupper = int(dxi_project * ((x_now + r_max) - x_origin))
-            ylower = int(dyi_project * ((y_now - r_max) - y_origin)) + 1
-            yupper = int(dyi_project * ((y_now + r_max) - y_origin))
+            if(x_now<xp[0]-r_max):
+                continue
+            if(x_now>xp[-1]+r_max):
+                continue
+            if(y_now<yp[0]-r_max):
+                continue
+            if(y_now>yp[-1]+r_max):
+                continue
+            if(z_now<zp[0]-r_max):
+                continue
+            if(z_now>zp[-1]+r_max):
+                continue
+            if l_periodic:
+                xlower = int(dxi_project * ((x_now - r_max) - x_origin)) + 1
+                xupper = int(dxi_project * ((x_now + r_max) - x_origin))
+                ylower = int(dyi_project * ((y_now - r_max) - y_origin)) + 1
+                yupper = int(dyi_project * ((y_now + r_max) - y_origin))
+            else:
+                xlower = max(int(dxi_project * ((x_now - r_max) - x_origin)) + 1, 0)
+                xupper = min(int(dxi_project * ((x_now + r_max) - x_origin)), nxproj - 1)
+                ylower = max(int(dyi_project * ((y_now - r_max) - y_origin)) + 1, 0)
+                yupper = min(int(dyi_project * ((y_now + r_max) - y_origin)), nyproj - 1)
             zlower = max(int(dzi_project * ((z_now - r_max) - z_origin)), 0)
             zupper = min(int(dzi_project * ((z_now + r_max) - z_origin)), nzproj - 1)
             scalar_now = scalar[i]
@@ -300,10 +401,10 @@ def epic_cross_section_inner(
                 # Include upper values in loops (converted from Fortran)
                 for ii in range(xlower, xupper + 1):
                     for jj in range(ylower, yupper + 1):
-                        xdist = get_abs_dist_periodic(
+                        xdist = get_dist_periodic(
                             ii * dx_project + x_origin, x_now, extent[0]
                         )
-                        ydist = get_abs_dist_periodic(
+                        ydist = get_dist_periodic(
                             jj * dy_project + y_origin, y_now, extent[1]
                         )
                         zdist = loc - z_now
@@ -323,10 +424,10 @@ def epic_cross_section_inner(
                 # Include upper values in loops (converted from Fortran)
                 for ii in range(xlower, xupper + 1):
                     for kk in range(zlower, zupper + 1):
-                        xdist = get_abs_dist_periodic(
+                        xdist = get_dist_periodic(
                             ii * dx_project + x_origin, x_now, extent[0]
                         )
-                        ydist = get_abs_dist_periodic(loc, y_now, extent[1])
+                        ydist = get_dist_periodic(loc, y_now, extent[1])
                         zdist = kk * dz_project + z_origin - z_now
                         dist2 = xdist * xdist + ydist * ydist + zdist * zdist
                         if dist2 < r_max * r_max:
@@ -341,8 +442,8 @@ def epic_cross_section_inner(
                 # Include upper values in loops (converted from Fortran)
                 for jj in range(xlower, xupper + 1):
                     for kk in range(ylower, yupper + 1):
-                        xdist = get_abs_dist_periodic(loc, x_now, extent[0])
-                        ydist = get_abs_dist_periodic(
+                        xdist = get_dist_periodic(loc, x_now, extent[0])
+                        ydist = get_dist_periodic(
                             jj * dy_project + y_origin, y_now, extent[1]
                         )
                         zdist = kk * dz_project + z_origin - z_now
