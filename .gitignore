@@ -1,1 +1,7 @@
 *.nc
+*.jpeg
+*.png
+*.pyc
+*.out
+*.dat
+*.sb
