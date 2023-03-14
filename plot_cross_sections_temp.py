@@ -11,13 +11,16 @@ plt.rcParams.update(
         "font.family": "serif",
         "font.size": 11,
         "text.usetex": True,
-        'text.latex.preamble': "\n".join([
-        r"\usepackage{amsmath}",
-        r"\usepackage[utf8]{inputenc}",
-        r"\usepackage[T1]{fontenc}",
-        r"\usepackage{siunitx}",
-        ])
-})
+        "text.latex.preamble": "\n".join(
+            [
+                r"\usepackage{amsmath}",
+                r"\usepackage[utf8]{inputenc}",
+                r"\usepackage[T1]{fontenc}",
+                r"\usepackage{siunitx}",
+            ]
+        ),
+    }
+)
 
 fig = plt.figure()
 
@@ -64,7 +67,6 @@ for findex, ax in enumerate(grid):
             vmax=0.10,
             cmap=cc.cm["rainbow4"],
             antialiased=True,
-
         )
         ax.set_xlim(3.000, 5.000)
         ax.set_ylim(3.000, 5.000)

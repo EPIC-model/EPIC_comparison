@@ -6,20 +6,21 @@ import numpy as np
 import colorcet as cc
 from nc_reader import nc_reader
 import matplotlib.colors as cls
+
 # ~ from PIL import Image
 from numba import njit
 
 plt.rcParams.update(
     {
         "figure.figsize": (9, 4),
-        "figure.dpi": 960*4,
+        "figure.dpi": 960 * 4,
         "font.family": "serif",
         "font.size": 11,
         "text.usetex": False,
     }
 )
 
-dpi = 960*4
+dpi = 960 * 4
 cm = 1 / 2.54  # centimeters in inches
 fig = plt.figure(figsize=(13 * cm, 5 * cm), dpi=dpi)
 ax = plt.gca()
@@ -30,42 +31,46 @@ my_cmap = mpl.colors.LinearSegmentedColormap.from_list(
 ffile1 = "epic_zooms_0_lim3r_t6.nc"
 sfile1 = "epic_zooms_0_sharp_t6.nc"
 
+
 @njit
-def replace_nans(aa,bb):
+def replace_nans(aa, bb):
     for ii in range(np.shape(aa)[0]):
         for jj in range(np.shape(aa)[1]):
-            if(aa[ii,jj]!=aa[ii,jj]):
-                aa[ii,jj]=bb[ii,jj]
+            if aa[ii, jj] != aa[ii, jj]:
+                aa[ii, jj] = bb[ii, jj]
     return aa
 
-def combine_ds(ds1,ds2):
-    da2 = ds2['humidity']
-    da1 = ds1['humidity'].interp_like(da2)
-    da2.values=replace_nans(da2.values,da1.values)
+
+def combine_ds(ds1, ds2):
+    da2 = ds2["humidity"]
+    da1 = ds1["humidity"].interp_like(da2)
+    da2.values = replace_nans(da2.values, da1.values)
     return da2
+
 
 # Iterating over the grid returns the Axes.
 ds1 = xr.open_dataset(ffile1)
 ds2 = xr.open_dataset(sfile1)
 
+
 def do_zoom(ax, level, bounds, xlo, xhi, ylo, yhi, **kwargs):
     cmap = kwargs.pop("cmap", "Blues")
-    ffile1 = "epic_zooms_"+str(level)+"_lim3r_t6.nc"
-    sfile1 = "epic_zooms_"+str(level)+"_sharp_t6.nc"
+    ffile1 = "epic_zooms_" + str(level) + "_lim3r_t6.nc"
+    sfile1 = "epic_zooms_" + str(level) + "_sharp_t6.nc"
 
     ds1 = xr.open_dataset(ffile1)
     ds2 = xr.open_dataset(sfile1)
-    da = combine_ds(ds1,ds2)
+    da = combine_ds(ds1, ds2)
 
     axins = ax.inset_axes(bounds, alpha=1.0)
-    img=axins.imshow(
+    img = axins.imshow(
         da,
         vmin=0.0,
         vmax=0.0012,
         cmap=my_cmap,
-        origin='lower',
-        interpolation='lanczos',
-#        interpolation_stage='rgba',
+        origin="lower",
+        interpolation="lanczos",
+        #        interpolation_stage='rgba',
         extent=[xlo, xhi, ylo, yhi],
     )
     axins.set_xlabel("")
@@ -80,6 +85,7 @@ def do_zoom(ax, level, bounds, xlo, xhi, ylo, yhi, **kwargs):
     ax.indicate_inset_zoom(axins, edgecolor="black", alpha=0.5)
     return axins
 
+
 left = 1250
 right = 5250
 top = 5000
@@ -89,15 +95,15 @@ ax.set_xlim([left, right])
 ax.set_ylim([bottom, top])
 ax.set_position([0.05, 0.10, 0.5, 0.8])
 
-da = combine_ds(ds1,ds2)
+da = combine_ds(ds1, ds2)
 ax.imshow(
     da,
     vmin=0.0,
     vmax=0.0012,
     cmap=my_cmap,
-    origin='lower',
-    interpolation='lanczos',
-#    interpolation_stage='rgba',
+    origin="lower",
+    interpolation="lanczos",
+    #    interpolation_stage='rgba',
     extent=[left, right, bottom, top],
 )
 
@@ -153,10 +159,6 @@ ax.spines["top"].set_visible(False)
 ax.set_xticks([])
 ax.set_yticks([])
 
-plt.savefig("graphical_abstract.png",dpi=960)
-plt.savefig("graphical_abstract.pdf",dpi=960)
+plt.savefig("graphical_abstract.png", dpi=960)
+plt.savefig("graphical_abstract.pdf", dpi=960)
 plt.close()
-
-# ~ img = Image.open('cross_zoom_fields.png')
-# ~ img = img.resize((img.size[0]//4, img.size[1]//4), Image.ANTIALIAS)
-# ~ img.save('cross_zoom_fields_resized.png')
