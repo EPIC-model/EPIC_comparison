@@ -3,27 +3,10 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import ImageGrid
 import numpy as np
 import colorcet as cc
-from utils import add_annotation
+from utils import add_annotation, setup_rcParams
 
-plt.rcParams.update(
-    {
-        "figure.figsize": (8, 5),
-        "figure.dpi": 200,
-        "font.family": "serif",
-        "font.size": 11,
-        "text.usetex": True,
-        "text.latex.preamble": "\n".join(
-            [
-                r"\usepackage{amsmath}",
-                r"\usepackage[utf8]{inputenc}",
-                r"\usepackage[T1]{fontenc}",
-                r"\usepackage{siunitx}",
-            ]
-        ),
-    }
-)
-
-fig = plt.figure()
+setup_rcParams()
+fig = plt.figure(figsize=(8, 5))
 
 grid = ImageGrid(
     fig,

@@ -3,33 +3,16 @@ import xarray as xr
 from cycler import cycler
 import numpy as np
 from matplotlib import ticker
-from utils import add_annotation
+from utils import add_annotation, setup_rcParams
 
-plt.rcParams.update(
-    {
-        "figure.figsize": (4, 8),
-        "figure.dpi": 200,
-        "font.family": "serif",
-        "font.size": 11,
-        "text.usetex": True,
-        "text.latex.preamble": "\n".join(
-            [
-                r"\usepackage{amsmath}",
-                r"\usepackage[utf8]{inputenc}",
-                r"\usepackage[T1]{fontenc}",
-                r"\usepackage{siunitx}",
-            ]
-        ),
-    }
-)
+setup_rcParams()
 
 RESOLUTIONS = [32, 64, 128, 256]
 default_cycler = cycler(color=["#ff6666", "#990000", "#6666ff", "#000099", "#000000"])
 plt.rc("axes", prop_cycle=default_cycler)
 ds = xr.open_dataset("humidity_pdfs.nc")
 
-fig, axis = plt.subplots(3, 1)
-titles = ["EPIC ref error", "MPIC ref error", "MONC ref error"]
+fig, axis = plt.subplots(1, 3, figsize=(8, 4))
 
 
 def calc_err(sim, ref):
@@ -78,12 +61,18 @@ for axnr, ax in enumerate(axis):
     ax.grid(linestyle="dashed")
     ax.xaxis.set_major_formatter(ticker.StrMethodFormatter("${x:d}^3$"))
     ax.set_ylim(0, 0.55)
-    ax.set_ylabel('RMS error')
-axis[2].set_xlabel("grid points")
-axis[0].legend(["EPIC", "MPIC", "MONC"])
-add_annotation(axis[0], "Reference: EPIC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.04, 0.9], ha="left")
-add_annotation(axis[1], "Reference: MPIC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.04, 0.9], ha="left")
-add_annotation(axis[2], "Reference: MONC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.04, 0.9], ha="left")
+    ax.set_xlabel("grid points")
+axis[0].set_ylabel("RMS error")
+axis[0].legend(["EPIC", "MPIC", "MONC"],loc=(0.4,0.65))
+add_annotation(
+    axis[0], "Reference: EPIC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.5, 0.9], ha="center"
+)
+add_annotation(
+    axis[1], "Reference: MPIC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.5, 0.9], ha="center"
+)
+add_annotation(
+    axis[2], "Reference: MONC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.5, 0.9], ha="center"
+)
 fig.tight_layout()
 plt.savefig("err_hl_pdf.png", bbox_inches="tight")
 plt.savefig("err_hl_pdf.jpeg", bbox_inches="tight")

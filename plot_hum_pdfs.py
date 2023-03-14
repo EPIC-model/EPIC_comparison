@@ -1,52 +1,44 @@
 import matplotlib.pyplot as plt
 import xarray as xr
 from cycler import cycler
-from utils import add_annotation
+from utils import add_annotation, setup_rcParams
 
-plt.rcParams.update(
-    {
-        "figure.figsize": (8, 10),
-        "figure.dpi": 200,
-        "font.family": "serif",
-        "font.size": 11,
-        "text.usetex": True,
-        "text.latex.preamble": "\n".join(
-            [
-                r"\usepackage{amsmath}",
-                r"\usepackage[utf8]{inputenc}",
-                r"\usepackage[T1]{fontenc}",
-                r"\usepackage{siunitx}",
-            ]
-        ),
-    }
-)
+setup_rcParams()
 
 RESOLUTIONS = [32, 64, 128, 256]
 default_cycler = cycler(color=["#ff6666", "#990000", "#6666ff", "#000099", "#000000"])
 plt.rc("axes", prop_cycle=default_cycler)
 ds = xr.open_dataset("humidity_pdfs.nc")
 
-fig, axis = plt.subplots(4, 1)
+fig, axes = plt.subplots(2, 2, figsize=(8, 6))
 
 for resolution in RESOLUTIONS:
-    axis[0].stairs(ds["hist_epic_" + str(resolution)], ds["bin_edges"])
-    axis[1].stairs(ds["hist_mpic_" + str(resolution)], ds["bin_edges"])
-    axis[2].stairs(ds["hist_monc_" + str(resolution)], ds["bin_edges"])
-axis[0].legend(["$" + str(i) + "^3$" for i in RESOLUTIONS])
-axis[3].stairs(ds["hist_epic_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
-axis[3].stairs(ds["hist_mpic_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
-axis[3].stairs(ds["hist_monc_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
-for axnr, ax in enumerate(axis):
+    axes[0, 0].stairs(ds["hist_epic_" + str(resolution)], ds["bin_edges"])
+    axes[0, 1].stairs(ds["hist_mpic_" + str(resolution)], ds["bin_edges"])
+    axes[1, 0].stairs(ds["hist_monc_" + str(resolution)], ds["bin_edges"])
+axes[0, 0].legend(["$" + str(i) + "^3$" for i in RESOLUTIONS], loc="upper left")
+axes[1, 1].stairs(ds["hist_epic_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
+axes[1, 1].stairs(ds["hist_mpic_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
+axes[1, 1].stairs(ds["hist_monc_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
+for ax in axes.flat:
     ax.set_ylim(0, 2.0)
     ax.set_xlim(0, 0.08)
     ax.set_ylabel("probability density")
     ax.grid(linestyle="dashed")
-axis[3].set_xlabel("$q_l$ (-)")
-axis[3].legend(["EPIC", "MPIC", "MONC"])
-add_annotation(axis[0], "EPIC", [0.04, 0.9], ha="left")
-add_annotation(axis[1], "MPIC", [0.04, 0.9], ha="left")
-add_annotation(axis[2], "MONC with subsampling", [0.04, 0.9], ha="left")
-add_annotation(axis[3], "All models at $" + str(RESOLUTIONS[-1]) + "^3$ grid points", [0.04, 0.9], ha="left")
+axes[0, 0].set_ylabel("probability density")
+axes[1, 0].set_ylabel("probability density")
+axes[1, 1].set_xlabel("$q_l$ (-)")
+axes[1, 0].set_xlabel("$q_l$ (-)")
+axes[1, 1].legend(["EPIC", "MPIC", "MONC"], loc="upper left")
+add_annotation(axes[0, 0], "EPIC", [0.96, 0.9], ha="right")
+add_annotation(axes[0, 1], "MPIC", [0.96, 0.9], ha="right")
+add_annotation(axes[1, 0], "MONC", [0.96, 0.9], ha="right")
+add_annotation(
+    axes[1, 1],
+    "All models at \n $" + str(RESOLUTIONS[-1]) + "^3$ grid points",
+    [0.96, 0.9],
+    ha="right",
+)
 fig.tight_layout()
 plt.savefig("compare_hl_pdf.png", bbox_inches="tight")
 plt.savefig("compare_hl_pdf.jpeg", bbox_inches="tight")
