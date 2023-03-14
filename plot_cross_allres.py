@@ -66,9 +66,9 @@ for findex, ax in enumerate(grid):
     ax.set_title(labels[findex])
     ax.set_aspect(1)
     if findex / 3 >= 1:
-        ax.set_xlabel("x [-]")
+        ax.set_xlabel("x (-)")
     if findex % 3 == 0:
-        ax.set_ylabel("y [-]")
+        ax.set_ylabel("y (-)")
 cb = grid.cbar_axes[0].colorbar(im)
 grid.cbar_axes[0].set_ylabel("humidity [-]")
 grid.cbar_axes[0].yaxis.set_label_position("right")
