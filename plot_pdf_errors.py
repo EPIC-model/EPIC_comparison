@@ -3,6 +3,7 @@ import xarray as xr
 from cycler import cycler
 import numpy as np
 from matplotlib import ticker
+from utils import add_annotation
 
 plt.rcParams.update(
     {
@@ -10,16 +11,17 @@ plt.rcParams.update(
         "figure.dpi": 200,
         "font.family": "serif",
         "font.size": 11,
-        "text.usetex": False,
+        "text.usetex": True,
+        "text.latex.preamble": "\n".join(
+            [
+                r"\usepackage{amsmath}",
+                r"\usepackage[utf8]{inputenc}",
+                r"\usepackage[T1]{fontenc}",
+                r"\usepackage{siunitx}",
+            ]
+        ),
     }
 )
-
-#    'text.latex.preamble': "\n".join([
-#        r"\usepackage{amsmath}",
-#        r"\usepackage[utf8]{inputenc}",
-#        r"\usepackage[T1]{fontenc}",
-#        r"\usepackage{siunitx}",
-#        ])
 
 RESOLUTIONS = [32, 64, 128, 256]
 default_cycler = cycler(color=["#ff6666", "#990000", "#6666ff", "#000099", "#000000"])
@@ -73,13 +75,16 @@ for axnr, ax in enumerate(axis):
     ax.set_xscale("log")
     ax.set_xticks([32, 64, 128, 256])
     ax.minorticks_off()
-    ax.set_title(titles[axnr])
     ax.grid(linestyle="dashed")
-    ax.xaxis.set_major_formatter(ticker.StrMethodFormatter("{x:d}"))
-    ax.set_ylim(0, 0.5)
+    ax.xaxis.set_major_formatter(ticker.StrMethodFormatter("${x:d}^3$"))
+    ax.set_ylim(0, 0.55)
+    ax.set_ylabel('RMS error')
 axis[2].set_xlabel("grid points")
 axis[0].legend(["EPIC", "MPIC", "MONC"])
+add_annotation(axis[0], "Reference: EPIC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.04, 0.9], ha="left")
+add_annotation(axis[1], "Reference: MPIC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.04, 0.9], ha="left")
+add_annotation(axis[2], "Reference: MONC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.04, 0.9], ha="left")
 fig.tight_layout()
-plt.savefig("err_hl_pdf.png")
-plt.savefig("err_hl_pdf.jpeg")
-plt.savefig("err_hl_pdf.pdf")
+plt.savefig("err_hl_pdf.png", bbox_inches="tight")
+plt.savefig("err_hl_pdf.jpeg", bbox_inches="tight")
+plt.savefig("err_hl_pdf.pdf", bbox_inches="tight")

@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import ImageGrid
 import numpy as np
 import colorcet as cc
+from utils import add_annotation
 
 plt.rcParams.update(
     {
@@ -70,6 +71,6 @@ for findex, ax in enumerate(grid):
     if findex % 3 == 0:
         ax.set_ylabel("y [-]")
 cb = grid.cbar_axes[0].colorbar(im)
-grid.cbar_axes[0].set_ylabel("humidity [-]")
+grid.cbar_axes[0].set_ylabel("humidity (-)")
 grid.cbar_axes[0].yaxis.set_label_position("right")
 plt.savefig("plotting_algo.png")

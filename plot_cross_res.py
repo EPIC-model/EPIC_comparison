@@ -4,6 +4,7 @@ from mpl_toolkits.axes_grid1 import ImageGrid
 import numpy as np
 import colorcet as cc
 import matplotlib as mpl
+from utils import add_annotation
 
 my_cmap = mpl.colors.LinearSegmentedColormap.from_list(
     "", ["white", *plt.cm.Blues(np.arange(255))]
@@ -15,16 +16,15 @@ plt.rcParams.update(
         "figure.dpi": 200,
         "font.family": "serif",
         "font.size": 11,
-        "text.usetex": False,
-#        "text.usetex": True,
-#        "text.latex.preamble": "\n".join(
-#            [
-#                r"\usepackage{amsmath}",
-#                r"\usepackage[utf8]{inputenc}",
-#                r"\usepackage[T1]{fontenc}",
-#                r"\usepackage{siunitx}",
-#            ]
-#        ),
+        "text.usetex": True,
+        "text.latex.preamble": "\n".join(
+            [
+                r"\usepackage{amsmath}",
+                r"\usepackage[utf8]{inputenc}",
+                r"\usepackage[T1]{fontenc}",
+                r"\usepackage{siunitx}",
+            ]
+        ),
     }
 )
 
@@ -43,10 +43,6 @@ grid = ImageGrid(
     cbar_size="4%",
     cbar_pad=0.05,
 )
-
-def add_annotation(ax, label, xy, **kwargs):
-    bbox = dict(boxstyle="round", facecolor="wheat", linewidth=0.5)
-    ax.annotate(label, xy=xy, xycoords="axes fraction", bbox=bbox, **kwargs)
 
 files = [
     "epic_32_lim3r_t6.nc",
@@ -88,15 +84,15 @@ for findex, ax in enumerate(grid):
     else:
         ax.axis("off")
 cb = grid.cbar_axes[0].colorbar(im)
-add_annotation(grid[0], 'EPIC',[0.5,1.2],ha='center')
-add_annotation(grid[1], 'MPIC',[0.5,1.2],ha='center')
-add_annotation(grid[2], 'MONC',[0.5,1.2],ha='center')
-add_annotation(grid[0], '$32^3$',[-0.7,0.5],va='center')
-add_annotation(grid[3], '$64^3$',[-0.7,0.5],va='center')
-add_annotation(grid[6], '$128^3$',[-0.7,0.5],va='center')
-add_annotation(grid[9], '$256^3$',[-0.7,0.5],va='center')
+add_annotation(grid[0], "EPIC", [0.5, 1.2], ha="center")
+add_annotation(grid[1], "MPIC", [0.5, 1.2], ha="center")
+add_annotation(grid[2], "MONC", [0.5, 1.2], ha="center")
+add_annotation(grid[0], "$32^3$", [-0.7, 0.5], va="center")
+add_annotation(grid[3], "$64^3$", [-0.7, 0.5], va="center")
+add_annotation(grid[6], "$128^3$", [-0.7, 0.5], va="center")
+add_annotation(grid[9], "$256^3$", [-0.7, 0.5], va="center")
 grid.cbar_axes[0].set_ylabel("humidity (-)")
 grid.cbar_axes[0].yaxis.set_label_position("right")
-plt.savefig("cross_comp_hum_res.png",bbox_inches='tight')
-plt.savefig("cross_comp_hum_res.jpeg",bbox_inches='tight')
-plt.savefig("cross_comp_hum_res.pdf",bbox_inches='tight')
+plt.savefig("cross_comp_hum_res.png", bbox_inches="tight")
+plt.savefig("cross_comp_hum_res.jpeg", bbox_inches="tight")
+plt.savefig("cross_comp_hum_res.pdf", bbox_inches="tight")

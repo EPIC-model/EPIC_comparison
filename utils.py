@@ -2,6 +2,9 @@ import os
 import netCDF4 as nc
 import numpy as np
 
+def add_annotation(ax, label, xy, **kwargs):
+    bbox = dict(boxstyle="round", facecolor="wheat", linewidth=0.5)
+    ax.annotate(label, xy=xy, xycoords="axes fraction", bbox=bbox, **kwargs)
 
 def check_file(input_file_name):
     file_root, file_ext = os.path.splitext(input_file_name)

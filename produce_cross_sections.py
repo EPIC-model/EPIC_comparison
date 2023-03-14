@@ -84,13 +84,13 @@ def make_panels(RESOLUTIONS, METHODS, KERNELS, R_LIMIT_FACS, REFINEMENT):
             )  # Combine these for a loop
 
 
-# RESOLUTIONS = [32, 64, 128, 256]
-# METHODS = ["sharp", "lim3r"]
-# KERNELS = ["sharp", "third"]
-# R_LIMIT_FACS = [1, 3]
-# REFINEMENT = [64, 16]
+RESOLUTIONS = [32, 64, 128, 256]
+METHODS = ["sharp", "lim3r"]
+KERNELS = ["sharp", "third"]
+R_LIMIT_FACS = [1, 3]
+REFINEMENT = [64, 16]
 
-# make_panels(RESOLUTIONS,METHODS,KERNELS,R_LIMIT_FACS,REFINEMENT)
+make_panels(RESOLUTIONS, METHODS, KERNELS, R_LIMIT_FACS, REFINEMENT)
 
 RESOLUTIONS = [32]
 METHODS = ["lim5r"]

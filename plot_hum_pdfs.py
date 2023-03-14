@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import xarray as xr
 from cycler import cycler
+from utils import add_annotation
 
 plt.rcParams.update(
     {
@@ -8,16 +9,17 @@ plt.rcParams.update(
         "figure.dpi": 200,
         "font.family": "serif",
         "font.size": 11,
-        "text.usetex": False,
+        "text.usetex": True,
+        "text.latex.preamble": "\n".join(
+            [
+                r"\usepackage{amsmath}",
+                r"\usepackage[utf8]{inputenc}",
+                r"\usepackage[T1]{fontenc}",
+                r"\usepackage{siunitx}",
+            ]
+        ),
     }
 )
-
-#    'text.latex.preamble': "\n".join([
-#        r"\usepackage{amsmath}",
-#        r"\usepackage[utf8]{inputenc}",
-#        r"\usepackage[T1]{fontenc}",
-#        r"\usepackage{siunitx}",
-#        ])
 
 RESOLUTIONS = [32, 64, 128, 256]
 default_cycler = cycler(color=["#ff6666", "#990000", "#6666ff", "#000099", "#000000"])
@@ -25,12 +27,6 @@ plt.rc("axes", prop_cycle=default_cycler)
 ds = xr.open_dataset("humidity_pdfs.nc")
 
 fig, axis = plt.subplots(4, 1)
-titles = [
-    "EPIC",
-    "MPIC",
-    "MONC with subsampling",
-    "all models at $" + str(RESOLUTIONS[-1]) + "^3$",
-]
 
 for resolution in RESOLUTIONS:
     axis[0].stairs(ds["hist_epic_" + str(resolution)], ds["bin_edges"])
@@ -44,11 +40,14 @@ for axnr, ax in enumerate(axis):
     ax.set_ylim(0, 2.0)
     ax.set_xlim(0, 0.08)
     ax.set_ylabel("probability density")
-    ax.set_title(titles[axnr])
     ax.grid(linestyle="dashed")
-axis[3].set_xlabel("$q_l$ [kg/kg]")
+axis[3].set_xlabel("$q_l$ (-)")
 axis[3].legend(["EPIC", "MPIC", "MONC"])
+add_annotation(axis[0], "EPIC", [0.04, 0.9], ha="left")
+add_annotation(axis[1], "MPIC", [0.04, 0.9], ha="left")
+add_annotation(axis[2], "MONC with subsampling", [0.04, 0.9], ha="left")
+add_annotation(axis[3], "All models at $" + str(RESOLUTIONS[-1]) + "^3$ grid points", [0.04, 0.9], ha="left")
 fig.tight_layout()
-plt.savefig("compare_hl_pdf.png")
-plt.savefig("compare_hl_pdf.jpeg")
-plt.savefig("compare_hl_pdf.pdf")
+plt.savefig("compare_hl_pdf.png", bbox_inches="tight")
+plt.savefig("compare_hl_pdf.jpeg", bbox_inches="tight")
+plt.savefig("compare_hl_pdf.pdf", bbox_inches="tight")

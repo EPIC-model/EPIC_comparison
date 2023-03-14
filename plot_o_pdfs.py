@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import xarray as xr
 from cycler import cycler
+from utils import add_annotation
 
 plt.rcParams.update(
     {
@@ -8,17 +9,17 @@ plt.rcParams.update(
         "figure.dpi": 200,
         "font.family": "serif",
         "font.size": 11,
-        "text.usetex": False,
+        "text.usetex": True,
+        "text.latex.preamble": "\n".join(
+            [
+                r"\usepackage{amsmath}",
+                r"\usepackage[utf8]{inputenc}",
+                r"\usepackage[T1]{fontenc}",
+                r"\usepackage{siunitx}",
+            ]
+        ),
     }
 )
-
-#    'text.latex.preamble': "\n".join([
-#        r"\usepackage{amsmath}",
-#        r"\usepackage[utf8]{inputenc}",
-#        r"\usepackage[T1]{fontenc}",
-#        r"\usepackage{siunitx}",
-#        ])
-
 RESOLUTIONS = [32, 64, 128, 256]
 default_cycler = cycler(color=["#ff6666", "#990000", "#6666ff", "#000099", "#000000"])
 plt.rc("axes", prop_cycle=default_cycler)
@@ -42,15 +43,18 @@ axis[3].stairs(ds["hist_mpic_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
 axis[3].stairs(ds["hist_monc_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
 for axnr, ax in enumerate(axis):
     ax.set_ylim(1e-8, 100000.0)
-    ax.set_yscale('log')
-    ax.set_xscale('log')
+    ax.set_yscale("log")
+    ax.set_xscale("log")
     ax.set_xlim(1e-6, 400)
     ax.set_ylabel("probability density")
-    ax.set_title(titles[axnr])
     ax.grid(linestyle="dashed")
-axis[3].set_xlabel("$|\omega|$")
+axis[3].set_xlabel("$|\omega|$ (-)")
 axis[3].legend(["EPIC", "MPIC", "MONC"])
+add_annotation(axis[0], "EPIC", [0.5, 0.9], ha="center")
+add_annotation(axis[1], "MPIC", [0.5, 0.9], ha="center")
+add_annotation(axis[2], "MONC", [0.5, 0.9], ha="center")
+add_annotation(axis[3], "All models at $" + str(RESOLUTIONS[-1]) + "^3$ grid points", [0.5, 0.9], ha="center")
 fig.tight_layout()
-plt.savefig("compare_o_pdf.png")
-plt.savefig("compare_o_pdf.jpeg")
-plt.savefig("compare_o_pdf.pdf")
+plt.savefig("compare_o_pdf.png", bbox_inches="tight")
+plt.savefig("compare_o_pdf.jpeg", bbox_inches="tight")
+plt.savefig("compare_o_pdf.pdf", bbox_inches="tight")
