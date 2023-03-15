@@ -3,7 +3,7 @@ import xarray as xr
 from cycler import cycler
 import numpy as np
 from matplotlib import ticker
-from utils import add_annotation, setup_rcParams
+from utils import add_annotation, setup_rcParams, remove_yticks
 
 setup_rcParams()
 
@@ -12,7 +12,7 @@ default_cycler = cycler(color=["#ff6666", "#990000", "#6666ff", "#000099", "#000
 plt.rc("axes", prop_cycle=default_cycler)
 ds = xr.open_dataset("humidity_pdfs.nc")
 
-fig, axis = plt.subplots(1, 3, figsize=(8, 4))
+fig, axis = plt.subplots(1, 3, figsize=(8, 4), sharey=True)
 
 
 def calc_err(sim, ref):
@@ -62,16 +62,27 @@ for axnr, ax in enumerate(axis):
     ax.xaxis.set_major_formatter(ticker.StrMethodFormatter("${x:d}^3$"))
     ax.set_ylim(0, 0.55)
     ax.set_xlabel("grid points")
+    if axnr > 0:
+        remove_yticks(ax)
 axis[0].set_ylabel("RMS error")
-axis[0].legend(["EPIC", "MPIC", "MONC"],loc=(0.4,0.65))
+axis[0].legend(["EPIC", "MPIC", "MONC"], loc=(0.4, 0.65))
 add_annotation(
-    axis[0], "Reference: EPIC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.5, 0.9], ha="center"
+    axis[0],
+    "Reference: EPIC, $" + str(RESOLUTIONS[-1]) + "^3$",
+    [0.5, 0.9],
+    ha="center",
 )
 add_annotation(
-    axis[1], "Reference: MPIC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.5, 0.9], ha="center"
+    axis[1],
+    "Reference: MPIC, $" + str(RESOLUTIONS[-1]) + "^3$",
+    [0.5, 0.9],
+    ha="center",
 )
 add_annotation(
-    axis[2], "Reference: MONC, $" + str(RESOLUTIONS[-1]) + "^3$", [0.5, 0.9], ha="center"
+    axis[2],
+    "Reference: MONC, $" + str(RESOLUTIONS[-1]) + "^3$",
+    [0.5, 0.9],
+    ha="center",
 )
 fig.tight_layout()
 plt.savefig("err_hl_pdf.png", bbox_inches="tight")

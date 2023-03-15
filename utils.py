@@ -23,6 +23,14 @@ def setup_rcParams():
     )
 
 
+def remove_xticks(ax):
+    ax.tick_params(axis="x", which="both", bottom=False, top=False, labelbottom=False)
+
+
+def remove_yticks(ax):
+    ax.tick_params(axis="y", which="both", right=False, left=False)
+
+
 def add_annotation(ax, label, xy, **kwargs):
     bbox = dict(boxstyle="round", facecolor="wheat", linewidth=0.5)
     ax.annotate(label, xy=xy, xycoords="axes fraction", bbox=bbox, **kwargs)

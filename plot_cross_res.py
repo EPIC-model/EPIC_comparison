@@ -4,44 +4,27 @@ from mpl_toolkits.axes_grid1 import ImageGrid
 import numpy as np
 import colorcet as cc
 import matplotlib as mpl
-from utils import add_annotation
+from utils import add_annotation, setup_rcParams, remove_xticks, remove_yticks
 
 my_cmap = mpl.colors.LinearSegmentedColormap.from_list(
     "", ["white", *plt.cm.Blues(np.arange(255))]
 )
 
-plt.rcParams.update(
-    {
-        "figure.figsize": (8, 10),
-        "figure.dpi": 200,
-        "font.family": "serif",
-        "font.size": 11,
-        "text.usetex": True,
-        "text.latex.preamble": "\n".join(
-            [
-                r"\usepackage{amsmath}",
-                r"\usepackage[utf8]{inputenc}",
-                r"\usepackage[T1]{fontenc}",
-                r"\usepackage{siunitx}",
-            ]
-        ),
-    }
-)
-
-fig = plt.figure()
+setup_rcParams()
+fig = plt.figure(figsize=(8, 10))
 
 grid = ImageGrid(
     fig,
     111,
     nrows_ncols=(4, 3),
     aspect=True,
-    axes_pad=(0.25, 0.3),
+    axes_pad=(0.1, 0.1),
     direction="row",
     share_all=True,
     cbar_location="right",
     cbar_mode="single",
     cbar_size="4%",
-    cbar_pad=0.05,
+    cbar_pad=0.1,
 )
 
 files = [
@@ -66,31 +49,35 @@ for findex, ax in enumerate(grid):
         im = ax.imshow(
             ds["humidity"],
             vmin=0.0,
-            vmax=0.10,
+            vmax=0.08,
             cmap=my_cmap,
             origin="lower",
             interpolation="bilinear",
             extent=[ds["X"][0], ds["X"][-1], ds["Z"][0], ds["Z"][-1]],
         )
-        ax.set_xlim(3.000, 5.000)
-        ax.set_ylim(3.000, 5.000)
+        ax.set_xlim(2.900, 5.100)
+        ax.set_ylim(2.900, 5.100)
         ax.set_xticks([3, 4, 5])
         ax.set_yticks([3, 4, 5])
         ax.set_aspect(1)
         if findex / 3 >= 3:
             ax.set_xlabel("x (-)")
+        else:
+            remove_xticks(ax)
         if findex % 3 == 0:
             ax.set_ylabel("z (-)")
+        else:
+            remove_yticks(ax)
     else:
         ax.axis("off")
 cb = grid.cbar_axes[0].colorbar(im)
 add_annotation(grid[0], "EPIC", [0.5, 1.2], ha="center")
 add_annotation(grid[1], "MPIC", [0.5, 1.2], ha="center")
 add_annotation(grid[2], "MONC", [0.5, 1.2], ha="center")
-add_annotation(grid[0], "$32^3$", [-0.7, 0.5], va="center")
-add_annotation(grid[3], "$64^3$", [-0.7, 0.5], va="center")
-add_annotation(grid[6], "$128^3$", [-0.7, 0.5], va="center")
-add_annotation(grid[9], "$256^3$", [-0.7, 0.5], va="center")
+add_annotation(grid[0], "$32^3$", [-0.5, 0.5], va="center")
+add_annotation(grid[3], "$64^3$", [-0.5, 0.5], va="center")
+add_annotation(grid[6], "$128^3$", [-0.5, 0.5], va="center")
+add_annotation(grid[9], "$256^3$", [-0.5, 0.5], va="center")
 grid.cbar_axes[0].set_ylabel("humidity (-)")
 grid.cbar_axes[0].yaxis.set_label_position("right")
 plt.savefig("cross_comp_hum_res.png", bbox_inches="tight")

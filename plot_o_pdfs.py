@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import xarray as xr
 import numpy as np
 from cycler import cycler
-from utils import add_annotation, setup_rcParams
+from utils import add_annotation, setup_rcParams, remove_xticks, remove_yticks
 
 setup_rcParams()
 
@@ -11,7 +11,7 @@ default_cycler = cycler(color=["#ff6666", "#990000", "#6666ff", "#000099", "#000
 plt.rc("axes", prop_cycle=default_cycler)
 ds = xr.open_dataset("vorticity_pdfs.nc")
 
-fig, axes = plt.subplots(2, 2, figsize=(8, 6))
+fig, axes = plt.subplots(2, 2, figsize=(8, 6), sharex=True, sharey=True)
 
 for resolution in RESOLUTIONS:
     axes[0, 0].stairs(ds["hist_epic_" + str(resolution)], ds["bin_edges"])
@@ -27,10 +27,15 @@ for ax in axes.flat:
     ax.set_xscale("log")
     ax.set_xlim(1e-6, 400)
     ax.grid(linestyle="dashed")
+
 axes[0, 0].set_ylabel("probability density")
 axes[1, 0].set_ylabel("probability density")
-axes[1, 1].set_xlabel(r"$|\bf{\omega}|$ (-)")
-axes[1, 0].set_xlabel(r"$|\bf{\omega}|$ (-)")
+axes[1, 1].set_xlabel(r"$|\boldsymbol{\omega}|$ (-)")
+axes[1, 0].set_xlabel(r"$|\boldsymbol{\omega}|$ (-)")
+remove_xticks(axes[0, 1])
+remove_xticks(axes[0, 0])
+remove_yticks(axes[0, 1])
+remove_yticks(axes[1, 1])
 axes[1, 1].legend(["EPIC", "MPIC", "MONC"], loc="lower left")
 add_annotation(axes[0, 0], "EPIC", [0.96, 0.9], ha="right")
 add_annotation(axes[0, 1], "MPIC", [0.96, 0.9], ha="right")
