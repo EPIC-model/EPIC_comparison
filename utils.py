@@ -9,7 +9,8 @@ def setup_rcParams():
         {
             "figure.dpi": 200,
             "font.family": "serif",
-            "font.size": 11,
+            "font.size": 12,
+            "lines.linewidth": 1.5,
             "text.usetex": True,
             "text.latex.preamble": "\n".join(
                 [

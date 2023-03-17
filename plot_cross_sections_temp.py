@@ -65,12 +65,12 @@ for findex, ax in enumerate(grid):
         ax.set_ylim(2.900, 5.100)
         ax.set_aspect(1)
         if findex / 3 >= 1:
-            ax.set_xlabel("x (-)")
+            ax.set_xlabel("$x$")
             ax.set_xticks([3, 4, 5])
         else:
             remove_xticks(ax)
         if findex % 3 == 0:
-            ax.set_ylabel("z (-)")
+            ax.set_ylabel("$z$")
             ax.set_yticks([3, 4, 5])
         else:
             remove_yticks(ax)
@@ -82,7 +82,7 @@ add_annotation(grid[2], "Supergaussian (5x)", [0.5, 1.2], ha="center")
 add_annotation(grid[0], "EPIC", [-0.5, 0.5], va="center")
 add_annotation(grid[3], "MPIC", [-0.5, 0.5], va="center")
 cb = grid.cbar_axes[0].colorbar(im)
-grid.cbar_axes[0].set_ylabel("humidity (-)")
+grid.cbar_axes[0].set_ylabel("humidity")
 grid.cbar_axes[0].yaxis.set_label_position("right")
 plt.savefig("cross_comp_hum.png", bbox_inches="tight")
 plt.savefig("cross_comp_hum.jpeg", bbox_inches="tight")

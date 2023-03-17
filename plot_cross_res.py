@@ -61,11 +61,11 @@ for findex, ax in enumerate(grid):
         ax.set_yticks([3, 4, 5])
         ax.set_aspect(1)
         if findex / 3 >= 3:
-            ax.set_xlabel("x (-)")
+            ax.set_xlabel("$x$")
         else:
             remove_xticks(ax)
         if findex % 3 == 0:
-            ax.set_ylabel("z (-)")
+            ax.set_ylabel("$z$")
         else:
             remove_yticks(ax)
     else:
@@ -78,7 +78,7 @@ add_annotation(grid[0], "$32^3$", [-0.5, 0.5], va="center")
 add_annotation(grid[3], "$64^3$", [-0.5, 0.5], va="center")
 add_annotation(grid[6], "$128^3$", [-0.5, 0.5], va="center")
 add_annotation(grid[9], "$256^3$", [-0.5, 0.5], va="center")
-grid.cbar_axes[0].set_ylabel("humidity (-)")
+grid.cbar_axes[0].set_ylabel("humidity")
 grid.cbar_axes[0].yaxis.set_label_position("right")
 plt.savefig("cross_comp_hum_res.png", bbox_inches="tight")
 plt.savefig("cross_comp_hum_res.jpeg", bbox_inches="tight")

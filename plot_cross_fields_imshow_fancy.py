@@ -12,17 +12,23 @@ from numba import njit
 
 plt.rcParams.update(
     {
-        "figure.figsize": (9, 4),
-        "figure.dpi": 960 * 4,
+        "figure.figsize": (8, 5),
         "font.family": "serif",
-        "font.size": 11,
-        "text.usetex": False,
+        "font.size": 12,
+        "text.usetex": True,
+        "text.latex.preamble": "\n".join(
+            [
+                r"\usepackage{amsmath}",
+                r"\usepackage[utf8]{inputenc}",
+                r"\usepackage[T1]{fontenc}",
+                r"\usepackage{siunitx}",
+            ]
+        ),
     }
-)
+    )
 
-dpi = 960 * 4
-cm = 1 / 2.54  # centimeters in inches
-fig = plt.figure(figsize=(13 * cm, 5 * cm), dpi=dpi)
+dpi = 600 * 4
+fig = plt.figure(figsize=(9 , 4), dpi=dpi)
 ax = plt.gca()
 my_cmap = mpl.colors.LinearSegmentedColormap.from_list(
     "", ["white", *plt.cm.Blues(np.arange(255))]
@@ -77,11 +83,12 @@ def do_zoom(ax, level, bounds, xlo, xhi, ylo, yhi, **kwargs):
     axins.set_ylabel("")
     axins.set_xlim(xlo, xhi)
     axins.set_ylim(ylo, yhi)
-    axins.set_xticks([])
-    axins.set_xticklabels([])
-    axins.set_yticks([])
-    axins.set_yticklabels([])
-    axins.set_aspect(1)
+    if(level<4):
+        axins.set_xticks([])
+        axins.set_xticklabels([])
+        axins.set_yticks([])
+        axins.set_yticklabels([])
+        axins.set_aspect(1)
     ax.indicate_inset_zoom(axins, edgecolor="black", alpha=0.5)
     return axins
 
@@ -99,7 +106,7 @@ da = combine_ds(ds1, ds2)
 ax.imshow(
     da,
     vmin=0.0,
-    vmax=0.0012,
+    vmax=0.00135,
     cmap=my_cmap,
     origin="lower",
     interpolation="lanczos",
@@ -149,16 +156,20 @@ axins4 = do_zoom(
     yhi=3848.125,
 )
 
-ax.tick_params(axis="x", which="both", bottom=False, top=False, labelbottom=False)
-ax.tick_params(axis="y", which="both", bottom=False, top=False, labelbottom=False)
+#ax.tick_params(axis="x", which="both", bottom=False, top=False, labelbottom=False)
+#ax.tick_params(axis="y", which="both", bottom=False, top=False, labelbottom=False)
 
-ax.spines["right"].set_visible(False)
-ax.spines["left"].set_visible(False)
-ax.spines["bottom"].set_visible(False)
-ax.spines["top"].set_visible(False)
-ax.set_xticks([])
-ax.set_yticks([])
+#ax.spines["right"].set_visible(False)
+#ax.spines["left"].set_visible(False)
+#ax.spines["bottom"].set_visible(False)
+#ax.spines["top"].set_visible(False)
+ax.set_xlabel("$x \si{(m)}$")
+ax.set_ylabel("$z \si{(m)}$")
+ax.set_xticks(np.arange(1500,5001,500))
+ax.set_yticks(np.arange(2000,5001,500))
+axins4.set_xticks([4050,4100])
+axins4.set_yticks([3750,3800])
 
-plt.savefig("graphical_abstract.png", dpi=960)
-plt.savefig("graphical_abstract.pdf", dpi=960)
+plt.savefig("fig_20.png", dpi=600, bbox_inches="tight")
+plt.savefig("fig_20.pdf", dpi=600, bbox_inches="tight")
 plt.close()

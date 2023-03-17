@@ -177,116 +177,115 @@ def get_monc_enstrophy(uu, vv, ww, dx, dy, dz):
                         + 0.5 * (oo2[tt, ii, jj, kk] + oo2[tt, ii, jp, kk])
                         + 0.5 * (oo3[tt, ii, jj, kk] + oo3[tt, ii, jj, kp])
                     )
-    weights = np.zeros((nt, nx, ny, nz - 1))
+    weights = np.ones((nt, nx, ny, nz - 1))
     weights[:, :, :, 0] = 0.5  # bottom cell
     weights[:, :, :, -1] = 1.5  # top cell: note upper boundary missing
     return oo, weights
 
 
-#
-# ds = xr.Dataset(
-#    coords={
-#        **bin_edges_coord,
-#        **bin_centres_coord,
-#    }
-# )
-#
-# for resolution in RESOLUTIONS:
-#    # Set up file paths
-#    monc_input_file_name = (
-#        MAIN_DIR + "/monc_mpic_smooth_" + str(resolution) + "/mpic_diagnostic_3d_6.nc"
-#    )
-#    epic_input_file_name = (
-#        MAIN_DIR + "/epic_rev_" + str(resolution) + "/moist_0000000012_parcels.nc"
-#    )
-#    mpic_parcel_glob = (
-#        MAIN_DIR
-#        + "/pmpic_smooth_bubble_"
-#        + str(resolution)
-#        + "/parcels_?????_0"
-#        + MPIC_RES_TSTEP_DICT[resolution]
-#        + ".nc"
-#    )
-#    ds_nc = nc.Dataset(epic_input_file_name)
-#    vol = ds_nc.variables["volume"][0, :]
-#    h = ds_nc.variables["humidity"][0, :]
-#    z = ds_nc.variables["z_position"][0, :]
-#    len_condense = ds_nc.groups["physical_quantities"].scale_height
-#    q_scale = ds_nc.groups[
-#        "physical_quantities"
-#    ].saturation_specific_humidity_at_ground_level
-#    hl = h / q_scale - np.exp(-z / len_condense)
-#    hl = hl * (hl > 0.0)
-#    hist_epic, bins_epic = np.histogram(hl, weights=vol, density=True, bins=bin_edges)
-#    ds["hist_epic_" + str(resolution)] = (
-#        ("bin_centres"),
-#        hist_epic,
-#    )
-#    ds["hist_epic_" + str(resolution)].attrs = {
-#        "long_name": "EPIC histogram for $" + str(resolution) + "^3$ points",
-#        "units": "-",
-#    }
-#    hl_all = np.array([])
-#    vol_all = np.array([])
-#    for input_file_name in glob(mpic_parcel_glob):
-#        ds_nc = nc.Dataset(input_file_name)
-#        vol = ds_nc.variables["vol"][:]
-#        h = ds_nc.variables["h"][:]
-#        z = ds_nc.variables["z"][:]
-#        hl = h - np.exp(-z)
-#        hl = hl * (hl > 0.0)
-#        hl_all = np.hstack((hl_all, hl))
-#        vol_all = np.hstack((vol_all, vol))
-#    hist_mpic, bins_mpic = np.histogram(
-#        hl_all, weights=vol_all, density=True, bins=bin_edges
-#    )
-#    ds["hist_mpic_" + str(resolution)] = (
-#        ("bin_centres"),
-#        hist_mpic,
-#    )
-#    ds["hist_mpic_" + str(resolution)].attrs = {
-#        "long_name": "MPIC histogram for $" + str(resolution) + "$^3$ points",
-#        "units": "-",
-#    }
-#    ds_nc = nc.Dataset(monc_input_file_name)
-#    if resolution < 50:
-#        hh = ds_nc.variables["q_vapour"][:, :, :, 1:]
-#        hh5 = upscale_monc_field_5(hh)
-#        zn = ds_nc.variables["zn"][1:]
-#        zn5 = 0.2 * zn[0] + 0.2 * (zn[1] - zn[0]) * np.arange(np.shape(hh5)[3])
-#        hl = hh5 - np.exp(-zn5)[None, None, None, :]
-#        hl = hl * (hl > 0.0)
-#    elif resolution < 100:
-#        hh = ds_nc.variables["q_vapour"][:, :, :, 1:]
-#        hh3 = upscale_monc_field_3(hh)
-#        zn = ds_nc.variables["zn"][1:]
-#        zn3 = zn[0] / 3.0 + ((zn[1] - zn[0]) / 3.0) * np.arange(np.shape(hh3)[3])
-#        hl = hh3 - np.exp(-zn3)[None, None, None, :]
-#        hl = hl * (hl > 0.0)
-#    else:
-#        hl = ds_nc.variables["q_cloud_liquid_mass"][:, :, :, 1:]
-#    hist_monc, bins_monc = np.histogram(hl, density=True, bins=bin_edges)
-#    ds["hist_monc_" + str(resolution)] = (
-#        ("bin_centres"),
-#        hist_monc,
-#    )
-#    ds["hist_monc_" + str(resolution)].attrs = {
-#        "long_name": "MONC histogram for $" + str(resolution) + "$^3$ points",
-#        "units": "-",
-#    }
-#    hl_unsampled = ds_nc.variables["q_cloud_liquid_mass"][:, :, :, 1:]
-#    hist_monc_uns, bins_monc_uns = np.histogram(
-#        hl_unsampled, density=True, bins=bin_edges
-#    )
-#    ds["hist_monc_uns_" + str(resolution)] = (
-#        ("bin_centres"),
-#        hist_monc_uns,
-#    )
-#    ds["hist_monc_uns_" + str(resolution)].attrs = {
-#        "long_name": "MONC unsampled histogram for $" + str(resolution) + "$^3$ points",
-#        "units": "-",
-#    }
-# ds.to_netcdf("humidity_pdfs.nc")
+ds = xr.Dataset(
+    coords={
+        **bin_edges_coord,
+        **bin_centres_coord,
+    }
+)
+
+for resolution in RESOLUTIONS:
+    # Set up file paths
+    monc_input_file_name = (
+        MAIN_DIR + "/monc_mpic_smooth_" + str(resolution) + "/mpic_diagnostic_3d_6.nc"
+    )
+    epic_input_file_name = (
+        MAIN_DIR + "/epic_rev_" + str(resolution) + "/moist_0000000012_parcels.nc"
+    )
+    mpic_parcel_glob = (
+        MAIN_DIR
+        + "/pmpic_smooth_bubble_"
+        + str(resolution)
+        + "/parcels_?????_0"
+        + MPIC_RES_TSTEP_DICT[resolution]
+        + ".nc"
+    )
+    ds_nc = nc.Dataset(epic_input_file_name)
+    vol = ds_nc.variables["volume"][0, :]
+    h = ds_nc.variables["humidity"][0, :]
+    z = ds_nc.variables["z_position"][0, :]
+    len_condense = ds_nc.groups["physical_quantities"].scale_height
+    q_scale = ds_nc.groups[
+        "physical_quantities"
+    ].saturation_specific_humidity_at_ground_level
+    hl = h / q_scale - np.exp(-z / len_condense)
+    hl = hl * (hl > 0.0)
+    hist_epic, bins_epic = np.histogram(hl, weights=vol, density=True, bins=bin_edges)
+    ds["hist_epic_" + str(resolution)] = (
+        ("bin_centres"),
+        hist_epic,
+    )
+    ds["hist_epic_" + str(resolution)].attrs = {
+        "long_name": "EPIC histogram for $" + str(resolution) + "^3$ points",
+        "units": "-",
+    }
+    hl_all = np.array([])
+    vol_all = np.array([])
+    for input_file_name in glob(mpic_parcel_glob):
+        ds_nc = nc.Dataset(input_file_name)
+        vol = ds_nc.variables["vol"][:]
+        h = ds_nc.variables["h"][:]
+        z = ds_nc.variables["z"][:]
+        hl = h - np.exp(-z)
+        hl = hl * (hl > 0.0)
+        hl_all = np.hstack((hl_all, hl))
+        vol_all = np.hstack((vol_all, vol))
+    hist_mpic, bins_mpic = np.histogram(
+        hl_all, weights=vol_all, density=True, bins=bin_edges
+    )
+    ds["hist_mpic_" + str(resolution)] = (
+        ("bin_centres"),
+        hist_mpic,
+    )
+    ds["hist_mpic_" + str(resolution)].attrs = {
+        "long_name": "MPIC histogram for $" + str(resolution) + "$^3$ points",
+        "units": "-",
+    }
+    ds_nc = nc.Dataset(monc_input_file_name)
+    if resolution < 50:
+        hh = ds_nc.variables["q_vapour"][:, :, :, 1:]
+        hh5 = upscale_monc_field_5(hh)
+        zn = ds_nc.variables["zn"][1:]
+        zn5 = 0.2 * zn[0] + 0.2 * (zn[1] - zn[0]) * np.arange(np.shape(hh5)[3])
+        hl = hh5 - np.exp(-zn5)[None, None, None, :]
+        hl = hl * (hl > 0.0)
+    elif resolution < 100:
+        hh = ds_nc.variables["q_vapour"][:, :, :, 1:]
+        hh3 = upscale_monc_field_3(hh)
+        zn = ds_nc.variables["zn"][1:]
+        zn3 = zn[0] / 3.0 + ((zn[1] - zn[0]) / 3.0) * np.arange(np.shape(hh3)[3])
+        hl = hh3 - np.exp(-zn3)[None, None, None, :]
+        hl = hl * (hl > 0.0)
+    else:
+        hl = ds_nc.variables["q_cloud_liquid_mass"][:, :, :, 1:]
+    hist_monc, bins_monc = np.histogram(hl, density=True, bins=bin_edges)
+    ds["hist_monc_" + str(resolution)] = (
+        ("bin_centres"),
+        hist_monc,
+    )
+    ds["hist_monc_" + str(resolution)].attrs = {
+        "long_name": "MONC histogram for $" + str(resolution) + "$^3$ points",
+        "units": "-",
+    }
+    hl_unsampled = ds_nc.variables["q_cloud_liquid_mass"][:, :, :, 1:]
+    hist_monc_uns, bins_monc_uns = np.histogram(
+        hl_unsampled, density=True, bins=bin_edges
+    )
+    ds["hist_monc_uns_" + str(resolution)] = (
+        ("bin_centres"),
+        hist_monc_uns,
+    )
+    ds["hist_monc_uns_" + str(resolution)].attrs = {
+        "long_name": "MONC unsampled histogram for $" + str(resolution) + "$^3$ points",
+        "units": "-",
+    }
+ds.to_netcdf("humidity_pdfs.nc")
 
 nbins = 400
 bin_edges = np.array([0.000001 * 1.05**x for x in range(nbins)])

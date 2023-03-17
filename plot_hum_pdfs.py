@@ -16,31 +16,44 @@ for resolution in RESOLUTIONS:
     axes[0, 0].stairs(ds["hist_epic_" + str(resolution)], ds["bin_edges"])
     axes[0, 1].stairs(ds["hist_mpic_" + str(resolution)], ds["bin_edges"])
     axes[1, 0].stairs(ds["hist_monc_" + str(resolution)], ds["bin_edges"])
-axes[0, 0].legend(["$" + str(i) + "^3$" for i in RESOLUTIONS], loc="upper left")
-axes[1, 1].stairs(ds["hist_epic_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
-axes[1, 1].stairs(ds["hist_mpic_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
-axes[1, 1].stairs(ds["hist_monc_" + str(RESOLUTIONS[-1])], ds["bin_edges"])
+axes[0, 0].legend(
+    ["$" + str(i) + "^3$" for i in RESOLUTIONS],
+    bbox_to_anchor=(0.04, 0.96),
+    loc="upper left",
+)
+axes[1, 1].stairs(
+    ds["hist_epic_" + str(RESOLUTIONS[-1])], ds["bin_edges"], color="#cc79a7"
+)
+axes[1, 1].stairs(
+    ds["hist_mpic_" + str(RESOLUTIONS[-1])], ds["bin_edges"], color="#662200"
+)
+axes[1, 1].stairs(
+    ds["hist_monc_" + str(RESOLUTIONS[-1])], ds["bin_edges"], color="#009e73"
+)
 for ax in axes.flat:
     ax.set_ylim(0, 2.0)
     ax.set_xlim(0, 0.08)
     ax.grid(linestyle="dashed")
 axes[0, 0].set_ylabel("probability density")
 axes[1, 0].set_ylabel("probability density")
-axes[1, 1].set_xlabel("$q_l$ (-)")
-axes[1, 0].set_xlabel("$q_l$ (-)")
+axes[1, 1].set_xlabel("$q_l$")
+axes[1, 0].set_xlabel("$q_l$")
 remove_xticks(axes[0, 1])
 remove_xticks(axes[0, 0])
 remove_yticks(axes[0, 1])
 remove_yticks(axes[1, 1])
-axes[1, 1].legend(["EPIC", "MPIC", "MONC"], loc="upper left")
-add_annotation(axes[0, 0], "EPIC", [0.96, 0.9], ha="right")
-add_annotation(axes[0, 1], "MPIC", [0.96, 0.9], ha="right")
-add_annotation(axes[1, 0], "MONC", [0.96, 0.9], ha="right")
+axes[1, 1].legend(
+    ["EPIC", "MPIC", "MONC"], bbox_to_anchor=(0.04, 0.96), loc="upper left"
+)
+add_annotation(axes[0, 0], "EPIC", [0.96, 0.96], ha="right", va="top")
+add_annotation(axes[0, 1], "MPIC", [0.96, 0.96], ha="right", va="top")
+add_annotation(axes[1, 0], "MONC", [0.96, 0.96], ha="right", va="top")
 add_annotation(
     axes[1, 1],
     "All models at \n $" + str(RESOLUTIONS[-1]) + "^3$ grid points",
-    [0.96, 0.9],
+    [0.96, 0.96],
     ha="right",
+    va="top",
 )
 fig.tight_layout()
 plt.savefig("compare_hl_pdf.png", bbox_inches="tight")
