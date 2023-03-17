@@ -25,10 +25,10 @@ plt.rcParams.update(
             ]
         ),
     }
-    )
+)
 
 dpi = 600 * 4
-fig = plt.figure(figsize=(9 , 4), dpi=dpi)
+fig = plt.figure(figsize=(9, 4), dpi=dpi)
 ax = plt.gca()
 my_cmap = mpl.colors.LinearSegmentedColormap.from_list(
     "", ["white", *plt.cm.Blues(np.arange(255))]
@@ -83,7 +83,7 @@ def do_zoom(ax, level, bounds, xlo, xhi, ylo, yhi, **kwargs):
     axins.set_ylabel("")
     axins.set_xlim(xlo, xhi)
     axins.set_ylim(ylo, yhi)
-    if(level<4):
+    if level < 4:
         axins.set_xticks([])
         axins.set_xticklabels([])
         axins.set_yticks([])
@@ -156,19 +156,19 @@ axins4 = do_zoom(
     yhi=3848.125,
 )
 
-#ax.tick_params(axis="x", which="both", bottom=False, top=False, labelbottom=False)
-#ax.tick_params(axis="y", which="both", bottom=False, top=False, labelbottom=False)
+# ax.tick_params(axis="x", which="both", bottom=False, top=False, labelbottom=False)
+# ax.tick_params(axis="y", which="both", bottom=False, top=False, labelbottom=False)
 
-#ax.spines["right"].set_visible(False)
-#ax.spines["left"].set_visible(False)
-#ax.spines["bottom"].set_visible(False)
-#ax.spines["top"].set_visible(False)
+# ax.spines["right"].set_visible(False)
+# ax.spines["left"].set_visible(False)
+# ax.spines["bottom"].set_visible(False)
+# ax.spines["top"].set_visible(False)
 ax.set_xlabel("$x \si{(m)}$")
 ax.set_ylabel("$z \si{(m)}$")
-ax.set_xticks(np.arange(1500,5001,500))
-ax.set_yticks(np.arange(2000,5001,500))
-axins4.set_xticks([4050,4100])
-axins4.set_yticks([3750,3800])
+ax.set_xticks(np.arange(1500, 5001, 500))
+ax.set_yticks(np.arange(2000, 5001, 500))
+axins4.set_xticks([4050, 4100])
+axins4.set_yticks([3750, 3800])
 
 plt.savefig("fig_20.png", dpi=600, bbox_inches="tight")
 plt.savefig("fig_20.pdf", dpi=600, bbox_inches="tight")
