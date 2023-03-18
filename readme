@@ -1,0 +1,67 @@
+#
+# The following runs are performed on storm1 with EPIC version 0.12.4 and PS3D version 0.0.11.
+# Toolchain: gcc/8.5.0, hdf5/1.12.1, netcdf-c/4.8.1, netcdf-fortran/4.5.4
+#
+
+Beltrami:
+---------
+
+EPIC:
+
+# ../configure --enable-3d --enable-dry-mode --enable-python --enable-verbose --enable-openmp --prefix=$SCRATCH/gcc/8.5.0/epic
+
+../configure --enable-3d --enable-dry-mode --enable-python --enable-verbose --enable-openmp --prefix=$SCRATCH/gcc/8.5.0/epic/8e2ff3c2104ed07bfbff8933069d64dce207cfd5
+
+export OMP_NUM_THREADS=4; nohup epic3d --config beltrami.config > nohup_beltrami_epic_32.out &
+
+export OMP_NUM_THREADS=4; nohup epic3d --config beltrami.config > nohup_beltrami_epic_64.out &
+
+export OMP_NUM_THREADS=8; nohup epic3d --config beltrami.config > nohup_beltrami_epic_128.out &
+
+EPIC restart run:
+
+export OMP_NUM_THREADS=4; nohup epic3d --config beltrami.config > nohup_beltrami_epic_restart_64.out &
+
+PS3D:
+
+../configure --enable-openmp --enable-verbose --prefix=/local_raid2/mf248/gcc/8.5.0/ps3d
+
+export OMP_NUM_THREADS=4; nohup ps3d --config beltrami_ps3d.config > nohup_beltrami_ps3d_32.out &
+export OMP_NUM_THREADS=4; nohup ps3d --config beltrami_ps3d.config > nohup_beltrami_ps3d_64.out &
+export OMP_NUM_THREADS=4; nohup ps3d --config beltrami_ps3d.config > nohup_beltrami_ps3d_128.out &
+
+Rayleigh-Taylor:
+----------------
+
+python rayleigh_taylor.py --nx 64 --ny 64 --nz 64 --epsilon 0.1
+
+PS3D:
+
+../configure --enable-openmp --enable-buoyancy --enable-rt-test-case --enable-verbose --prefix=/local_raid2/mf248/gcc/8.5.0/ps3d
+
+export OMP_NUM_THREADS=4; nohup ps3d --config rt_ps3d.config > nohup_ps3d_rt.out &
+
+EPIC:
+
+../configure --enable-3d --enable-dry-mode --enable-python --enable-verbose --enable-openmp --prefix=$SCRATCH/gcc/8.5.0/epic/8e2ff3c2104ed07bfbff8933069d64dce207cfd5
+
+export OMP_NUM_THREADS=4; nohup epic3d --config rt_epic.config > nohup_epic_rt.out &
+
+
+Internal Waves:
+---------------
+
+python internal_waves.py
+
+export OMP_NUM_THREADS=4; nohup ps3d --config iw_ps3d.config > nohup_ps3d_iw_64x64x16.out &
+export OMP_NUM_THREADS=4; nohup epic3d --config iw_epic.config > nohup_epic_iw_64x64x16.out &
+
+PS3D:
+
+../configure --enable-openmp --enable-buoyancy --enable-iw-test-case --enable-verbose --prefix=/local_raid2/mf248/gcc/8.5.0/ps3d
+
+
+python internal_waves.py --nx 128 --ny 128 --nz 32
+
+export OMP_NUM_THREADS=4; nohup ps3d --config iw_ps3d.config > nohup_ps3d_iw_128x128x32.out &
+export OMP_NUM_THREADS=4; nohup epic3d --config iw_epic.config > nohup_epic_iw_128x128x32.out &
