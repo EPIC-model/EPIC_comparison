@@ -65,3 +65,23 @@ python internal_waves.py --nx 128 --ny 128 --nz 32
 
 export OMP_NUM_THREADS=4; nohup ps3d --config iw_ps3d.config > nohup_ps3d_iw_128x128x32.out &
 export OMP_NUM_THREADS=4; nohup epic3d --config iw_epic.config > nohup_epic_iw_128x128x32.out &
+
+Moist bubble:
+_____________
+
+The relevant MONC code is provided under: https://github.com/sjboeing/monc/tree/mpic_monc_rebased
+The relevant PMPIC code is provided under: https://github.com/sjboeing/pmpic/tree/smooth_bubble
+
+Example for creating a moist bubble setup for EPIC:
+python python-scripts/write_moist_setup.py --ngrid=128
+
+To run a job: 
+epic3d --config examples/moist.config --restart moist_parcels_restart.nc
+
+Command to run on ARCHER
+srun --unbuffered --distribution=block:block --hint=nomultithread ${EPIC_DIR}/epic3d --config examples/moist.config --restart moist_parcels_restart.nc
+
+
+
+
+
