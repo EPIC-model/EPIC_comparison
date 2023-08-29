@@ -1,0 +1,205 @@
+#
+# The following runs are performed on Archer2 with EPIC version 0.13.
+# (git SHA 5a0132304ccf861ac2f67132ca84307717fbe4fc) and PS3D version 0.0.11.
+# Toolchain: gcc/11.2.0, cray-hdf5-parallel/1.12.2.1, cray-netcdf-hdf5parallel/4.9.0.1
+#
+# 1) craype-x86-rome                         7) epcc-setup-env     13) cray-libsci/22.12.1.1
+# 2) libfabric/1.12.1.2.2.0.0                8) load-epcc-module   14) PrgEnv-gnu/8.3.3
+# 3) craype-network-ofi                      9) gcc/11.2.0         15) cray-hdf5-parallel/1.12.2.1
+# 4) perftools-base/22.12.0                 10) craype/2.7.19      16) cray-netcdf-hdf5parallel/4.9.0.1
+# 5) xpmem/2.5.2-2.4_3.30__gd0f7936.shasta  11) cray-dsmml/0.2.2
+# 6) bolt/0.8  
+
+
+Rayleigh-Taylor
+---------------
+
+
+PS3D:
+
+../configure --enable-openmp --enable-buoyancy --enable-rt-test-case --enable-verbose --prefix=/work/e710/e710/mf248/gcc/ps3d
+
+checking whether we are compiling in verbose mode... yes
+checking whether we are enabling buoyancy... yes
+checking whether we are compiling in debug mode... no
+checking whether we are enabling OpenMP... yes
+checking whether we are enabling the IW test case... no
+checking whether we are enabling the RT test case... yes
+
+
+EPIC:
+
+../configure --enable-3d --enable-dry-mode --enable-verbose --prefix=/work/e710/e710/mf248/gcc/11.2.0
+
+checking whether we are compiling the 3D model... yes
+checking whether we are compiling in dry mode... yes
+checking whether we are compiling in diagnose mode... no
+checking whether we are compiling in verbose mode... yes
+checking whether we are compiling in debug mode... no
+checking whether we build unit tests... no
+checking whether we are enabling OpenMP... no
+checking whether we are compiling with scalasca... no
+
+
+High resolution run:
+-------------------
+python rayleigh_taylor.py --nx 384 --ny 384 --nz 384 --epsilon 0.1
+
+(epic-env) mf248@ln04:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_384.sh 
+Submitted batch job 4102664 --> run from time 0 to time 6
+
+slurm-4119599.out --> run from time 6 to 7
+slurm-4135844.out --> run from time 7 to 8
+slurm-4149730.out --> run from time 8 to 9
+slurm-4159205.out --> run from time 9 to 10
+
+Coarsening:
+
+384 --> 128:
+------------
+(epic-env) mf248@ln02:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_coarsen.sh
+Submitted batch job 4170942
+
+384 --> 192:
+------------
+(epic-env) mf248@ln02:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_coarsen.sh
+Submitted batch job 4171789
+
+
+Extract time steps:
+-------------------
+python extract_intersected_ellipses.py --filename rayleigh-taylor/epic_rt_384_0000000001_parcels.nc --step 2 --plane xz --loc 192
+python extract_field_steps.py --filename rayleigh-taylor/epic_rt_384_fields.nc --steps 499 500 549 550 599 600 699 700 799 800 999 1000 --datasets z_vorticity buoyancy
+
+
+python rayleigh_taylor.py --nx 32 --ny 32 --nz 32 --epsilon 0.1
+python rayleigh_taylor.py --nx 48 --ny 48 --nz 48 --epsilon 0.1
+python rayleigh_taylor.py --nx 64 --ny 64 --nz 64 --epsilon 0.1
+python rayleigh_taylor.py --nx 96 --ny 96 --nz 96 --epsilon 0.1
+python rayleigh_taylor.py --nx 128 --ny 128 --nz 128 --epsilon 0.1
+
+Running jobs with vmin = 10, 15, 20, 30, 40 and lambda_max = 3 or 5 for 64^3:
+----------------------------------------------------------------------------
+
+(epic-env) mf248@ln01:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_64.sh
+Submitted batch job 4096201
+(epic-env) mf248@ln03:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_32.sh
+Submitted batch job 4096744
+(epic-env) mf248@ln03:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_48.sh
+Submitted batch job 4096747
+(epic-env) mf248@ln03:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_96.sh
+Submitted batch job 4096749
+(epic-env) mf248@ln03:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_128.sh
+Submitted batch job 4096751
+
+Running jobs with vmin = 20 and lambda_max = 3 and 5 for 64^3:
+--------------------------------------------------------------
+slurm-4343055.out
+
+
+module ape_density
+    use constants
+    implicit none
+
+    ! If implemented set to .true.
+    logical, protected :: l_ape_density = .true.
+
+    integer :: N2 = four
+
+    public :: ape_den, l_ape_density
+
+    contains
+
+        elemental function ape_den(b, z) result(a)
+            double precision, intent(in) :: b       ! buoyancy value
+            double precision, intent(in) :: z       ! height
+            double precision             :: a       ! APE density
+!            double precision             :: br
+
+            ! IW test case
+            a = (b - N2 * z) ** 2 / (two * N2)
+
+!            ! RT test case
+!            br = max(b, -one)
+!            br = min(br, one)
+!            a = br * dasin(br) + dsqrt(one - br ** 2) - z * br - dcos(z)
+
+        end function ape_den
+
+end module ape_density
+
+
+
+Beltrami
+--------
+
+python beltrami.py --nx 32 --ny 32 --nz 32 --a 0.2 --b 0.1
+
+python beltrami.py --nx 48 --ny 48 --nz 48 --a 0.2 --b 0.1
+
+python beltrami.py --nx 64 --ny 64 --nz 64 --a 0.2 --b 0.1
+
+python beltrami.py --nx 96 --ny 96 --nz 96 --a 0.2 --b 0.1
+
+python beltrami.py --nx 128 --ny 128 --nz 128 --a 0.2 --b 0.1
+
+PS3D:
+----
+
+../configure --enable-openmp --enable-verbose --prefix=/work/e710/e710/mf248/gcc/ps3d
+
+(epic-env) mf248@ln01:/work/e710/e710/mf248/ps3d-paper-runs/beltrami> sbatch submit_beltrami_ps3d.sh
+Submitted batch job 4249769
+
+EPIC:
+-----
+
+../configure --enable-3d --enable-dry-mode --enable-verbose --prefix=/work/e710/e710/mf248/gcc/11.2.0
+
+checking whether we are compiling the 3D model... yes
+checking whether we are compiling in dry mode... yes
+checking whether we are compiling in diagnose mode... no
+checking whether we are compiling in verbose mode... yes
+checking whether we are compiling in debug mode... no
+checking whether we build unit tests... no
+checking whether we are enabling OpenMP... no
+checking whether we are compiling with scalasca... no
+checking that generated files are newer than configure... done
+
+
+
+
+
+Internal Wave:
+-------------
+
+python internal_waves.py --k 0.5 --l 0.5 --m 1.0 --N 2 --f 1.0 --nx 48 --ny 48 --nz 12 --what 0.001
+python internal_waves.py --k 0.5 --l 0.5 --m 1.0 --N 2 --f 1.0 --nx 64 --ny 64 --nz 16 --what 0.001
+python internal_waves.py --k 0.5 --l 0.5 --m 1.0 --N 2 --f 1.0 --nx 96 --ny 96 --nz 24 --what 0.001
+python internal_waves.py --k 0.5 --l 0.5 --m 1.0 --N 2 --f 1.0 --nx 128 --ny 128 --nz 32 --what 0.001
+python internal_waves.py --k 0.5 --l 0.5 --m 1.0 --N 2 --f 1.0 --nx 256 --ny 256 --nz 64 --what 0.001
+
+PS3D:
+
+../configure --enable-openmp --enable-buoyancy --enable-iw-test-case --enable-verbose --prefix=/work/e710/e710/mf248/gcc/ps3d
+
+
+runs nz = 16, 32 and 64: slurm-4264913.out
+runs nz = 12 and 24: slurm-4265652.out
+
+
+EPIC:
+
+../configure --enable-3d --enable-dry-mode --enable-verbose --prefix=/work/e710/e710/mf248/gcc/11.2.0
+
+checking whether we are compiling the 3D model... yes
+checking whether we are compiling in dry mode... yes
+checking whether we are compiling in diagnose mode... no
+checking whether we are compiling in verbose mode... yes
+checking whether we are compiling in debug mode... no
+checking whether we build unit tests... no
+checking whether we are enabling OpenMP... no
+checking whether we are compiling with scalasca... no
+
+runs nz = 12, 16, 24, 32: slurm-4265763.out
+runs nz = 64: slurm-4266552.out
