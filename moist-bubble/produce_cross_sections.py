@@ -11,14 +11,14 @@ from utils import write_field_to_file
 
 MAIN_DIR = "/work/e710/e710/shared/epic_comparison"
 xz_loc = 3.140
-MPIC_RES_TSTEP_DICT = {32: "0099", 64: "0193", 128: "0475", 256: "0941"}
+MPIC_RES_TSTEP_DICT = {32: "0099", 64: "0193", 128: "0475", 256: "0941", 512: "1896"}
 
 
 def make_panels(RESOLUTIONS, METHODS, KERNELS, R_LIMIT_FACS, REFINEMENT):
     for resolution in RESOLUTIONS:
         # Set up file paths
         epic_input_file_name = (
-            MAIN_DIR + "/epic_rev_" + str(resolution) + "/moist_0000000012_parcels.nc"
+            MAIN_DIR + "/epic_" + str(resolution) + "_0823/moist_0000000004_parcels.nc"
         )
         mpic_parcel_glob = (
             MAIN_DIR
@@ -84,7 +84,7 @@ def make_panels(RESOLUTIONS, METHODS, KERNELS, R_LIMIT_FACS, REFINEMENT):
             )  # Combine these for a loop
 
 
-RESOLUTIONS = [32, 64, 128, 256]
+RESOLUTIONS = [32, 64, 128, 256, 512]
 METHODS = ["sharp", "lim3r"]
 KERNELS = ["sharp", "third"]
 R_LIMIT_FACS = [1, 3]
