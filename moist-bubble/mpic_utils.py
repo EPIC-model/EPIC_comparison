@@ -12,6 +12,7 @@ set_num_threads(NTHREADS)
 def get_mpic_parcel_coordinates(input_file_name):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     x = ds_nc.variables["x"][:]
     y = ds_nc.variables["y"][:]
     z = ds_nc.variables["z"][:]
@@ -22,6 +23,7 @@ def get_mpic_parcel_coordinates(input_file_name):
 def get_mpic_parcel_volume(input_file_name):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     vol = ds_nc.variables["vol"][:]
     ds_nc.close()
     return vol
@@ -30,6 +32,7 @@ def get_mpic_parcel_volume(input_file_name):
 def get_mpic_parcel_buoyancy(input_file_name):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     buoyancy = ds_nc.variables["b"][:]
     ds_nc.close()
     return buoyancy
@@ -38,6 +41,7 @@ def get_mpic_parcel_buoyancy(input_file_name):
 def get_mpic_parcel_humidity(input_file_name):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     humidity = ds_nc.variables["h"][:]
     ds_nc.close()
     return humidity
@@ -46,6 +50,7 @@ def get_mpic_parcel_humidity(input_file_name):
 def get_mpic_parcel_vorticity(input_file_name):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     x_vorticity = ds_nc.variables["p"][:]
     y_vorticity = ds_nc.variables["q"][:]
     z_vorticity = ds_nc.variables["r"][:]
@@ -56,6 +61,7 @@ def get_mpic_parcel_vorticity(input_file_name):
 def get_mpic_projection_coordinates(grids_file, refinement_factor):
     check_file(grids_file)
     ds_nc = nc.Dataset(grids_file)
+    ds_nc.set_auto_mask(False)
     # initialisation
     nx = ds_nc.dimensions["x"].size
     ny = ds_nc.dimensions["y"].size
@@ -83,6 +89,7 @@ def get_mpic_projection_coordinates(grids_file, refinement_factor):
 def get_mpic_extent(grids_file):
     check_file(grids_file)
     ds_nc = nc.Dataset(grids_file)
+    ds_nc.set_auto_mask(False)
     # initialisation
     nx = ds_nc.dimensions["x"].size
     ny = ds_nc.dimensions["y"].size
