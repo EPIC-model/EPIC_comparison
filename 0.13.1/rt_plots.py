@@ -20,6 +20,97 @@ ncr = nc_reader()
 
 data_dir = '/local_raid2/mf248/data/rt'
 
+#
+# RT -- buoyancy and zeta r.m.s. plots compared to coarsend 384^3 simulation
+#    
+grids = np.array([32, 48, 64, 96, 128])
+gridlabs = [r'$32^3$', r'$48^3$', r'$64^3$', r'$96^3$', r'$128^3$']
+vmins = [10, 20, 30, 40]
+
+mpl.rcParams['font.size'] = 15
+colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
+
+ncr_crse = nc_reader()
+
+# assumes that periodic layers are not copied;
+# this rms counts the vertical boundaries together as 1.
+def get_rt_rms(data):
+    # nz is the number of grid points and not cells!
+    nx, ny, nz = data.shape
+
+    rms = (data[:, :, 1:nz-1] ** 2).sum()
+    rms = rms + 0.5 * (data[:, :, 0] ** 2).sum()
+    rms = rms + 0.5 * (data[:, :, nz-1] ** 2).sum()
+    return np.sqrt(rms / (nx * ny * (nz-1)))
+
+t_refs = [4.0, 6.0, 10.0]
+
+fig, axs = plt.subplots(nrows=2, ncols=3, figsize=(11.5, 6), dpi=200, sharex=True)
+
+for k, name in enumerate(['buoyancy', 'z_vorticity']):
+
+    for l, t_ref in enumerate(t_refs):
+
+        for i, vmin in enumerate(vmins):
+
+            rms = np.zeros(len(grids))
+        
+            for j, grid in enumerate(grids):
+                ncr_crse.open(os.path.join(data_dir,
+                                           'coarsened',
+                                           'crse_' + str(grid) + '_epic_rt_384_fields.nc'))
+
+                dset_crse = get_dataset(ncr_crse, name, t_ref, copy_periodic=False)
+            
+                ncr_crse.close()
+            
+                ncr.open(os.path.join(data_dir,
+                                      'epic_rt_' + str(grid) + '_vmin_' + str(vmin) + '_fields.nc'))
+            
+                dset = get_dataset(ncr, name, t_ref, copy_periodic=False)
+            
+                ncr.close()
+            
+                rms[j] = get_rt_rms(dset - dset_crse)
+
+            lab = None
+            if k == 0 and l == 0:
+                lab = r'$\tilde{V}_{\min} = 1/' + str(vmin) + '$'
+
+            axs[k, l].plot(grids, rms, label=lab, marker='o')
+
+for k in range(2):
+    for l in range(len(t_refs)):
+        axs[k, l].set_xscale('log', base=2)
+        axs[k, l].set_yscale('log', base=10)
+        axs[k, l].grid(which='both', linestyle='dashed', zorder=-10)
+        
+        if k < 1:
+            remove_xticks(axs[k, l])
+        else:
+            axs[k, l].set_xticks(grids, gridlabs)
+            axs[k, l].set_xlabel(r'grid resolution, $n_x\times n_y\times n_z$')
+
+for l in range(len(t_refs)):
+    add_timestamp(axs[0, l], t_refs[l], xy=(0.03, 1.06), fmt="%.1f") 
+
+
+l1, = axs[0, 0].plot(grids, 8.0/grids**1.2, linestyle='dashed', color='black')
+l2, = axs[1, 0].plot(grids, 17.0/grids**1.2, linestyle='dashed', color='black')
+axs[0, 0].legend([l1], [r'$\propto n_z^{-1.2}$'], loc='upper right')
+axs[1, 0].legend([l2], [r'$\propto n_z^{-1.2}$'], loc='upper right')
+
+axs[0, 0].set_ylabel(r'r.m.s. buoyancy error, $b_{\mathrm{rms}}$')
+axs[1, 0].set_ylabel(r'r.m.s. z-vorticity error, $\zeta_{\mathrm{rms}}$')
+
+fig.legend(loc='upper center', ncols=len(vmins), bbox_to_anchor=(0.5, 1.08))
+
+fig.tight_layout()
+plt.savefig('rt_buoyancy_zeta_rms.pdf', bbox_inches='tight')
+plt.close()
+
+ncr_crse = None
+
 
 #
 # RT -- energy convergence:

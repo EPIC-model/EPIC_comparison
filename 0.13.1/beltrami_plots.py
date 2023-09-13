@@ -10,7 +10,7 @@ from tools.mpl_beautify import *
 import os
 from numpy.polynomial import polynomial as pp
 
-mpl.rcParams['font.size'] = 12
+mpl.rcParams['font.size'] = 13
 mpl.rcParams['lines.linewidth'] = 1.5
 
 ncr = nc_reader()
@@ -26,9 +26,10 @@ annotations = [r'EPIC (all)', r'EPIC (w/o surfaces)', r'PS3D']
 xy = [(0.05, 1.07), (0.05, 1.07), (0.05, 1.07)]
 
 grids = np.array([32, 48, 64, 96, 128])
+xticks = [r'$32^3$', r'$48^3$', r'$64^3$', r'$96^3$', r'$128^3$']
 
-def get_rms(arr):
-    return np.sqrt((arr ** 2).mean())
+def get_rms(data):
+    return np.sqrt((data ** 2).mean())
 
 n = len(grids)
 
@@ -76,14 +77,17 @@ for k, fb in enumerate(file_bases):
         axs[k].set_yscale('log', base=10)
 
     add_annotation(axs[k], annotations[k], xy=xy[k])
-    axs[k].set_xlabel(r'grid resolution $(n_x = n_y = n_z)$')
+    axs[k].set_xlabel(r'grid resolution, $n_x\times n_y\times n_z$')
     axs[k].set_ylabel(r'r.m.s. error')
     axs[k].grid(which='both', zorder=-2, linestyle='dashed')
 
 axs[0].plot(grids, 20.0 / grids ** 2, label=r'$\propto n_x^{-2}$', color='black', linestyle='dashed')
 axs[1].plot(grids, 15.0 / grids ** 2, color='black', linestyle='dashed') 
 axs[2].plot(grids, 0.5 / grids ** 2, color='black', linestyle='dashed')
-    
+
+for i in range(3):
+    axs[i].set_xticks(grids, xticks)
+
 fig.legend(loc='upper center', ncols=4, bbox_to_anchor=(0.5, 1.1))
 fig.tight_layout()
 plt.savefig('beltrami_initial_field_convergence.pdf', bbox_inches='tight')
@@ -91,17 +95,15 @@ plt.close()
 
 ncr_ref = None
 
-exit()
-
 
 #
 # Beltrami -- energy and enstrophy
 #
 
 mpl.rcParams['font.size'] = 13
-mpl.rcParams['lines.linewidth'] = 1.0
+mpl.rcParams['lines.linewidth'] = 1.5
 
-fig, axs = plt.subplots(nrows=2, ncols=3, figsize=(9, 5.5), dpi=200, sharex=True, sharey='row')
+fig, axs = plt.subplots(nrows=2, ncols=3, figsize=(8, 5), dpi=200, sharex=True, sharey='row')
 
 colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
@@ -198,8 +200,8 @@ for i in range(2):
 
 for j in range(3):
     remove_xticks(axs[0, j])
-    axs[1, j].set_xlabel(r'$t$')
-    add_annotation(axs[0, j], annotations[j], xy=(0.05, 1.06))
+    axs[1, j].set_xlabel(r'time, $t$')
+    add_annotation(axs[0, j], annotations[j], xy=(0.05, 1.07))
 
 for j in range(1, 3):
     remove_yticks(axs[0, j])
@@ -208,7 +210,7 @@ for j in range(1, 3):
 axs[0, 0].set_ylabel(r'kinetic energy, $\mathcal{K}$')
 axs[1, 0].set_ylabel(r'enstrophy, $\Upsilon$')
 
-fig.legend(loc='upper center', ncols=5, bbox_to_anchor=(0.5, 1.06))
+fig.legend(loc='upper center', ncols=5, bbox_to_anchor=(0.5, 1.07))
 fig.tight_layout()
 plt.savefig('beltrami_ke_en.pdf', bbox_inches='tight')
 plt.close()
@@ -221,7 +223,7 @@ mpl.rcParams['font.size'] = 12
 
 fnames = ['epic_beltrami_128_fields.nc', 'ps3d_beltrami_128_fields.nc']
 labels = [r'EPIC', r'PS3D']
-ke_decay = [0.95, 0.85, 0.75]
+times = [9.0, 10.0, 11.0]
 planes = ['xy', 'xz', 'xy', 'xy']
 locations = ['centre', 'centre', 'bottom', 'top']
 vmin_limit = [None, None, 1.0e-2, 1.0e-2]
@@ -232,17 +234,19 @@ cmap = cc.cm['rainbow4']
 ticks = [-np.pi/2.0, -np.pi/4.0, 0.0, np.pi/4.0, np.pi/2.0]
 ticklabs = [r'$-\pi/2$', r'$-\pi/4$', r'$0$', r'$\pi/4$', r'$\pi/2$'] 
 
-def get_closest_steps(fn, times):
+# ts has times of "*_fields.nc" files (has lower write frequency than stats files)
+def get_closest_steps(fn, ts):
     ncr2 = nc_reader()
     ncr2.open(fn)
-    ts = ncr2.get_all('t')
     ke = ncr2.get_all('ke')
+    tstats = ncr2.get_all('t')
     ncr2.close()
     steps = [0, 0, 0]
-    for i, d in enumerate(ke_decay):
-        idx = find_nearest(ke, d * ke[0])
-        step = find_nearest(times, ts[idx])
-        print(times[step], ts[idx])
+    for i, tt in enumerate(times):
+        step = find_nearest(ts, tt)
+        idx = find_nearest(tstats, tt)
+        print("Field step", step, "is closest time", round(ts[step], 4), "to", tt,
+              "Energy decay:", round((ke[0] - ke[idx]) / ke[0] * 100, 2), "(stat file step:", idx, ")")
         steps[i] = step
     return steps
 
@@ -275,6 +279,8 @@ for l, plane in enumerate(planes):
             vmin = min(vmin, vmag.min())
             vmax = max(vmax, vmag.max())
         ncr.close()
+
+    print("Global vmax:", vmax, "Global vmin:", vmin)
 
     if not vmin_limit[l] is None:
         vmin = vmin_limit[l]
