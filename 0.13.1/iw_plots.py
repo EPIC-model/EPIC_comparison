@@ -12,8 +12,7 @@ from iw_exact import get_exact
 
 data_dir = '../data/iw'
 
-plot_iw_vmag_cross = False
-plot_iw_buoy_cross = True
+plot_iw_zeta_cross = True
 
 
 ncr = nc_reader() 
@@ -287,10 +286,10 @@ plt.close()
 
 
 #
-# IW - difference cross section plot of enstrophy at 3 times
+# IW - difference cross section plot of zeta at 3 times
 #
 
-if plot_iw_vmag_cross:
+if plot_iw_zeta_cross:
     mpl.rcParams['font.size'] = 12
 
     fig = plt.figure(figsize=(8, 6.5), dpi=200)
@@ -305,8 +304,7 @@ if plot_iw_vmag_cross:
                      cbar_size="4%",
                      cbar_pad=0.05)
 
-    fnames = ['epic_iw_256x256x64_fields.nc',
-              'ps3d_iw_256x256x64_fields.nc']
+    fnames = ['epic_iw_256x256x64_fields.nc', 'ps3d_iw_256x256x64_fields.nc']
     labels = [r'EPIC', r'PS3D']
     times = [np.pi/np.sqrt(2.0), 2.0*np.pi/np.sqrt(2.0), 4.0*np.pi/np.sqrt(2.0)]
     times_lab = [r'\pi/\sqrt{2}', r'2\pi/\sqrt{2}', r'4\pi/\sqrt{2}']
@@ -342,7 +340,7 @@ def get_rms(data):
     return np.sqrt((arr ** 2).mean())
 
 
-if plot_iw_vmag_cross:
+if plot_iw_zeta_cross:
     # find global vmin and vmax, and fill rms arrays
     for j, fname in enumerate(fnames):
         ncr.open(os.path.join(data_dir, fname))
@@ -353,32 +351,36 @@ if plot_iw_vmag_cross:
         t = ncr.get_all('t')
 
         rmse = np.zeros(nsteps)
-    
-        for step in range(nsteps):
-            xi, eta, zeta, _, _, _, _ = get_exact(t[step], origin, extent, nx, ny, nz,
-                                                  kk=0.5, ll=0.5, mm=1.0, N=2.0, f=1.0,
-                                                  what=0.001, copy_periodic=True)
-            vmag = np.sqrt(xi ** 2 + eta ** 2 + zeta ** 2)
-            rms = get_rms(vmag)
 
-            xi = ncr.get_dataset(step=step, name='x_vorticity', copy_periodic=True) - xi
-            eta = ncr.get_dataset(step=step, name='y_vorticity', copy_periodic=True) - eta
+        for tt in times:
+            _, _, zeta, _, _, _, _ = get_exact(tt, origin, extent, nx, ny, nz,
+                                               kk=0.5, ll=0.5, mm=1.0, N=2.0, f=1.0,
+                                               what=0.001, copy_periodic=True)
+            rms = get_rms(zeta)
+
+            zeta = get_dataset(ncr, 'z_vorticity', tt, True) - zeta
+
+            zeta = zeta / rms
+            zeta = get_plane('xz', loc, zeta)
+            vmin = min(vmin, zeta.min())
+            vmax = max(vmax, zeta.max())
+
+
+        for step in range(nsteps):
+            _, _, zeta, _, _, _, _ = get_exact(t[step], origin, extent, nx, ny, nz,
+                                               kk=0.5, ll=0.5, mm=1.0, N=2.0, f=1.0,
+                                               what=0.001, copy_periodic=True)
+
+            rms = get_rms(zeta)
+
             zeta = ncr.get_dataset(step=step, name='z_vorticity', copy_periodic=True) - zeta
         
-            vmag = np.sqrt(xi ** 2 + eta ** 2 + zeta ** 2)
-
-            rmse[step] = get_rms(vmag) / rms
-
-            vmag = vmag / rms
-            vmag = get_plane('xz', loc, vmag)
-            vmin = min(vmin, vmag.min())
-            vmax = max(vmax, vmag.max())
+            rmse[step] = get_rms(zeta) / rms
 
         print("Max. normalised r.m.s. error for", labels[j], rmse.max())
         print("Mean of normalised r.m.s. error for", labels[j], rmse.mean())
 
         ax.plot(t, rmse, label=labels[j])
-        ax.set_ylim(bottom=0.0)
 
     ax.ticklabel_format(axis='y', style='sci', scilimits=(0,0))
     pisqrt2 = np.pi/np.sqrt(2.0)
@@ -386,7 +388,7 @@ if plot_iw_vmag_cross:
                   [r'$0$', r'$\pi/\sqrt{2}$', r'$2\pi/\sqrt{2}$',
                    r'$3\pi/\sqrt{2}$', r'$4\pi/\sqrt{2}$'])
     ax.set_xlabel(r'time, $t$')
-    ax.set_ylabel(r'$|\bm{\omega}-\bm{\omega}^{\star}|_{\mathrm{rms}} / \omega^{\star}_{\mathrm{rms}}$')
+    ax.set_ylabel(r'$(\zeta-\zeta^{\star})_{\mathrm{rms}} / \zeta^{\star}_{\mathrm{rms}}$')
     ax.legend(loc='best')
 
     for j, fname in enumerate(fnames):
@@ -402,30 +404,27 @@ if plot_iw_vmag_cross:
 
             colorbar = (i == 0)
     
-            xi, eta, zeta, _, _, _, _ = get_exact(t, origin, extent, nx, ny, nz,
-                                                  kk=0.5, ll=0.5, mm=1.0, N=2.0, f=1.0,
-                                                  what=0.001, copy_periodic=True)
+            _, _, zeta, _, _, _, _ = get_exact(t, origin, extent, nx, ny, nz,
+                                               kk=0.5, ll=0.5, mm=1.0, N=2.0, f=1.0,
+                                               what=0.001, copy_periodic=True)
 
-            vmag = np.sqrt(xi ** 2 + eta ** 2 + zeta ** 2)
-            rms = get_rms(vmag)
+            rms = get_rms(zeta)
 
-            xi = get_dataset(ncr, 'x_vorticity', t, True) - xi
-            eta = get_dataset(ncr, 'y_vorticity', t, True) - eta
             zeta = get_dataset(ncr, 'z_vorticity', t, True) - zeta
 
-            vmag = np.sqrt(xi ** 2 + eta ** 2 + zeta ** 2) / rms
+            zeta = zeta / rms
 
             im, cbar = make_imshow(
                 ax=ax,
                 plane='xz',
                 loc=loc,
-                fdata=vmag,
+                fdata=zeta,
                 vmin=vmin,
                 vmax=vmax,
                 ncr=ncr,
-                cmap='Reds',
+                cmap='bwr',
                 cmap_norm=None,
-                clabel=r'$|\bm{\omega} - \bm{\omega}^{\star}|/\omega^{\star}_{\mathrm{rms}}$',
+                clabel=r'$(\zeta - \zeta^{\star})/\zeta^{\star}_{\mathrm{rms}}$',
                 colorbar=colorbar,
                 xticks=xticks,
                 xticklab=xticklab,
@@ -433,8 +432,8 @@ if plot_iw_vmag_cross:
                 yticklab=yticklab)
 
             xg, yg, zg = ncr.get_meshgrid()
-            vmag = get_plane('xz', loc, vmag)
-            ax.contour(xg[:, loc, :], zg[:, loc, :], vmag, 10, colors='black', linewidths=0.2)
+            zeta = get_plane('xz', loc, zeta)
+            ax.contour(xg[:, loc, :], zg[:, loc, :], zeta, 10, colors='black', linewidths=0.2)
 
             if j == 0:
                 remove_xticks(ax)
@@ -453,152 +452,5 @@ if plot_iw_vmag_cross:
 
     plt.subplots_adjust(hspace=0.4)
  
-    plt.savefig('iw_cross_sections_vmag.pdf', bbox_inches='tight')
-    plt.close()
-
-
-#
-# IW - difference cross section plot of buoyancy at 3 times
-#
-
-if plot_iw_buoy_cross:
-    mpl.rcParams['font.size'] = 12
-
-    fig = plt.figure(figsize=(8, 6.5), dpi=200)
-    grid = ImageGrid(fig, 111,
-                     nrows_ncols=(2, 3),
-                     aspect=True,
-                     axes_pad=(0.3, 0.2),
-                     direction='row',
-                     share_all=True,
-                     cbar_location="right",
-                     cbar_mode='single',
-                     cbar_size="4%",
-                     cbar_pad=0.05)
-
-    fnames = ['epic_iw_256x256x64_fields.nc', 'ps3d_iw_256x256x64_fields.nc']
-    labels = [r'EPIC', r'PS3D']
-    times = [np.pi/np.sqrt(2.0), 2.0*np.pi/np.sqrt(2.0), 4.0*np.pi/np.sqrt(2.0)]
-    times_lab = [r'\pi/\sqrt{2}', r'2\pi/\sqrt{2}', r'4\pi/\sqrt{2}']
-    loc = 128
-
-    yticks   = np.pi * np.array([-0.5, 0.0, 0.5])                                            
-    yticklab = [r'$-\pi/2$', r'$0$', r'$\pi/2$']
-    
-    xticks   = np.pi * np.array([-2, -1, 0.0, 1, 2])
-    xticklab = [r'$-2\pi$', r'$-\pi$', r'$0$', r'$\pi$', r'$2\pi$']
-
-    vmin = 10000
-    vmax = -10000
-
-
-    ax = fig.add_subplot(3, 1, 3)
-    ax.grid(which='both', linestyle='dashed')
-
-    # find global vmin and vmax, and fill rms arrays
-    for j, fname in enumerate(fnames):
-        ncr.open(os.path.join(data_dir, fname))
-        nsteps = ncr.get_num_steps()
-        origin = ncr.get_box_origin()
-        extent = ncr.get_box_extent()
-        (nx, ny, nz) = ncr.get_box_ncells()
-        t = ncr.get_all('t')
-
-        rmse = np.zeros(nsteps)
-    
-        for step in range(nsteps):
-            _, _, _, _, _, _, buoy = get_exact(t[step], origin, extent, nx, ny, nz,
-                                               kk=0.5, ll=0.5, mm=1.0, N=2.0, f=1.0,
-                                               what=0.001, copy_periodic=True)
-
-
-            rms = get_rms(buoy)
-
-            buoy = abs(ncr.get_dataset(step=step, name='buoyancy', copy_periodic=True) - buoy)
-        
-            rmse[step] = get_rms(buoy) / rms
-
-            buoy = buoy / rms
-            buoy = get_plane('xz', loc, buoy)
-            vmin = min(vmin, buoy.min())
-            vmax = max(vmax, buoy.max())
-            
-        print("Max. normalised r.m.s. error for", labels[j], rmse.max())
-        print("Mean of normalised r.m.s. error for", labels[j], rmse.mean())
-
-        ax.plot(t, rmse, label=labels[j])
-
-        ncr.close()
-
-    ax.ticklabel_format(axis='y', style='sci', scilimits=(0,0))
-    pisqrt2 = np.pi/np.sqrt(2.0)
-    ax.set_xticks([0.0, pisqrt2, 2.0*pisqrt2, 3.0*pisqrt2, 4.0*pisqrt2],
-                  [r'$0$', r'$\pi/\sqrt{2}$', r'$2\pi/\sqrt{2}$',
-                   r'$3\pi/\sqrt{2}$', r'$4\pi/\sqrt{2}$'])
-    ax.set_xlabel(r'time, $t$')
-    ax.set_ylabel(r'$|b-b^{\star}|_{\mathrm{rms}} / b^{\star}_{\mathrm{rms}}$')
-    ax.legend(loc='best')
-
-    for j, fname in enumerate(fnames):
-
-        ncr.open(os.path.join(data_dir, fname))
-        nsteps = ncr.get_num_steps()
-        origin = ncr.get_box_origin()
-        extent = ncr.get_box_extent()
-        (nx, ny, nz) = ncr.get_box_ncells()
-    
-        for i, t in enumerate(times):
-            ax = grid[i+j*3]
-
-            colorbar = (i == 0)
-    
-            _, _, _, _, _, _, buoy = get_exact(t, origin, extent, nx, ny, nz,
-                                               kk=0.5, ll=0.5, mm=1.0, N=2.0, f=1.0,
-                                               what=0.001, copy_periodic=True)
-            
-            rms = get_rms(buoy)
-
-            buoy = abs(get_dataset(ncr, 'buoyancy', t, True) - buoy)
-
-            buoy = buoy / rms
-
-            im, cbar = make_imshow(
-                ax=ax,
-                plane='xz',
-                loc=loc,
-                fdata=buoy,
-                vmin=vmin,
-                vmax=vmax,
-                ncr=ncr,
-                cmap='Reds',
-                cmap_norm=None,
-                clabel=r'$|b - b^{\star}|/b^{\star}_{\mathrm{rms}}$',
-                colorbar=colorbar,
-                xticks=xticks,
-                xticklab=xticklab,
-                yticks=yticks,
-                yticklab=yticklab)
-
-            xg, yg, zg = ncr.get_meshgrid()
-            buoy = get_plane('xz', loc, buoy)
-            ax.contour(xg[:, loc, :], zg[:, loc, :], buoy, 10, colors='black', linewidths=0.2)
-
-            if j == 0:
-                remove_xticks(ax)
-                add_annotation(ax, r'$t=' + times_lab[i] + r'$', xy=(0.03, 1.25))
-    
-            if i == 0 or i == 3:
-                pass
-            else:
-                remove_yticks(ax)
-            
-            add_annotation(grid[j*3], labels[j], xy=(-0.52, 1.0))
-
-        ncr.close()
-
-    add_annotation(grid[2], r'$y=0$', xy=(0.9, 1.7))
-
-    plt.subplots_adjust(hspace=0.4)
- 
-    plt.savefig('iw_cross_sections_buoy.pdf', bbox_inches='tight')
+    plt.savefig('iw_cross_sections_zeta.pdf', bbox_inches='tight')
     plt.close()

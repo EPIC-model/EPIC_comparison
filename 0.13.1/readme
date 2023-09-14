@@ -181,18 +181,18 @@ python internal_waves.py --k 0.5 --l 0.5 --m 1.0 --N 2 --f 1.0 --nx 256 --ny 256
 
 PS3D:
 
-../configure --enable-openmp --enable-buoyancy --enable-iw-test-case --enable-verbose --prefix=/work/e710/e710/mf248/gcc/ps3d
+../configure --enable-openmp --enable-buoyancy --enable-iw-test-case --enable-verbose --prefix=/work/e710/e710/mf248/gcc/ps3d --enable-perturbation-mode
 
-
-runs nz = 16, 32 and 64: slurm-4264913.out
-runs nz = 12 and 24: slurm-4265652.out
+runs nz = 12, 16, 24, 32: slurm-4376210.out
+run  nz = 64: slurm-4379292.out
 
 
 EPIC:
 
-../configure --enable-3d --enable-dry-mode --enable-verbose --prefix=/work/e710/e710/mf248/gcc/11.2.0
+../configure --enable-3d --enable-dry-mode --enable-verbose --prefix=/work/e710/e710/mf248/gcc/11.2.0 --enable-buoyancy-perturbation-mode
 
 checking whether we are compiling the 3D model... yes
+checking whether we are compiling in buoyancy perturbation mode... yes
 checking whether we are compiling in dry mode... yes
 checking whether we are compiling in diagnose mode... no
 checking whether we are compiling in verbose mode... yes
@@ -201,5 +201,4 @@ checking whether we build unit tests... no
 checking whether we are enabling OpenMP... no
 checking whether we are compiling with scalasca... no
 
-runs nz = 12, 16, 24, 32: slurm-4265763.out
-runs nz = 64: slurm-4266552.out
+runs nz = 12, 16, 24, 32 and 64: slurm-4399647.out

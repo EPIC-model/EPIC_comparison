@@ -27,7 +27,7 @@ grids = np.array([32, 48, 64, 96, 128])
 gridlabs = [r'$32^3$', r'$48^3$', r'$64^3$', r'$96^3$', r'$128^3$']
 vmins = [10, 20, 30, 40]
 
-mpl.rcParams['font.size'] = 15
+mpl.rcParams['font.size'] = 16
 colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
 ncr_crse = nc_reader()
@@ -100,10 +100,10 @@ l2, = axs[1, 0].plot(grids, 17.0/grids**1.2, linestyle='dashed', color='black')
 axs[0, 0].legend([l1], [r'$\propto n_z^{-1.2}$'], loc='upper right')
 axs[1, 0].legend([l2], [r'$\propto n_z^{-1.2}$'], loc='upper right')
 
-axs[0, 0].set_ylabel(r'r.m.s. buoyancy error, $b_{\mathrm{rms}}$')
-axs[1, 0].set_ylabel(r'r.m.s. z-vorticity error, $\zeta_{\mathrm{rms}}$')
+axs[0, 0].set_ylabel(r'r.m.s. buoyancy error') #, $b_{\mathrm{rms}}$')
+axs[1, 0].set_ylabel(r'r.m.s. z-vorticity error') #, $\zeta_{\mathrm{rms}}$')
 
-fig.legend(loc='upper center', ncols=len(vmins), bbox_to_anchor=(0.5, 1.08))
+fig.legend(loc='upper center', ncols=len(vmins), bbox_to_anchor=(0.55, 1.08))
 
 fig.tight_layout()
 plt.savefig('rt_buoyancy_zeta_rms.pdf', bbox_inches='tight')
@@ -524,7 +524,7 @@ labels = [r'$32^3$',
           r'$384^3$']
 
 plt.figure(figsize=(8, 3), dpi=200)
-mpl.rcParams['font.size'] = 12
+mpl.rcParams['font.size'] = 13
 mpl.rcParams['lines.linewidth'] = 1.5
 plt.ticklabel_format(axis='y', style='sci', scilimits=(0,0))
 
@@ -547,6 +547,7 @@ plt.savefig('rt_rms_v_error_grid_resolution.pdf', bbox_inches='tight')
 plt.close()
 
 
+exit()
 
 #
 # RT -- histogram plots
