@@ -1,6 +1,6 @@
 #
-# The following runs are performed on Archer2 with EPIC version 0.13.
-# (git SHA 5a0132304ccf861ac2f67132ca84307717fbe4fc) and PS3D version 0.0.11.
+# The following runs are performed on Archer2 with EPIC version 0.13.1
+# and PS3D version 0.0.13.
 # Toolchain: gcc/11.2.0, cray-hdf5-parallel/1.12.2.1, cray-netcdf-hdf5parallel/4.9.0.1
 #
 # 1) craype-x86-rome                         7) epcc-setup-env     13) cray-libsci/22.12.1.1
@@ -8,7 +8,7 @@
 # 3) craype-network-ofi                      9) gcc/11.2.0         15) cray-hdf5-parallel/1.12.2.1
 # 4) perftools-base/22.12.0                 10) craype/2.7.19      16) cray-netcdf-hdf5parallel/4.9.0.1
 # 5) xpmem/2.5.2-2.4_3.30__gd0f7936.shasta  11) cray-dsmml/0.2.2
-# 6) bolt/0.8  
+# 6) bolt/0.8
 
 
 Rayleigh-Taylor
@@ -45,7 +45,7 @@ High resolution run:
 -------------------
 python rayleigh_taylor.py --nx 384 --ny 384 --nz 384 --epsilon 0.1
 
-(epic-env) mf248@ln04:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_384.sh 
+(epic-env) mf248@ln04:/work/e710/e710/mf248/epic3d-paper-runs/rayleigh-taylor> sbatch submit_rt_epic_384.sh
 Submitted batch job 4102664 --> run from time 0 to time 6
 
 slurm-4119599.out --> run from time 6 to 7
