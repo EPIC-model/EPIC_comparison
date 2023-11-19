@@ -45,7 +45,7 @@ try:
         default=64,
         help="number of cells in z",
     )
-    
+
     parser.add_argument(
         "--epsilon",
         type=float,
@@ -53,7 +53,7 @@ try:
         default=0.1,
         help="perturbation amplitude",
     )
-    
+
     parser.add_argument(
         "--plot",
         type=bool,
@@ -69,14 +69,14 @@ try:
     ny = args.ny
     nz = args.nz
 
-    
+
     # perturbation amplitude
     eps = args.epsilon
-    
+
     ncf = nc_fields()
 
     ncf.open('rt_' + str(nx) + 'x' + str(ny) + 'x' + str(nz) + '.nc')
-    
+
     # domain origin
     origin = (-0.5 * np.pi, -0.5 * np.pi, -0.5 * np.pi)
 
@@ -105,7 +105,7 @@ try:
     for k in range(nz+1):
         z = origin[2] + k * dz
         buoy[k, :, :] = -np.sin(z) + eps * np.cos(z) ** 2 * h[:, :]
-    
+
     # write all provided fields
     ncf.add_field('buoyancy', buoy, unit='m/s^2', long_name='buoyancy')
 
@@ -117,7 +117,7 @@ try:
     ncf.add_physical_quantity('ape_calculation', 'ape density')
 
     ncf.close()
-    
+
     if args.plot:
         mpl.rcParams['font.size'] = 16
         plt.figure(figsize=(7, 4), dpi=200)
@@ -131,15 +131,15 @@ try:
 
         cbar = plt.colorbar(im, pad=0.03, ticks=[-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5])
         cbar.set_label(r'$h(x, y)$')
-        
+
         ticks = np.pi * np.array([-0.5, -0.25, 0.0, 0.25, 0.5])
         tlabs = [r'$-\pi/2$', r'$-\pi/4$', r'$0$', r'$\pi/4$', r'$\pi/2$']
-        
+
         plt.xticks(ticks, tlabs)
         plt.yticks(ticks, tlabs)
         plt.xlabel(r'$x$')
         plt.ylabel(r'$y$')
-        
+
         plt.savefig('horizontal_perturbation.pdf', bbox_inches='tight')
         plt.close()
 
