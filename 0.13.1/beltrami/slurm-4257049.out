@@ -1,0 +1,94 @@
+
+Lmod is automatically replacing "cce/15.0.0" with "gcc/11.2.0".
+
+
+Lmod is automatically replacing "PrgEnv-cray/8.3.3" with "PrgEnv-gnu/8.3.3".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) cray-mpich/8.1.23
+
+Node summary for    1 nodes:
+Node    0, hostname nid002262, mpi  48, omp   1, executable xthi_mpi_mp
+MPI summary: 48 ranks 
+Node    0, rank    0, thread   0, (affinity =    0) 
+Node    0, rank    1, thread   0, (affinity =    4) 
+Node    0, rank    2, thread   0, (affinity =    8) 
+Node    0, rank    3, thread   0, (affinity =   12) 
+Node    0, rank    4, thread   0, (affinity =   16) 
+Node    0, rank    5, thread   0, (affinity =   20) 
+Node    0, rank    6, thread   0, (affinity =  128) 
+Node    0, rank    7, thread   0, (affinity =  132) 
+Node    0, rank    8, thread   0, (affinity =  136) 
+Node    0, rank    9, thread   0, (affinity =  140) 
+Node    0, rank   10, thread   0, (affinity =  144) 
+Node    0, rank   11, thread   0, (affinity =  148) 
+Node    0, rank   12, thread   0, (affinity =    1) 
+Node    0, rank   13, thread   0, (affinity =    5) 
+Node    0, rank   14, thread   0, (affinity =    9) 
+Node    0, rank   15, thread   0, (affinity =   13) 
+Node    0, rank   16, thread   0, (affinity =   17) 
+Node    0, rank   17, thread   0, (affinity =   21) 
+Node    0, rank   18, thread   0, (affinity =  129) 
+Node    0, rank   19, thread   0, (affinity =  133) 
+Node    0, rank   20, thread   0, (affinity =  137) 
+Node    0, rank   21, thread   0, (affinity =  141) 
+Node    0, rank   22, thread   0, (affinity =  145) 
+Node    0, rank   23, thread   0, (affinity =  149) 
+Node    0, rank   24, thread   0, (affinity =    2) 
+Node    0, rank   25, thread   0, (affinity =    6) 
+Node    0, rank   26, thread   0, (affinity =   10) 
+Node    0, rank   27, thread   0, (affinity =   14) 
+Node    0, rank   28, thread   0, (affinity =   18) 
+Node    0, rank   29, thread   0, (affinity =   22) 
+Node    0, rank   30, thread   0, (affinity =  130) 
+Node    0, rank   31, thread   0, (affinity =  134) 
+Node    0, rank   32, thread   0, (affinity =  138) 
+Node    0, rank   33, thread   0, (affinity =  142) 
+Node    0, rank   34, thread   0, (affinity =  146) 
+Node    0, rank   35, thread   0, (affinity =  150) 
+Node    0, rank   36, thread   0, (affinity =    3) 
+Node    0, rank   37, thread   0, (affinity =    7) 
+Node    0, rank   38, thread   0, (affinity =   11) 
+Node    0, rank   39, thread   0, (affinity =   15) 
+Node    0, rank   40, thread   0, (affinity =   19) 
+Node    0, rank   41, thread   0, (affinity =   23) 
+Node    0, rank   42, thread   0, (affinity =  131) 
+Node    0, rank   43, thread   0, (affinity =  135) 
+Node    0, rank   44, thread   0, (affinity =  139) 
+Node    0, rank   45, thread   0, (affinity =  143) 
+Node    0, rank   46, thread   0, (affinity =  147) 
+Node    0, rank   47, thread   0, (affinity =  151) 
+ WARNING: No physical constants found! EPIC uses default values.
+ WARNING: Could not find a 'parameters' group in the provided
+          NetCDF file.
+          Note this will result in the boundary zeta flags being
+          set to false starting with parcels (which could well be
+          undesirable).
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|   22768.573|   22768.573|   22768.585|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |    39921|  27.51%|    6252.288|    6264.610|    6274.394|
+|grid2par                        |    39921|  35.34%|    7997.394|    8046.257|    8089.492|
+|parcel split                    |     7984|   3.36%|     763.251|     763.915|     764.669|
+|parcel merge                    |     7984|   0.54%|     122.316|     123.310|     123.852|
+|laplace correction              |    15968|   7.12%|    1607.103|    1621.217|    1633.726|
+|gradient correction             |    15968|   2.28%|     507.380|     519.167|     533.273|
+|net vorticity correction        |     7986|   0.21%|      48.026|      48.614|      49.156|
+|parcel initialisation           |        2|   0.00%|       0.025|       0.027|       0.028|
+|parcel diagnostics              |     7985|   3.21%|     722.667|     731.979|     749.679|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |      401|   0.00%|       0.000|       0.101|       4.830|
+|field I/O                       |       41|   0.06%|      13.861|      14.087|      14.236|
+|field diagnostics               |     7985|   0.02%|       1.563|       4.033|       6.817|
+|field diagnostics I/O           |      401|   0.00%|       0.000|       0.066|       3.180|
+|vor2vel                         |    39921|   5.42%|    1228.824|    1234.555|    1242.579|
+|vorticity tendency              |    39921|   2.91%|     661.918|     663.373|     664.849|
+|parcel push                     |     7984|  34.47%|    7788.366|    7847.715|    7880.215|
+|merge nearest                   |     7984|   1.58%|     350.329|     359.388|     365.865|
+|merge tree resolve              |     7978|   0.78%|     174.972|     176.841|     179.529|
+|p2g/v2g halo (non-excl.)        |    71857|   1.01%|     153.281|     230.017|     292.151|
+|------------------------------------------------------------------------------------------|

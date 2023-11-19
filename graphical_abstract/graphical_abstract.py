@@ -46,7 +46,7 @@ try:
                            colorbar=False)
 
         ncr.close()
-        
+
         encr.open('intersected_ellipses_step_12_from_moist_0000000012_parcels.nc')
         dx = encr.get_box_extent() / encr.get_box_ncells()
         x_pos = encr.get_dataset(11, 'x_position')
@@ -65,8 +65,8 @@ try:
         ell.set_rasterized(True)
         norm = cls.Normalize(vmin=vmin, vmax=vmax)
         ell.set_facecolor(my_cmap(norm(hum[isort])))
-        encr.close()  
-        
+        encr.close()
+
         axins.set_xlabel('')
         axins.set_ylabel('')
 
@@ -128,7 +128,7 @@ try:
 
     dmin = hum.min()
     dmax = hum.max()
-    
+
     encr.close()
 
     encr.open(filename)
@@ -171,7 +171,7 @@ try:
     encr.close()
 
     encr.open('intersected_ellipses_step_12_from_moist_0000000012_parcels.nc')
-    isort = np.argsort(hum)   
+    isort = np.argsort(hum)
     ell = encr.get_ellipses(step=11, indices=ind[isort])
     ax.add_collection(ell)
     ell.set_offset_transform(ax.transData)
@@ -233,7 +233,7 @@ try:
         scale=scale,
         ax = axins2,
         #bounds = [1.2, 0.05, 0.9, 0.9],
-        bounds = [0.1, -1.04, 0.9, 0.9], 
+        bounds = [0.1, -1.04, 0.9, 0.9],
         xlo = 4000,
         xhi = 4196.25,
         ylo = 3700,

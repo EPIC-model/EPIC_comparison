@@ -212,7 +212,7 @@ plt.close()
 #
 
 mpl.rcParams['font.size'] = 12
-fmames = ['epic_rt_fields.nc', 'ps3d_rt_fields.nc']
+fnames = ['epic_rt_fields.nc', 'ps3d_rt_fields.nc']
 labels = [r'EPIC', r'PS3D']
 fignames = ['rt_epic_buoyancy_cs.pdf', 'rt_ps3d_buoyancy_cs.pdf']
 steps = [0, 2, 4, 5, 6, 10]
