@@ -6,12 +6,12 @@ from numba import jit
 import scipy
 
 MAIN_DIR = "/work/e710/e710/shared/epic_comparison"
-RESOLUTIONS = [32, 64, 128, 256]
+RESOLUTIONS = [32, 64, 128, 256, 512]
 xz_loc = 3.140
-MPIC_RES_TSTEP_DICT = {32: "0099", 64: "0193", 128: "0475", 256: "0941"}
+MPIC_RES_TSTEP_DICT = {32: "0099", 64: "0193", 128: "0475", 256: "0941", 512: "1896"}
 
 nbins = 50
-bin_edges = np.linspace(0.0, 0.10, nbins)
+bin_edges = np.linspace(0.0, 0.10, nbins+1)
 bin_centres = 0.5 * (bin_edges[1:] + bin_edges[:-1])
 
 bin_edges_coord = {"bin_edges": ("bin_edges", bin_edges, {"long_name": "Bin edges"})}
@@ -196,7 +196,7 @@ for resolution in RESOLUTIONS:
         MAIN_DIR + "/monc_mpic_smooth_" + str(resolution) + "/mpic_diagnostic_3d_6.nc"
     )
     epic_input_file_name = (
-        MAIN_DIR + "/epic_rev_" + str(resolution) + "/moist_0000000012_parcels.nc"
+        MAIN_DIR + "/epic_" + str(resolution) + "_0823/moist_0000000004_parcels.nc"
     )
     mpic_parcel_glob = (
         MAIN_DIR
@@ -248,6 +248,7 @@ for resolution in RESOLUTIONS:
         "units": "-",
     }
     ds_nc = nc.Dataset(monc_input_file_name)
+    ds_nc.set_auto_mask(False)
     if resolution < 50:
         hh = ds_nc.variables["q_vapour"][:, :, :, 1:]
         hh5 = upscale_monc_field_5(hh)
@@ -310,7 +311,7 @@ for resolution in RESOLUTIONS:
         MAIN_DIR + "/monc_mpic_smooth_" + str(resolution) + "/mpic_diagnostic_3d_6.nc"
     )
     epic_input_file_name = (
-        MAIN_DIR + "/epic_rev_" + str(resolution) + "/moist_0000000012_parcels.nc"
+        MAIN_DIR + "/epic_" + str(resolution) + "_0823/moist_0000000004_parcels.nc"
     )
     mpic_parcel_glob = (
         MAIN_DIR
@@ -359,6 +360,7 @@ for resolution in RESOLUTIONS:
         "units": "-",
     }
     ds_nc = nc.Dataset(monc_input_file_name)
+    ds_nc.set_auto_mask(False)
     uu = ds_nc.variables["u"][:, :, :, :]
     vv = ds_nc.variables["v"][:, :, :, :]
     ww = ds_nc.variables["w"][:, :, :, :]

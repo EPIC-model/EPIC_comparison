@@ -12,6 +12,7 @@ set_num_threads(NTHREADS)
 def get_epic_parcel_coordinates(input_file_name, time_step=0):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     x = ds_nc.variables["x_position"][time_step, :]
     y = ds_nc.variables["y_position"][time_step, :]
     z = ds_nc.variables["z_position"][time_step, :]
@@ -22,6 +23,7 @@ def get_epic_parcel_coordinates(input_file_name, time_step=0):
 def get_epic_parcel_volume(input_file_name, time_step=0):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     vol = ds_nc.variables["volume"][time_step, :]
     ds_nc.close()
     return vol
@@ -30,6 +32,7 @@ def get_epic_parcel_volume(input_file_name, time_step=0):
 def get_epic_parcel_shape(input_file_name, time_step=0):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     bb1 = ds_nc.variables["B11"][time_step, :]
     bb2 = ds_nc.variables["B12"][time_step, :]
     bb3 = ds_nc.variables["B13"][time_step, :]
@@ -42,6 +45,7 @@ def get_epic_parcel_shape(input_file_name, time_step=0):
 def get_epic_parcel_buoyancy(input_file_name, time_step=0):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     buoyancy = ds_nc.variables["buoyancy"][time_step, :]
     ds_nc.close()
     return buoyancy
@@ -50,6 +54,7 @@ def get_epic_parcel_buoyancy(input_file_name, time_step=0):
 def get_epic_parcel_humidity(input_file_name, time_step=0):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     humidity = ds_nc.variables["humidity"][time_step, :]
     ds_nc.close()
     return humidity
@@ -58,6 +63,7 @@ def get_epic_parcel_humidity(input_file_name, time_step=0):
 def get_epic_parcel_vorticity(input_file_name, time_step=0):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     x_vorticity = ds_nc.variables["x_vorticity"][time_step, :]
     y_vorticity = ds_nc.variables["y_vorticity"][time_step, :]
     z_vorticity = ds_nc.variables["z_vorticity"][time_step, :]
@@ -68,6 +74,7 @@ def get_epic_parcel_vorticity(input_file_name, time_step=0):
 def get_epic_projection_coordinates(input_file_name, refinement_factor):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     # set up spatial arrays
     extent = ds_nc.extent
     origin = ds_nc.origin
@@ -99,6 +106,7 @@ def get_epic_extent(input_file_name):
 def get_idealised_moist_parameters(input_file_name):
     check_file(input_file_name)
     ds_nc = nc.Dataset(input_file_name)
+    ds_nc.set_auto_mask(False)
     len_condense = ds_nc.groups["physical_quantities"].scale_height
     q_scale = ds_nc.groups[
         "physical_quantities"
