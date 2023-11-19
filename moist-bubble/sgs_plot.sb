@@ -8,8 +8,8 @@
 
 # Replace [budget code] below with your project code (e.g. t01)
 #SBATCH --account=e710
-#SBATCH --partition=standard
-#SBATCH --qos=standard
+#SBATCH --partition=highmem
+#SBATCH --qos=highmem
 
 # Load the Python module
 
@@ -17,4 +17,4 @@
 source /work/e710/e710/eboeing/epic_revisions/bin/activate
 
 # Run your Python progamme
-python produce_cross_sections.py 
+python produce_pdfs.py 

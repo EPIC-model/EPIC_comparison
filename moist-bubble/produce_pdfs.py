@@ -11,7 +11,7 @@ xz_loc = 3.140
 MPIC_RES_TSTEP_DICT = {32: "0099", 64: "0193", 128: "0475", 256: "0941", 512: "1896"}
 
 nbins = 50
-bin_edges = np.linspace(0.0, 0.10, nbins)
+bin_edges = np.linspace(0.0, 0.10, nbins+1)
 bin_centres = 0.5 * (bin_edges[1:] + bin_edges[:-1])
 
 bin_edges_coord = {"bin_edges": ("bin_edges", bin_edges, {"long_name": "Bin edges"})}
