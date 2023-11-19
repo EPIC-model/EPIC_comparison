@@ -1,0 +1,371 @@
+
+Lmod is automatically replacing "cce/15.0.0" with "gcc/11.2.0".
+
+
+Lmod is automatically replacing "PrgEnv-cray/8.3.3" with "PrgEnv-gnu/8.3.3".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) cray-mpich/8.1.23
+
+Node summary for    1 nodes:
+Node    0, hostname nid002665, mpi   8, omp   1, executable xthi_mpi_mp
+MPI summary: 8 ranks 
+Node    0, rank    0, thread   0, (affinity =    0) 
+Node    0, rank    1, thread   0, (affinity =  128) 
+Node    0, rank    2, thread   0, (affinity =    1) 
+Node    0, rank    3, thread   0, (affinity =  129) 
+Node    0, rank    4, thread   0, (affinity =    2) 
+Node    0, rank    5, thread   0, (affinity =  130) 
+Node    0, rank    6, thread   0, (affinity =    3) 
+Node    0, rank    7, thread   0, (affinity =  131) 
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ WARNING: Using default value of 'squared_buoyancy_frequency'.
+ APE calculation using APE density function.
+ WARNING: Could not find a 'parameters' group in the provided
+          NetCDF file.
+          Note this will result in the boundary zeta flags being
+          set to false starting with parcels (which could well be
+          undesirable).
+ Calculated squared buoyancy frequency:   3.9999999999999889     
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+ WARNING: No fields are actively selected. EPIC is going to write
+          the default fields. Stop the simulation now if this is
+          not your intention. Fields can be provided to the list
+          'output%field_list' in the configuration file.
+          The following fields are available:
+          x_velocity                       : x velocity component
+          y_velocity                       : y velocity component
+          z_velocity                       : z velocity component
+          x_vorticity                      : x vorticity component
+          y_vorticity                      : y vorticity component
+          z_vorticity                      : z vorticity component
+          x_vorticity_tendency             : x vorticity tendency
+          y_vorticity_tendency             : y vorticity tendency
+          z_vorticity_tendency             : z vorticity tendency
+          nparg                            : number of parcels per cell
+          nsparg                           : number of small parcels per cell
+          buoyancy                         : total buoyancy
+          volume                           : volume
+          all                              : write all fields
+          default                          : write default fields
+ 
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|      37.221|      37.221|      37.221|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |      456|  26.25%|       9.767|       9.770|       9.773|
+|grid2par                        |      456|  32.89%|      12.214|      12.243|      12.271|
+|parcel split                    |       91|   3.15%|       1.174|       1.174|       1.174|
+|parcel merge                    |       91|   0.12%|       0.044|       0.045|       0.045|
+|laplace correction              |      182|   6.94%|       2.583|       2.583|       2.584|
+|gradient correction             |      182|   2.25%|       0.836|       0.837|       0.837|
+|net vorticity correction        |       93|   0.07%|       0.026|       0.026|       0.027|
+|parcel initialisation           |        2|   0.03%|       0.009|       0.009|       0.010|
+|parcel diagnostics              |       92|   3.31%|       1.226|       1.233|       1.240|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |       91|   0.22%|       0.000|       0.083|       0.667|
+|field I/O                       |       37|   8.67%|       3.172|       3.228|       3.240|
+|field diagnostics               |       92|   0.02%|       0.008|       0.009|       0.010|
+|field diagnostics I/O           |       91|   0.14%|       0.000|       0.052|       0.417|
+|vor2vel                         |      456|   5.58%|       2.075|       2.076|       2.078|
+|vorticity tendency              |      456|   2.18%|       0.808|       0.810|       0.811|
+|parcel push                     |       91|  30.81%|      10.468|      11.469|      11.635|
+|merge nearest                   |       91|   0.32%|       0.120|       0.121|       0.121|
+|merge tree resolve              |        0|   0.00%|       0.000|       0.000|       0.000|
+|p2g/v2g halo (non-excl.)        |      820|   0.51%|       0.147|       0.191|       0.233|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ WARNING: Using default value of 'squared_buoyancy_frequency'.
+ APE calculation using APE density function.
+ WARNING: Could not find a 'parameters' group in the provided
+          NetCDF file.
+          Note this will result in the boundary zeta flags being
+          set to false starting with parcels (which could well be
+          undesirable).
+ Calculated squared buoyancy frequency:   4.0000000000000409     
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+ WARNING: No fields are actively selected. EPIC is going to write
+          the default fields. Stop the simulation now if this is
+          not your intention. Fields can be provided to the list
+          'output%field_list' in the configuration file.
+          The following fields are available:
+          x_velocity                       : x velocity component
+          y_velocity                       : y velocity component
+          z_velocity                       : z velocity component
+          x_vorticity                      : x vorticity component
+          y_vorticity                      : y vorticity component
+          z_vorticity                      : z vorticity component
+          x_vorticity_tendency             : x vorticity tendency
+          y_vorticity_tendency             : y vorticity tendency
+          z_vorticity_tendency             : z vorticity tendency
+          nparg                            : number of parcels per cell
+          nsparg                           : number of small parcels per cell
+          buoyancy                         : total buoyancy
+          volume                           : volume
+          all                              : write all fields
+          default                          : write default fields
+ 
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|      84.474|      84.474|      84.475|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |      456|  27.65%|      23.349|      23.353|      23.359|
+|grid2par                        |      456|  34.34%|      28.850|      29.011|      29.581|
+|parcel split                    |       91|   3.28%|       2.769|       2.769|       2.770|
+|parcel merge                    |       91|   0.12%|       0.102|       0.102|       0.102|
+|laplace correction              |      182|   7.14%|       6.034|       6.034|       6.034|
+|gradient correction             |      182|   2.34%|       1.979|       1.979|       1.979|
+|net vorticity correction        |       93|   0.08%|       0.066|       0.066|       0.066|
+|parcel initialisation           |        2|   0.02%|       0.011|       0.013|       0.013|
+|parcel diagnostics              |       92|   3.42%|       2.862|       2.887|       2.907|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |       91|   0.14%|       0.000|       0.117|       0.936|
+|field I/O                       |       37|   5.82%|       4.578|       4.918|       4.979|
+|field diagnostics               |       92|   0.02%|       0.014|       0.019|       0.031|
+|field diagnostics I/O           |       91|   0.07%|       0.000|       0.060|       0.477|
+|vor2vel                         |      456|   5.30%|       4.471|       4.474|       4.476|
+|vorticity tendency              |      456|   2.14%|       1.807|       1.807|       1.807|
+|parcel push                     |       91|  32.55%|      25.935|      27.497|      27.830|
+|merge nearest                   |       91|   0.32%|       0.272|       0.272|       0.273|
+|merge tree resolve              |        0|   0.00%|       0.000|       0.000|       0.000|
+|p2g/v2g halo (non-excl.)        |      820|   0.79%|       0.271|       0.669|       0.807|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ WARNING: Using default value of 'squared_buoyancy_frequency'.
+ APE calculation using APE density function.
+ WARNING: Could not find a 'parameters' group in the provided
+          NetCDF file.
+          Note this will result in the boundary zeta flags being
+          set to false starting with parcels (which could well be
+          undesirable).
+ Calculated squared buoyancy frequency:   3.9999999999999654     
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+ WARNING: No fields are actively selected. EPIC is going to write
+          the default fields. Stop the simulation now if this is
+          not your intention. Fields can be provided to the list
+          'output%field_list' in the configuration file.
+          The following fields are available:
+          x_velocity                       : x velocity component
+          y_velocity                       : y velocity component
+          z_velocity                       : z velocity component
+          x_vorticity                      : x vorticity component
+          y_vorticity                      : y vorticity component
+          z_vorticity                      : z vorticity component
+          x_vorticity_tendency             : x vorticity tendency
+          y_vorticity_tendency             : y vorticity tendency
+          z_vorticity_tendency             : z vorticity tendency
+          nparg                            : number of parcels per cell
+          nsparg                           : number of small parcels per cell
+          buoyancy                         : total buoyancy
+          volume                           : volume
+          all                              : write all fields
+          default                          : write default fields
+ 
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|     272.543|     272.543|     272.545|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |      456|  28.25%|      76.984|      76.994|      77.019|
+|grid2par                        |      456|  36.24%|      98.272|      98.767|      99.030|
+|parcel split                    |       91|   3.40%|       9.269|       9.270|       9.270|
+|parcel merge                    |       91|   0.12%|       0.336|       0.336|       0.336|
+|laplace correction              |      182|   7.51%|      20.459|      20.459|      20.460|
+|gradient correction             |      182|   2.46%|       6.711|       6.712|       6.712|
+|net vorticity correction        |       93|   0.14%|       0.359|       0.380|       0.387|
+|parcel initialisation           |        2|   0.01%|       0.029|       0.030|       0.030|
+|parcel diagnostics              |       92|   3.57%|       9.664|       9.720|       9.787|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |       91|   0.09%|       0.000|       0.250|       2.003|
+|field I/O                       |       37|   2.60%|       6.471|       7.073|       7.210|
+|field diagnostics               |       92|   0.02%|       0.045|       0.064|       0.093|
+|field diagnostics I/O           |       91|   0.03%|       0.000|       0.073|       0.581|
+|vor2vel                         |      456|   5.74%|      15.629|      15.633|      15.639|
+|vorticity tendency              |      456|   2.51%|       6.826|       6.829|       6.833|
+|parcel push                     |       91|  32.48%|      85.288|      88.513|      89.229|
+|merge nearest                   |       91|   0.33%|       0.888|       0.902|       0.931|
+|merge tree resolve              |        0|   0.00%|       0.000|       0.000|       0.000|
+|p2g/v2g halo (non-excl.)        |      820|   0.38%|       0.571|       1.046|       1.331|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ WARNING: Using default value of 'squared_buoyancy_frequency'.
+ APE calculation using APE density function.
+ WARNING: Could not find a 'parameters' group in the provided
+          NetCDF file.
+          Note this will result in the boundary zeta flags being
+          set to false starting with parcels (which could well be
+          undesirable).
+ Calculated squared buoyancy frequency:   4.0000000000001217     
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+ WARNING: No fields are actively selected. EPIC is going to write
+          the default fields. Stop the simulation now if this is
+          not your intention. Fields can be provided to the list
+          'output%field_list' in the configuration file.
+          The following fields are available:
+          x_velocity                       : x velocity component
+          y_velocity                       : y velocity component
+          z_velocity                       : z velocity component
+          x_vorticity                      : x vorticity component
+          y_vorticity                      : y vorticity component
+          z_vorticity                      : z vorticity component
+          x_vorticity_tendency             : x vorticity tendency
+          y_vorticity_tendency             : y vorticity tendency
+          z_vorticity_tendency             : z vorticity tendency
+          nparg                            : number of parcels per cell
+          nsparg                           : number of small parcels per cell
+          buoyancy                         : total buoyancy
+          volume                           : volume
+          all                              : write all fields
+          default                          : write default fields
+ 
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|     689.483|     689.483|     689.489|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |      456|  26.87%|     185.287|     185.291|     185.294|
+|grid2par                        |      456|  34.40%|     236.720|     237.181|     237.566|
+|parcel split                    |       91|   3.20%|      22.038|      22.039|      22.039|
+|parcel merge                    |       91|   0.11%|       0.788|       0.788|       0.788|
+|laplace correction              |      182|   7.33%|      50.511|      50.511|      50.511|
+|gradient correction             |      182|   2.30%|      15.846|      15.846|      15.847|
+|net vorticity correction        |       93|   0.13%|       0.906|       0.909|       0.912|
+|parcel initialisation           |        2|   0.01%|       0.060|       0.061|       0.062|
+|parcel diagnostics              |       92|   3.34%|      22.954|      23.038|      23.250|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |       91|   0.04%|       0.000|       0.245|       1.956|
+|field I/O                       |       37|   2.02%|      13.392|      13.941|      14.060|
+|field diagnostics               |       92|   0.02%|       0.107|       0.144|       0.187|
+|field diagnostics I/O           |       91|   0.03%|       0.000|       0.203|       1.625|
+|vor2vel                         |      456|   8.72%|      60.122|      60.129|      60.137|
+|vorticity tendency              |      456|   4.91%|      33.814|      33.820|      33.828|
+|parcel push                     |       91|  30.60%|     207.265|     211.006|     211.745|
+|merge nearest                   |       91|   0.31%|       2.131|       2.132|       2.133|
+|merge tree resolve              |        0|   0.00%|       0.000|       0.000|       0.000|
+|p2g/v2g halo (non-excl.)        |      820|   0.27%|       1.190|       1.838|       2.708|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ WARNING: Using default value of 'squared_buoyancy_frequency'.
+ APE calculation using APE density function.
+ WARNING: Could not find a 'parameters' group in the provided
+          NetCDF file.
+          Note this will result in the boundary zeta flags being
+          set to false starting with parcels (which could well be
+          undesirable).
+ Calculated squared buoyancy frequency:   3.9999999999995040     
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+ WARNING: No fields are actively selected. EPIC is going to write
+          the default fields. Stop the simulation now if this is
+          not your intention. Fields can be provided to the list
+          'output%field_list' in the configuration file.
+          The following fields are available:
+          x_velocity                       : x velocity component
+          y_velocity                       : y velocity component
+          z_velocity                       : z velocity component
+          x_vorticity                      : x vorticity component
+          y_vorticity                      : y vorticity component
+          z_vorticity                      : z vorticity component
+          x_vorticity_tendency             : x vorticity tendency
+          y_vorticity_tendency             : y vorticity tendency
+          z_vorticity_tendency             : z vorticity tendency
+          nparg                            : number of parcels per cell
+          nsparg                           : number of small parcels per cell
+          buoyancy                         : total buoyancy
+          volume                           : volume
+          all                              : write all fields
+          default                          : write default fields
+ 
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|   10673.100|   10673.104|   10673.129|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |      456|  14.23%|    1518.361|    1518.402|    1518.451|
+|grid2par                        |      456|  17.82%|    1897.451|    1901.941|    1907.007|
+|parcel split                    |       91|   1.63%|     173.573|     173.574|     173.575|
+|parcel merge                    |       91|   0.06%|       6.237|       6.240|       6.245|
+|laplace correction              |      182|   6.49%|     692.991|     692.996|     693.001|
+|gradient correction             |      182|   1.28%|     136.469|     136.471|     136.472|
+|net vorticity correction        |       93|   0.07%|       7.183|       7.202|       7.215|
+|parcel initialisation           |        2|   0.01%|       0.544|       0.548|       0.559|
+|parcel diagnostics              |       92|   1.71%|     181.136|     182.517|     185.015|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |       91|   0.00%|       0.000|       0.283|       2.267|
+|field I/O                       |       37|   0.77%|      81.164|      82.004|      82.890|
+|field diagnostics               |       92|   0.01%|       0.768|       1.293|       1.683|
+|field diagnostics I/O           |       91|   0.00%|       0.000|       0.211|       1.689|
+|vor2vel                         |      456|  28.74%|    3067.401|    3067.430|    3067.456|
+|vorticity tendency              |      456|  23.82%|    2542.526|    2542.573|    2542.632|
+|parcel push                     |       91|  16.02%|    1703.968|    1709.849|    1712.214|
+|merge nearest                   |       91|   0.16%|      17.257|      17.260|      17.265|
+|merge tree resolve              |        0|   0.00%|       0.000|       0.000|       0.000|
+|p2g/v2g halo (non-excl.)        |      820|   0.22%|      16.740|      23.177|      28.527|
+|------------------------------------------------------------------------------------------|

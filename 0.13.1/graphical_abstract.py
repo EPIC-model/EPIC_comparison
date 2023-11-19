@@ -14,6 +14,9 @@ import colorcet as cc
 import matplotlib.colors as cls
 
 try:
+    data_dir = '../data/moist/'
+    parcel_intersections = 'intersected_ellipses_step_4_from_moist_0000000004_parcels.nc'
+    field_file = 'extracted_steps_from_moist_fields.nc'
 
     def do_zoom(ncr, step, dset, loc, plane, ax, bounds, xlo, xhi, ylo, yhi, fname, **kwargs):
         ncr.open(fname)
@@ -47,17 +50,17 @@ try:
 
         ncr.close()
 
-        encr.open('intersected_ellipses_step_12_from_moist_0000000012_parcels.nc')
+        encr.open(os.path.join(data_dir, parcel_intersections))
         dx = encr.get_box_extent() / encr.get_box_ncells()
-        x_pos = encr.get_dataset(11, 'x_position')
-        z_pos = encr.get_dataset(11, 'z_position')
+        x_pos = encr.get_dataset(3, 'x_position')
+        z_pos = encr.get_dataset(3, 'z_position')
         ind = np.argwhere((x_pos >= xlo - dx[0]) & (x_pos <= xhi + dx[0]) &
                           (z_pos >= ylo - dx[1]) & (z_pos <= yhi + dx[1]))
         ind = ind.squeeze()
-        hum = encr.get_dataset(11, 'humidity', indices=ind)
+        hum = encr.get_dataset(3, 'humidity', indices=ind)
         hum = hum * scale
         isort = np.argsort(hum)
-        ell = encr.get_ellipses(step=11, indices=ind[isort])
+        ell = encr.get_ellipses(step=3, indices=ind[isort])
         axins.add_collection(ell)
         ell.set_offset_transform(axins.transData)
         ell.set_clip_box(axins.bbox)
@@ -81,8 +84,8 @@ try:
         return axins
 
 
-    filename = 'extracted_step_12_from_moist_fields.nc'
-    loc = 128
+    filename = os.path.join(data_dir, field_file)
+    loc = 256
     plane = 'xz'
     step = 0
 
@@ -105,8 +108,8 @@ try:
 
     dpi = 960.0
 
-    left = 1250
-    right = 5250
+    left = 1000
+    right = 5000
     top = 5000
     bottom = 2000
 
@@ -117,14 +120,14 @@ try:
 
     ax = plt.gca()
 
-    encr.open('intersected_ellipses_step_12_from_moist_0000000012_parcels.nc')
+    encr.open(os.path.join(data_dir, parcel_intersections))
     dx = encr.get_box_extent() / encr.get_box_ncells()
-    x_pos = encr.get_dataset(11, 'x_position')
-    z_pos = encr.get_dataset(11, 'z_position')
+    x_pos = encr.get_dataset(3, 'x_position')
+    z_pos = encr.get_dataset(3, 'z_position')
     ind = np.argwhere((x_pos >= left - dx[0]) & (x_pos <= right + dx[0]) &
                       (z_pos >= bottom - dx[1]) & (z_pos <= top + dx[1]))
     ind = ind.squeeze()
-    hum = encr.get_dataset(11, 'humidity', indices=ind)
+    hum = encr.get_dataset(3, 'humidity', indices=ind)
 
     dmin = hum.min()
     dmax = hum.max()
@@ -140,9 +143,9 @@ try:
 
     # vmin < dmin, vmax > dmax
     vmin = 0.0
-    vmax = 0.09
+    vmax = 0.0012
     # scale data such that they are in vmin, vmax
-    scale = vmax / dmax
+    scale = 1.0 #vmax / dmax
     data = data * scale
     hum = hum * scale
 
@@ -170,9 +173,9 @@ try:
 
     encr.close()
 
-    encr.open('intersected_ellipses_step_12_from_moist_0000000012_parcels.nc')
+    encr.open(os.path.join(data_dir, parcel_intersections))
     isort = np.argsort(hum)
-    ell = encr.get_ellipses(step=11, indices=ind[isort])
+    ell = encr.get_ellipses(step=3, indices=ind[isort])
     ax.add_collection(ell)
     ell.set_offset_transform(ax.transData)
     ell.set_clip_box(ax.bbox)
@@ -182,7 +185,7 @@ try:
     ell.set_facecolor(my_cmap(norm(hum[isort])))
     encr.close()
 
-    # corresponds to 32 cells
+    # corresponds to 64 cells
     axins = do_zoom(
         ncr = encr,
         step = step,
@@ -195,13 +198,13 @@ try:
         scale=scale,
         ax = ax,
         bounds = [1., 0.47, 0.6, 0.6],
-        xlo = 3700,
-        xhi = 4485,
-        ylo = 3400,
-        yhi = 4185,
+        xlo = 3200,
+        xhi = 3985,
+        ylo = 3200,
+        yhi = 3985,
         fname = filename)
 
-    # sub region of the sub-region image, corresponds to 16 cells
+    # sub region of the sub-region image, corresponds to 32 cells
     axins2 = do_zoom(
         ncr = encr,
         step = step,
@@ -214,13 +217,13 @@ try:
         scale=scale,
         ax = axins,
         bounds = [1.2, 0.06, 0.9, 0.9],
-        xlo = 3900,
-        xhi = 4292.5,
-        ylo = 3600,
-        yhi = 3992.5,
+        xlo = 3400,
+        xhi = 3792.5,
+        ylo = 3400,
+        yhi = 3792.5,
         fname = filename)
 
-    # zoom of sub-sub-region, corresponds to 8 cells
+    # zoom of sub-sub-region, corresponds to 16 cells
     axins3 = do_zoom(
         ncr = encr,
         step = step,
@@ -234,13 +237,13 @@ try:
         ax = axins2,
         #bounds = [1.2, 0.05, 0.9, 0.9],
         bounds = [0.1, -1.04, 0.9, 0.9],
-        xlo = 4000,
-        xhi = 4196.25,
-        ylo = 3700,
-        yhi = 3896.25,
+        xlo = 3500,
+        xhi = 3696.25,
+        ylo = 3500,
+        yhi = 3696.25,
         fname = filename)
 
-    # zoom of sub-sub-sub-region, corresponds to 4 cels
+    # zoom of sub-sub-sub-region, corresponds to 8 cels
     do_zoom(
         ncr = encr,
         step = step,
@@ -253,10 +256,10 @@ try:
         scale=scale,
         ax = axins3,
         bounds = [-1.4, 0.06, 0.9, 0.9],
-        xlo = 4050,
-        xhi = 4148.125,
-        ylo = 3750,
-        yhi = 3848.125,
+        xlo = 3550,
+        xhi = 3648.125,
+        ylo = 3550,
+        yhi = 3648.125,
         fname = filename)
 
     ax.tick_params(

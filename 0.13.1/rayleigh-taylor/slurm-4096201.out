@@ -1,0 +1,413 @@
+
+Lmod is automatically replacing "cce/15.0.0" with "gcc/11.2.0".
+
+
+Lmod is automatically replacing "PrgEnv-cray/8.3.3" with "PrgEnv-gnu/8.3.3".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) cray-mpich/8.1.23
+
+Node summary for    1 nodes:
+Node    0, hostname nid006140, mpi  64, omp   1, executable xthi_mpi_mp
+MPI summary: 64 ranks 
+Node    0, rank    0, thread   0, (affinity =    0) 
+Node    0, rank    1, thread   0, (affinity =    4) 
+Node    0, rank    2, thread   0, (affinity =    8) 
+Node    0, rank    3, thread   0, (affinity =   12) 
+Node    0, rank    4, thread   0, (affinity =   16) 
+Node    0, rank    5, thread   0, (affinity =   20) 
+Node    0, rank    6, thread   0, (affinity =   24) 
+Node    0, rank    7, thread   0, (affinity =   28) 
+Node    0, rank    8, thread   0, (affinity =  128) 
+Node    0, rank    9, thread   0, (affinity =  132) 
+Node    0, rank   10, thread   0, (affinity =  136) 
+Node    0, rank   11, thread   0, (affinity =  140) 
+Node    0, rank   12, thread   0, (affinity =  144) 
+Node    0, rank   13, thread   0, (affinity =  148) 
+Node    0, rank   14, thread   0, (affinity =  152) 
+Node    0, rank   15, thread   0, (affinity =  156) 
+Node    0, rank   16, thread   0, (affinity =    1) 
+Node    0, rank   17, thread   0, (affinity =    5) 
+Node    0, rank   18, thread   0, (affinity =    9) 
+Node    0, rank   19, thread   0, (affinity =   13) 
+Node    0, rank   20, thread   0, (affinity =   17) 
+Node    0, rank   21, thread   0, (affinity =   21) 
+Node    0, rank   22, thread   0, (affinity =   25) 
+Node    0, rank   23, thread   0, (affinity =   29) 
+Node    0, rank   24, thread   0, (affinity =  129) 
+Node    0, rank   25, thread   0, (affinity =  133) 
+Node    0, rank   26, thread   0, (affinity =  137) 
+Node    0, rank   27, thread   0, (affinity =  141) 
+Node    0, rank   28, thread   0, (affinity =  145) 
+Node    0, rank   29, thread   0, (affinity =  149) 
+Node    0, rank   30, thread   0, (affinity =  153) 
+Node    0, rank   31, thread   0, (affinity =  157) 
+Node    0, rank   32, thread   0, (affinity =    2) 
+Node    0, rank   33, thread   0, (affinity =    6) 
+Node    0, rank   34, thread   0, (affinity =   10) 
+Node    0, rank   35, thread   0, (affinity =   14) 
+Node    0, rank   36, thread   0, (affinity =   18) 
+Node    0, rank   37, thread   0, (affinity =   22) 
+Node    0, rank   38, thread   0, (affinity =   26) 
+Node    0, rank   39, thread   0, (affinity =   30) 
+Node    0, rank   40, thread   0, (affinity =  130) 
+Node    0, rank   41, thread   0, (affinity =  134) 
+Node    0, rank   42, thread   0, (affinity =  138) 
+Node    0, rank   43, thread   0, (affinity =  142) 
+Node    0, rank   44, thread   0, (affinity =  146) 
+Node    0, rank   45, thread   0, (affinity =  150) 
+Node    0, rank   46, thread   0, (affinity =  154) 
+Node    0, rank   47, thread   0, (affinity =  158) 
+Node    0, rank   48, thread   0, (affinity =    3) 
+Node    0, rank   49, thread   0, (affinity =    7) 
+Node    0, rank   50, thread   0, (affinity =   11) 
+Node    0, rank   51, thread   0, (affinity =   15) 
+Node    0, rank   52, thread   0, (affinity =   19) 
+Node    0, rank   53, thread   0, (affinity =   23) 
+Node    0, rank   54, thread   0, (affinity =   27) 
+Node    0, rank   55, thread   0, (affinity =   31) 
+Node    0, rank   56, thread   0, (affinity =  131) 
+Node    0, rank   57, thread   0, (affinity =  135) 
+Node    0, rank   58, thread   0, (affinity =  139) 
+Node    0, rank   59, thread   0, (affinity =  143) 
+Node    0, rank   60, thread   0, (affinity =  147) 
+Node    0, rank   61, thread   0, (affinity =  151) 
+Node    0, rank   62, thread   0, (affinity =  155) 
+Node    0, rank   63, thread   0, (affinity =  159) 
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|     577.413|     577.414|     577.416|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |     5941|  22.10%|     121.152|     127.636|     131.897|
+|grid2par                        |     5941|  27.04%|     154.312|     156.161|     161.224|
+|parcel split                    |     1188|   2.67%|      14.892|      15.391|      15.500|
+|parcel merge                    |     1188|   0.31%|       1.791|       1.817|       1.845|
+|laplace correction              |     2376|   5.92%|      34.099|      34.209|      34.717|
+|gradient correction             |     2376|   1.74%|      10.049|      10.067|      10.082|
+|net vorticity correction        |     1190|   0.08%|       0.475|       0.489|       0.499|
+|parcel initialisation           |        2|   0.00%|       0.017|       0.019|       0.020|
+|parcel diagnostics              |     1189|   2.81%|      15.844|      16.227|      18.012|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.02%|       0.000|       0.133|       8.497|
+|field I/O                       |     1001|  19.02%|     106.847|     109.822|     110.415|
+|field diagnostics               |     1189|   0.06%|       0.297|       0.329|       0.393|
+|field diagnostics I/O           |     1001|   0.01%|       0.000|       0.079|       5.049|
+|vor2vel                         |     5941|   6.99%|      40.179|      40.355|      40.661|
+|vorticity tendency              |     5941|   3.40%|      19.601|      19.634|      19.670|
+|parcel push                     |     1188|  25.89%|     135.677|     149.490|     150.662|
+|merge nearest                   |     1188|   0.80%|       4.429|       4.610|       4.771|
+|merge tree resolve              |     1175|   0.92%|       5.255|       5.338|       5.449|
+|p2g/v2g halo (non-excl.)        |    10693|   2.46%|       6.779|      14.224|      18.990|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|     736.949|     736.949|     736.952|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |     6326|  23.55%|     168.212|     173.525|     177.250|
+|grid2par                        |     6326|  29.60%|     214.313|     218.171|     221.444|
+|parcel split                    |     1265|   2.87%|      21.082|      21.117|      21.147|
+|parcel merge                    |     1265|   0.41%|       2.955|       2.986|       3.020|
+|laplace correction              |     2530|   6.29%|      46.034|      46.377|      46.856|
+|gradient correction             |     2530|   2.09%|      14.964|      15.436|      15.745|
+|net vorticity correction        |     1267|   0.10%|       0.667|       0.701|       0.726|
+|parcel initialisation           |        2|   0.00%|       0.012|       0.015|       0.016|
+|parcel diagnostics              |     1266|   3.08%|      22.123|      22.735|      24.074|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.02%|       0.000|       0.150|       9.609|
+|field I/O                       |     1001|  13.90%|     100.022|     102.413|     103.401|
+|field diagnostics               |     1266|   0.05%|       0.321|       0.346|       0.391|
+|field diagnostics I/O           |     1001|   0.01%|       0.000|       0.074|       4.728|
+|vor2vel                         |     6326|   5.69%|      41.701|      41.940|      42.278|
+|vorticity tendency              |     6326|   2.81%|      20.668|      20.717|      20.745|
+|parcel push                     |     1265|  28.63%|     196.247|     211.010|     212.715|
+|merge nearest                   |     1265|   1.05%|       7.410|       7.767|       8.046|
+|merge tree resolve              |     1252|   1.06%|       7.654|       7.820|       8.033|
+|p2g/v2g halo (non-excl.)        |    11386|   2.16%|       8.189|      15.895|      21.405|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    1124.347|    1124.347|    1124.351|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |     7711|  24.26%|     260.088|     272.780|     281.423|
+|grid2par                        |     7711|  29.86%|     328.893|     335.753|     343.735|
+|parcel split                    |     1542|   2.92%|      32.591|      32.802|      32.868|
+|parcel merge                    |     1542|   0.43%|       4.741|       4.786|       4.839|
+|laplace correction              |     3084|   6.18%|      69.441|      69.523|      69.713|
+|gradient correction             |     3084|   2.03%|      22.771|      22.820|      22.864|
+|net vorticity correction        |     1544|   0.10%|       1.090|       1.124|       1.148|
+|parcel initialisation           |        2|   0.00%|       0.006|       0.009|       0.011|
+|parcel diagnostics              |     1543|   3.13%|      34.366|      35.178|      37.838|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.02%|       0.000|       0.188|      12.035|
+|field I/O                       |     1001|  13.54%|     147.656|     152.225|     153.513|
+|field diagnostics               |     1543|   0.04%|       0.386|       0.432|       0.494|
+|field diagnostics I/O           |     1001|   0.01%|       0.000|       0.159|      10.184|
+|vor2vel                         |     7711|   4.53%|      50.349|      50.904|      52.142|
+|vorticity tendency              |     7711|   2.24%|      25.103|      25.145|      25.195|
+|parcel push                     |     1542|  30.42%|     311.830|     342.035|     345.021|
+|merge nearest                   |     1542|   1.20%|      13.047|      13.450|      13.972|
+|merge tree resolve              |     1525|   1.08%|      11.922|      12.161|      12.477|
+|p2g/v2g halo (non-excl.)        |    13879|   2.60%|      14.640|      29.220|      39.311|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    1667.321|    1667.359|    1667.366|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |     8656|  24.82%|     400.530|     413.865|     422.931|
+|grid2par                        |     8656|  31.69%|     520.022|     528.308|     537.006|
+|parcel split                    |     1731|   3.09%|      51.423|      51.481|      51.558|
+|parcel merge                    |     1731|   0.51%|       8.432|       8.499|       8.566|
+|laplace correction              |     3462|   6.36%|     105.949|     106.039|     106.149|
+|gradient correction             |     3462|   2.18%|      36.402|      36.431|      36.475|
+|net vorticity correction        |     1733|   0.10%|       1.678|       1.707|       1.736|
+|parcel initialisation           |        2|   0.00%|       0.011|       0.013|       0.014|
+|parcel diagnostics              |     1732|   3.29%|      53.388|      54.813|      57.698|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.02%|       0.000|       0.374|      23.912|
+|field I/O                       |     1001|  10.78%|     166.221|     179.812|     181.827|
+|field diagnostics               |     1732|   0.03%|       0.433|       0.495|       0.584|
+|field diagnostics I/O           |     1001|   0.01%|       0.000|       0.169|      10.830|
+|vor2vel                         |     8656|   3.40%|      56.279|      56.646|      57.112|
+|vorticity tendency              |     8656|   1.69%|      28.117|      28.180|      28.245|
+|parcel push                     |     1731|  31.82%|     492.701|     530.548|     535.458|
+|merge nearest                   |     1731|   1.63%|      26.364|      27.171|      27.742|
+|merge tree resolve              |     1714|   1.18%|      19.142|      19.691|      20.378|
+|p2g/v2g halo (non-excl.)        |    15580|   1.98%|      10.960|      32.996|      46.538|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    2626.916|    2626.917|    2626.927|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |    11421|  26.80%|     701.297|     704.018|     706.363|
+|grid2par                        |    11421|  35.12%|     908.653|     922.476|     937.371|
+|parcel split                    |     2284|   3.43%|      90.106|      90.223|      90.377|
+|parcel merge                    |     2284|   0.56%|      14.496|      14.606|      14.730|
+|laplace correction              |     4568|   6.96%|     182.671|     182.827|     183.038|
+|gradient correction             |     4568|   2.33%|      61.167|      61.227|      61.283|
+|net vorticity correction        |     2286|   0.13%|       3.312|       3.406|       3.462|
+|parcel initialisation           |        2|   0.00%|       0.009|       0.013|       0.014|
+|parcel diagnostics              |     2285|   3.66%|      93.382|      96.048|     101.836|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.01%|       0.000|       0.170|      10.867|
+|field I/O                       |     1001|   3.63%|      91.694|      95.406|      99.463|
+|field diagnostics               |     2285|   0.03%|       0.560|       0.670|       0.804|
+|field diagnostics I/O           |     1001|   0.00%|       0.000|       0.124|       7.951|
+|vor2vel                         |    11421|   2.84%|      73.660|      74.610|      76.696|
+|vorticity tendency              |    11421|   1.41%|      37.022|      37.070|      37.136|
+|parcel push                     |     2284|  34.28%|     882.231|     900.384|     909.536|
+|merge nearest                   |     2284|   2.06%|      52.657|      54.094|      55.054|
+|merge tree resolve              |     2265|   1.22%|      31.233|      31.983|      33.157|
+|p2g/v2g halo (non-excl.)        |    20557|   1.34%|      26.352|      35.220|      47.544|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    2378.078|    2378.079|    2378.087|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |     8601|  25.79%|     609.630|     613.212|     615.894|
+|grid2par                        |     8601|  33.47%|     775.226|     795.841|     819.286|
+|parcel split                    |     1720|   3.48%|      82.143|      82.753|      82.966|
+|parcel merge                    |     1720|   0.99%|      23.338|      23.440|      23.557|
+|laplace correction              |     3440|   6.81%|     160.539|     161.877|     164.246|
+|gradient correction             |     3440|   2.26%|      51.859|      53.645|      54.805|
+|net vorticity correction        |     1722|   0.14%|       3.210|       3.300|       3.419|
+|parcel initialisation           |        2|   0.00%|       0.012|       0.013|       0.014|
+|parcel diagnostics              |     1721|   3.50%|      80.942|      83.235|      90.640|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.01%|       0.000|       0.192|      12.285|
+|field I/O                       |     1001|   3.91%|      87.838|      92.953|      97.185|
+|field diagnostics               |     1721|   0.02%|       0.433|       0.495|       0.593|
+|field diagnostics I/O           |     1001|   0.01%|       0.000|       0.148|       9.488|
+|vor2vel                         |     8601|   2.38%|      55.622|      56.499|      60.140|
+|vorticity tendency              |     8601|   1.18%|      28.021|      28.061|      28.095|
+|parcel push                     |     1720|  33.10%|     764.981|     787.074|     795.318|
+|merge nearest                   |     1720|   3.76%|      87.595|      89.391|      90.400|
+|merge tree resolve              |     1703|   2.77%|      64.794|      65.756|      67.178|
+|p2g/v2g halo (non-excl.)        |    15481|   1.62%|      23.759|      38.591|      48.545|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    2017.862|    2017.862|    2017.871|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |     9106|  26.94%|     541.030|     543.589|     545.366|
+|grid2par                        |     9106|  35.07%|     694.007|     707.640|     723.851|
+|parcel split                    |     1821|   3.40%|      68.413|      68.548|      68.625|
+|parcel merge                    |     1821|   0.45%|       8.946|       9.020|       9.103|
+|laplace correction              |     3642|   7.01%|     141.436|     141.536|     141.709|
+|gradient correction             |     3642|   2.43%|      49.017|      49.046|      49.077|
+|net vorticity correction        |     1823|   0.13%|       2.458|       2.533|       2.588|
+|parcel initialisation           |        2|   0.00%|       0.011|       0.014|       0.015|
+|parcel diagnostics              |     1822|   3.68%|      71.712|      74.241|      79.830|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.01%|       0.000|       0.168|      10.781|
+|field I/O                       |     1001|   4.40%|      84.766|      88.746|      92.304|
+|field diagnostics               |     1822|   0.03%|       0.452|       0.524|       0.626|
+|field diagnostics I/O           |     1001|   0.01%|       0.000|       0.121|       7.770|
+|vor2vel                         |     9106|   2.96%|      59.144|      59.651|      60.662|
+|vorticity tendency              |     9106|   1.47%|      29.662|      29.710|      29.760|
+|parcel push                     |     1821|  34.37%|     677.845|     693.595|     702.339|
+|merge nearest                   |     1821|   1.50%|      29.266|      30.268|      30.984|
+|merge tree resolve              |     1802|   0.71%|      13.717|      14.231|      15.068|
+|p2g/v2g halo (non-excl.)        |    16390|   1.64%|      23.380|      33.024|      44.314|
+|------------------------------------------------------------------------------------------|

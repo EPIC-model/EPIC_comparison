@@ -1,0 +1,1066 @@
+
+Lmod is automatically replacing "cce/15.0.0" with "gcc/11.2.0".
+
+
+Lmod is automatically replacing "PrgEnv-cray/8.3.3" with "PrgEnv-gnu/8.3.3".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) cray-mpich/8.1.23
+
+Node summary for    1 nodes:
+Node    0, hostname nid004734, mpi   1, omp   8, executable xthi_mpi_mp
+MPI summary: 1 ranks 
+Node    0, rank    0, thread   0, (affinity = 0,128) 
+Node    0, rank    0, thread   1, (affinity = 0,128) 
+Node    0, rank    0, thread   2, (affinity = 1,129) 
+Node    0, rank    0, thread   3, (affinity = 1,129) 
+Node    0, rank    0, thread   4, (affinity = 2,130) 
+Node    0, rank    0, thread   5, (affinity = 2,130) 
+Node    0, rank    0, thread   6, (affinity = 3,131) 
+Node    0, rank    0, thread   7, (affinity = 3,131) 
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Warning: Read the last time step.
+Found x-vorticity field input, reading ... done
+Found y-vorticity field input, reading ... done
+Found z-vorticity field input, reading ... done
+Found buoyancy field input, reading ... done
+ Calculated squared buoyancy frequency:   4.0000000000001545     
+ Hyperviscosity nu =  4.7584282E-06
+ At time   0.0000000000000000      and time step   4.9982532731711299E-002
+ At time   4.9982532731711299E-002 and time step   4.9982564400491515E-002
+ At time   9.9965097132202807E-002 and time step   4.9982533423698877E-002
+ At time  0.14994763055590168      and time step   4.9982553863233747E-002
+ At time  0.19993018441913543      and time step   4.9982535303068190E-002
+ At time  0.24991271972220364      and time step   4.9982544552959758E-002
+ At time  0.29989526427516339      and time step   4.9982538435083920E-002
+ At time  0.34987780271024732      and time step   4.9982536566746380E-002
+ At time  0.39986033927699371      and time step   4.9982542927302587E-002
+ At time  0.44984288220429630      and time step   4.9982530038726311E-002
+ At time  0.49982541224302263      and time step   4.9982548921650688E-002
+ At time  0.54980796116467334      and time step   4.9982525130669822E-002
+ At time  0.59979048629534315      and time step   4.9982556584469581E-002
+ At time  0.64977304287981275      and time step   4.9982522020830360E-002
+ At time  0.69975556490064306      and time step   4.9982551074446602E-002
+ At time  0.74973811597508966      and time step   4.9982520891835358E-002
+ At time  0.79972063686692496      and time step   4.9982539387007051E-002
+ At time  0.84970317625393199      and time step   4.9982521918551494E-002
+ At time  0.89968569817248345      and time step   4.9982529967873342E-002
+ At time  0.94966822814035678      and time step   4.9982525256867874E-002
+ At time  0.99965075339722465      and time step   4.9982522955257173E-002
+ At time   1.0496332763524818      and time step   4.9982531034207467E-002
+ At time   1.0996158073866893      and time step   4.9982518453443307E-002
+ At time   1.1495983258401326      and time step   4.9982539342455425E-002
+ At time   1.1995808651825879      and time step   4.9982516527655042E-002
+ At time   1.2495633817102429      and time step   4.9982550233782258E-002
+ At time   1.2995459319440252      and time step   4.9982517202007519E-002
+ At time   1.3495284491460326      and time step   4.9982548077029211E-002
+ At time   1.3995109972230619      and time step   4.9982520460598444E-002
+ At time   1.4494935176836603      and time step   4.9982541075380665E-002
+ At time   1.4994760587590410      and time step   4.9982526251536180E-002
+ At time   1.5494585850105771      and time step   4.9982536547822982E-002
+ At time   1.5994411215584001      and time step   4.9982534493480786E-002
+ At time   1.6494236560518809      and time step   4.9982534396203884E-002
+ At time   1.6994061904480848      and time step   4.9982545084030411E-002
+ At time   1.7493887355321152      and time step   4.9982534507424514E-002
+ At time   1.7993712700395397      and time step   4.9982557909171582E-002
+ At time   1.8493538279487112      and time step   4.9982536763154374E-002
+ At time   1.8993363647118655      and time step   4.9982572852925303E-002
+ At time   1.9493189375647908      and time step   4.9982541049145575E-002
+ At time   1.9993014786139365      and time step   4.9982572738194536E-002
+ At time   2.0492840513521311      and time step   4.9982547263300016E-002
+ At time   2.0992665986154311      and time step   4.9982568133295907E-002
+ At time   2.1492491667487270      and time step   4.9982555321768513E-002
+ At time   2.1992317220704956      and time step   4.9982565299944402E-002
+ At time   2.2492142873704402      and time step   4.9982565162537303E-002
+ At time   2.2991968525329773      and time step   4.9982564189389213E-002
+ At time   2.3491794167223667      and time step   4.9982576746142544E-002
+ At time   2.3991619934685091      and time step   4.9982564774433018E-002
+ At time   2.4491445582429421      and time step   4.9982590053435888E-002
+ At time   2.4991271482963779      and time step   4.9982567045384126E-002
+ At time   2.5491097153417619      and time step   4.9982605080580382E-002
+ At time   2.5990923204223422      and time step   4.9982571003519716E-002
+ At time   2.6490748914258617      and time step   4.9982599970109440E-002
+ At time   2.6990574913959713      and time step   4.9982576652641442E-002
+ At time   2.7490400680486129      and time step   4.9982594447438661E-002
+ At time   2.7990226624960517      and time step   4.9982583989524564E-002
+ At time   2.8490052464855764      and time step   4.9982590559113707E-002
+ At time   2.8989878370446900      and time step   4.9982592994180973E-002
+ At time   2.9489704300388708      and time step   4.9982588270484664E-002
+ At time   2.9989530183093556      and time step   4.9982603620900852E-002
+ At time   3.0489356219302564      and time step   4.9982587517094251E-002
+ At time   3.0989182094473504      and time step   4.9982615791049671E-002
+ At time   3.1489008252384001      and time step   4.9982588199279719E-002
+ At time   3.1988834134376800      and time step   4.9982623160701435E-002
+ At time   3.2488660365983812      and time step   4.9982590179876399E-002
+ At time   3.2988486267782577      and time step   4.9982613411982492E-002
+ At time   3.3488312401902403      and time step   4.9982593285548639E-002
+ At time   3.3988138334757889      and time step   4.9982604631633780E-002
+ At time   3.4487964381074225      and time step   4.9982597312033715E-002
+ At time   3.4987790354194561      and time step   4.9982596608322265E-002
+ At time   3.5487616320277784      and time step   4.9982602033227873E-002
+ At time   3.5987442340610061      and time step   4.9982589118181660E-002
+ At time   3.6487268231791878      and time step   4.9982607213734528E-002
+ At time   3.6987094303929222      and time step   4.9982581939200237E-002
+ At time   3.7486920123321226      and time step   4.9982612624192714E-002
+ At time   3.7986746249563152      and time step   4.9982574867701919E-002
+ At time   3.8486571998240171      and time step   4.9982599140363133E-002
+ At time   3.8986397989643802      and time step   4.9982567735803660E-002
+ At time   3.9486223667001838      and time step   4.9982579465044891E-002
+ At time   3.9986049461652287      and time step   4.9982560428582623E-002
+ At time   4.0485875065938117      and time step   4.9982559623226876E-002
+ At time   4.0985700662170386      and time step   4.9982552899642742E-002
+ At time   4.1485526191166811      and time step   4.9982539634150294E-002
+ At time   4.1985351587508317      and time step   4.9982545183755063E-002
+ At time   4.2485177039345867      and time step   4.9982519603652804E-002
+ At time   4.2985002235382392      and time step   4.9982537405420469E-002
+ At time   4.3484827609436598      and time step   4.9982499729013349E-002
+ At time   4.3984652606726735      and time step   4.9982525024443378E-002
+ At time   4.4484477856971170      and time step   4.9982480298358251E-002
+ At time   4.4984302659954754      and time step   4.9982494117644070E-002
+ At time   4.5484127601131190      and time step   4.9982461684278466E-002
+ At time   4.5983952217973973      and time step   4.9982464410561908E-002
+ At time   4.6483776862079589      and time step   4.9982444331729450E-002
+ At time   4.6983601305396885      and time step   4.9982436389047896E-002
+ At time   4.7483425669287360      and time step   4.9982428740687888E-002
+ At time   4.7983249956694243      and time step   4.9982410577090047E-002
+ At time   4.8483074062465139      and time step   4.9982415444405341E-002
+ At time   4.8982898216909190      and time step   4.9982387512741817E-002
+ At time   4.9482722092036608      and time step   4.9982404984473532E-002
+ At time   4.9982546141881343      and time step   4.9982367721950638E-002
+ At time   5.0482369819100850      and time step   4.9982396008361726E-002
+ At time   5.0982193779184470      and time step   4.9982351691885737E-002
+ At time   5.1482017296103324      and time step   4.9982371353722202E-002
+ At time   5.1981841009640544      and time step   4.9982339845444895E-002
+ At time   5.2481664408094995      and time step   4.9982351162258166E-002
+ At time   5.2981487919717578      and time step   4.9982332518604414E-002
+ At time   5.3481311244903624      and time step   4.9982335687565119E-002
+ At time   5.3981134601779273      and time step   4.9982329942131386E-002
+ At time   5.4480957901200586      and time step   4.9982325068116507E-002
+ At time   5.4980781151881750      and time step   4.9982332228884319E-002
+ At time   5.5480604474170594      and time step   4.9982319319438244E-002
+ At time   5.5980427667364978      and time step   4.9982339367614717E-002
+ At time   5.6480251061041127      and time step   4.9982318333160240E-002
+ At time   5.6980074244372725      and time step   4.9982351223755467E-002
+ At time   5.7479897756610283      and time step   4.9982321883096557E-002
+ At time   5.7979720975441245      and time step   4.9982358575239548E-002
+ At time   5.8479544561193642      and time step   4.9982329638041979E-002
+ At time   5.8979367857574063      and time step   4.9982357507396456E-002
+ At time   5.9479191432648024      and time step   4.9982341180527121E-002
+ At time   5.9979014844453298      and time step   4.9982359848632592E-002
+ At time   6.0478838442939624      and time step   4.9982356030402207E-002
+ At time   6.0978662003243649      and time step   4.9982365086400110E-002
+ At time   6.1478485654107651      and time step   4.9982373671751401E-002
+ At time   6.1978309390825164      and time step   4.9982372693950630E-002
+ At time   6.2478133117764667      and time step   4.9982393581439188E-002
+ At time   6.2977957053579061      and time step   4.9982382158927592E-002
+ At time   6.3477780875168337      and time step   4.9982415257476424E-002
+ At time   6.3977605027743101      and time step   4.9982393010436610E-002
+ At time   6.4477428957847467      and time step   4.9982434720173857E-002
+ At time   6.4977253305049203      and time step   4.9982404842871066E-002
+ At time   6.5477077353477915      and time step   4.9982435147823460E-002
+ At time   6.5976901704956150      and time step   4.9982417334973529E-002
+ At time   6.6476725878305887      and time step   4.9982436011117161E-002
+ At time   6.6976550238417056      and time step   4.9982430262964173E-002
+ At time   6.7476374541046695      and time step   4.9982437163474690E-002
+ At time   6.7976198912681438      and time step   4.9982443506910487E-002
+ At time   6.8476023347750541      and time step   4.9982438562955048E-002
+ At time   6.8975847733380089      and time step   4.9982457049985343E-002
+ At time   6.9475672303879943      and time step   4.9982440266340591E-002
+ At time   6.9975496706543350      and time step   4.9982470970741669E-002
+ At time   7.0475321416250765      and time step   4.9982442416629379E-002
+ At time   7.0975145840417060      and time step   4.9982477134315667E-002
+ At time   7.1474970611760220      and time step   4.9982445224852748E-002
+ At time   7.1974795064008745      and time step   4.9982468362724193E-002
+ At time   7.2474619747635991      and time step   4.9982448947520942E-002
+ At time   7.2974444237111200      and time step   4.9982460671361043E-002
+ At time   7.3474268843824815      and time step   4.9982453861334576E-002
+ At time   7.3974093382438157      and time step   4.9982454340569582E-002
+ At time   7.4473917925843853      and time step   4.9982460236951187E-002
+ At time   7.4973742528213361      and time step   4.9982449626387655E-002
+ At time   7.5473567024477237      and time step   4.9982468313692852E-002
+ At time   7.5973391707614164      and time step   4.9982446737080299E-002
+ At time   7.6473216174984966      and time step   4.9982478277033018E-002
+ At time   7.6973040957755297      and time step   4.9982445813686001E-002
+ At time   7.7472865415892160      and time step   4.9982477071348876E-002
+ At time   7.7972690186605647      and time step   4.9982446916021647E-002
+ At time   7.8472514655765861      and time step   4.9982467289846177E-002
+ At time   7.8972339328664320      and time step   4.9982450015223612E-002
+ At time   7.9472163828816553      and time step   4.9982459429559666E-002
+ At time   7.9971988423112146      and time step   4.9982454993476380E-002
+ At time   8.0471812973046912      and time step   4.9982453319288245E-002
+ At time   8.0971637506239791      and time step   4.9982461651030624E-002
+ At time   8.1471462122750093      and time step   4.9982448715532306E-002
+ At time   8.1971286609905416      and time step   4.9982469720125211E-002
+ At time   8.2471111307106675      and time step   4.9982445320865126E-002
+ At time   8.2970935760315321      and time step   4.9982478884928218E-002
+ At time   8.3470760549164602      and time step   4.9982442807377882E-002
+ At time   8.3970584977238385      and time step   4.9982469872509927E-002
+ At time   8.4470409675963491      and time step   4.9982440843591436E-002
+ At time   8.4970234084399401      and time step   4.9982455927996758E-002
+ At time   8.5470058643679376      and time step   4.9982439122966342E-002
+ At time   8.5969883034909031      and time step   4.9982442079707826E-002
+ At time   8.6469707455706111      and time step   4.9982437392009908E-002
+ At time   8.6969531829626217      and time step   4.9982428135657168E-002
+ At time   8.7469356110982783      and time step   4.9982435475934880E-002
+ At time   8.7969180465742127      and time step   4.9982413998080094E-002
+ At time   8.8469004605722930      and time step   4.9982433299999234E-002
+ At time   8.8968828938722915      and time step   4.9982399680442512E-002
+ At time   8.9468652935527349      and time step   4.9982429424266756E-002
+ At time   8.9968477229770016      and time step   3.1522770229983621E-003
+|-------------------------------------------------------------|
+|            Function            | #Calls |   Total  |  % of  |
+|              name              |        |   time   |  time  |
+|-------------------------------------------------------------|
+|ps                              |       1|   41.362s| 100.00%|
+|field I/O                       |      38|    0.358s|   0.86%|
+|field diagnostics I/O           |     182|    0.807s|   1.95%|
+|vor2vel                         |     545|    8.965s|  21.67%|
+|vorticity tendency              |     543|    6.603s|  15.96%|
+|advance                         |       1|   41.170s|  99.54%|
+|pressure calculation            |     181|    0.642s|   1.55%|
+|-------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Warning: Read the last time step.
+Found x-vorticity field input, reading ... done
+Found y-vorticity field input, reading ... done
+Found z-vorticity field input, reading ... done
+Found buoyancy field input, reading ... done
+ Calculated squared buoyancy frequency:   4.0000000000002709     
+ Hyperviscosity nu =  1.0311771E-06
+ At time   0.0000000000000000      and time step   4.9982444949695157E-002
+ At time   4.9982444949695157E-002 and time step   4.9982451621157185E-002
+ At time   9.9964896570852335E-002 and time step   4.9982461172409613E-002
+ At time  0.14994735774326196      and time step   4.9982446864012535E-002
+ At time  0.19992980460727450      and time step   4.9982445794277068E-002
+ At time  0.24991225040155157      and time step   4.9982457970148643E-002
+ At time  0.29989470837170024      and time step   4.9982452327765485E-002
+ At time  0.34987716069946573      and time step   4.9982443565052569E-002
+ At time  0.39985960426451828      and time step   4.9982448076822700E-002
+ At time  0.44984205234134100      and time step   4.9982461496399254E-002
+ At time  0.49982451383774024      and time step   4.9982445127875842E-002
+ At time  0.54980695896561604      and time step   4.9982442069863922E-002
+ At time  0.59978940103547995      and time step   4.9982452339256085E-002
+ At time  0.64977185337473609      and time step   4.9982450745887565E-002
+ At time  0.69975430412062367      and time step   4.9982440230237908E-002
+ At time  0.74973674435086157      and time step   4.9982443084601133E-002
+ At time  0.79971918743546266      and time step   4.9982459320890293E-002
+ At time  0.84970164675635296      and time step   4.9982442847564423E-002
+ At time  0.89968408960391733      and time step   4.9982438392068430E-002
+ At time  0.94966652799598572      and time step   4.9982447356248266E-002
+ At time  0.99964897535223396      and time step   4.9982450177376909E-002
+ At time   1.0496314255296109      and time step   4.9982438496914791E-002
+ At time   1.0996138640265256      and time step   4.9982440259633221E-002
+ At time   1.1495963042861588      and time step   4.9982455469795121E-002
+ At time   1.1995787597559540      and time step   4.9982443555508314E-002
+ At time   1.2495612033114623      and time step   4.9982438154551272E-002
+ At time   1.2995436414660135      and time step   4.9982446208469200E-002
+ At time   1.3495260876744828      and time step   4.9982453630292231E-002
+ At time   1.3995085413047750      and time step   4.9982441068865832E-002
+ At time   1.4494909823736408      and time step   4.9982441953413781E-002
+ At time   1.4994734243270547      and time step   4.9982456278178128E-002
+ At time   1.5494558806052328      and time step   4.9982448942807255E-002
+ At time   1.5994383295480401      and time step   4.9982442617417043E-002
+ At time   1.6494207721654572      and time step   4.9982449712110744E-002
+ At time   1.6994032218775681      and time step   4.9982461651209911E-002
+ At time   1.7493856835287780      and time step   4.9982448058376490E-002
+ At time   1.7993681315871546      and time step   4.9982447857147033E-002
+ At time   1.8493505794443017      and time step   4.9982461037056433E-002
+ At time   1.8993330404813582      and time step   4.9982458112141352E-002
+ At time   1.9493154985934995      and time step   4.9982450548338372E-002
+ At time   1.9992979491418379      and time step   4.9982456338032902E-002
+ At time   2.0492804054798710      and time step   4.9982472624704989E-002
+ At time   2.0992628781045761      and time step   4.9982457640782553E-002
+ At time   2.1492453357453587      and time step   4.9982455981846995E-002
+ At time   2.1992277917272056      and time step   4.9982467637632949E-002
+ At time   2.2492102593648386      and time step   4.9982469029745340E-002
+ At time   2.2991927283945839      and time step   4.9982459878869810E-002
+ At time   2.3491751882734535      and time step   4.9982464019082774E-002
+ At time   2.3991576522925362      and time step   4.9982481434447779E-002
+ At time   2.4491401337269840      and time step   4.9982467982911415E-002
+ At time   2.4991226017098955      and time step   4.9982464573984552E-002
+ At time   2.5491050662838801      and time step   4.9982474417494989E-002
+ At time   2.5990875407013752      and time step   4.9982480274998561E-002
+ At time   2.6490700209763736      and time step   4.9982469284510722E-002
+ At time   2.6990524902608843      and time step   4.9982471515622379E-002
+ At time   2.7490349617765069      and time step   4.9982486947453372E-002
+ At time   2.7990174487239603      and time step   4.9982478118418376E-002
+ At time   2.8489999268423785      and time step   4.9982472681073552E-002
+ At time   2.8989823995234518      and time step   4.9982480402848049E-002
+ At time   2.9489648799263000      and time step   4.9982490992696312E-002
+ At time   2.9989473709189962      and time step   4.9982477803733980E-002
+ At time   3.0489298487227301      and time step   4.9982477716722838E-002
+ At time   3.0989123264394531      and time step   4.9982490703056458E-002
+ At time   3.1488948171425095      and time step   4.9982486683302060E-002
+ At time   3.1988773038258116      and time step   4.9982478654567855E-002
+ At time   3.2488597824803795      and time step   4.9982483630157566E-002
+ At time   3.2988422661105372      and time step   4.9982499016875431E-002
+ At time   3.3488247651274126      and time step   4.9982482882382162E-002
+ At time   3.3988072480097946      and time step   4.9982479674077672E-002
+ At time   3.4487897276838724      and time step   4.9982489365776608E-002
+ At time   3.4987722170496491      and time step   4.9982489984417990E-002
+ At time   3.5487547070340670      and time step   4.9982478408181825E-002
+ At time   3.5987371854422490      and time step   4.9982479664927901E-002
+ At time   3.6487196651071767      and time step   4.9982493735755487E-002
+ At time   3.6987021588429321      and time step   4.9982479388119505E-002
+ At time   3.7486846382310515      and time step   4.9982472052546134E-002
+ At time   3.7986671102835974      and time step   4.9982477496941215E-002
+ At time   3.8486495877805385      and time step   4.9982482216973968E-002
+ At time   3.8986320699975123      and time step   4.9982466184072212E-002
+ At time   3.9486145361815845      and time step   4.9982462927091673E-002
+ At time   3.9985969991086763      and time step   4.9982472466965876E-002
+ At time   4.0485794715756418      and time step   4.9982461862836225E-002
+ At time   4.0985619334384777      and time step   4.9982449918774104E-002
+ At time   4.1485443833572520      and time step   4.9982450832494744E-002
+ At time   4.1985268341897468      and time step   4.9982459102617338E-002
+ At time   4.2485092932923640      and time step   4.9982438592972286E-002
+ At time   4.2984917318853366      and time step   4.9982431046091527E-002
+ At time   4.3484741629314279      and time step   4.9982436532099050E-002
+ At time   4.3984565994635272      and time step   4.9982429328835454E-002
+ At time   4.4484390287923627      and time step   4.9982413597350318E-002
+ At time   4.4984214423897129      and time step   4.9982411066126213E-002
+ At time   4.5484038534558389      and time step   4.9982421820701145E-002
+ At time   4.5983862752765399      and time step   4.9982399216146355E-002
+ At time   4.6483686744926862      and time step   4.9982389065922582E-002
+ At time   4.6983510635586088      and time step   4.9982392407315966E-002
+ At time   4.7483334559659252      and time step   4.9982388818291437E-002
+ At time   4.7983158447842165      and time step   4.9982371497985560E-002
+ At time   4.8482982162822017      and time step   4.9982367876950873E-002
+ At time   4.8982805841591528      and time step   4.9982378042799175E-002
+ At time   4.9482629622019516      and time step   4.9982359385077321E-002
+ At time   4.9982453215870288      and time step   4.9982349239186055E-002
+ At time   5.0482276708262148      and time step   4.9982353061586368E-002
+ At time   5.0982100238878010      and time step   4.9982353694343215E-002
+ At time   5.1481923775821441      and time step   4.9982337400161045E-002
+ At time   5.1981747149823052      and time step   4.9982335210313866E-002
+ At time   5.2481570501926189      and time step   4.9982347167764209E-002
+ At time   5.2981393973603828      and time step   4.9982333054405484E-002
+ At time   5.3481217304147881      and time step   4.9982325064846969E-002
+ At time   5.3981040554796351      and time step   4.9982331276664155E-002
+ At time   5.4480863867562990      and time step   4.9982336597982797E-002
+ At time   5.4980687233542822      and time step   4.9982322876877858E-002
+ At time   5.5480510462311603      and time step   4.9982323341731492E-002
+ At time   5.5980333695728914      and time step   4.9982337968317005E-002
+ At time   5.6480157075412087      and time step   4.9982328538989595E-002
+ At time   5.6979980360801985      and time step   4.9982323105273972E-002
+ At time   5.7479803591854726      and time step   4.9982331731832010E-002
+ At time   5.7979626909173048      and time step   4.9982341594707193E-002
+ At time   5.8479450325120119      and time step   4.9982329978871393E-002
+ At time   5.8979273624908837      and time step   4.9982332271307009E-002
+ At time   5.9479096947621910      and time step   4.9982348400161587E-002
+ At time   5.9978920431623530      and time step   4.9982343115051307E-002
+ At time   6.0478743862774040      and time step   4.9982338661072150E-002
+ At time   6.0978567249384765      and time step   4.9982347858980321E-002
+ At time   6.1478390727974572      and time step   4.9982361512559789E-002
+ At time   6.1978214343100166      and time step   4.9982349872208891E-002
+ At time   6.2478037841822252      and time step   4.9982351698393677E-002
+ At time   6.2977861358806191      and time step   4.9982366920477875E-002
+ At time   6.3477685028010971      and time step   4.9982364900131346E-002
+ At time   6.3977508677012285      and time step   4.9982358960880192E-002
+ At time   6.4477332266621090      and time step   4.9982366272779064E-002
+ At time   6.4977155929348882      and time step   4.9982382887007473E-002
+ At time   6.5476979758218956      and time step   4.9982368880827029E-002
+ At time   6.5976803447027228      and time step   4.9982368024428153E-002
+ At time   6.6476627127271506      and time step   4.9982380291622872E-002
+ At time   6.6976450930187736      and time step   4.9982380971039755E-002
+ At time   6.7476274739898132      and time step   4.9982371820232963E-002
+ At time   6.7976098458100465      and time step   4.9982375771555378E-002
+ At time   6.8475922215816016      and time step   4.9982392825663149E-002
+ At time   6.8975746144072652      and time step   4.9982377634864988E-002
+ At time   6.9475569920421298      and time step   4.9982373331586116E-002
+ At time   6.9975393653737159      and time step   4.9982382183951776E-002
+ At time   7.0475217475576679      and time step   4.9982385751814677E-002
+ At time   7.0975041333094824      and time step   4.9982373368477245E-002
+ At time   7.1474865066779598      and time step   4.9982374226777843E-002
+ At time   7.1974688809047374      and time step   4.9982388363851930E-002
+ At time   7.2474512692685895      and time step   4.9982376485176033E-002
+ At time   7.2974336457537659      and time step   4.9982369615146564E-002
+ At time   7.3474160153689123      and time step   4.9982376132758834E-002
+ At time   7.3973983915016710      and time step   4.9982383380582932E-002
+ At time   7.4473807748822543      and time step   4.9982369056768172E-002
+ At time   7.4973631439390225      and time step   4.9982368216268981E-002
+ At time   7.5473455121552915      and time step   4.9982380889747331E-002
+ At time   7.5973278930450387      and time step   4.9982373183744884E-002
+ At time   7.6473102662287840      and time step   4.9982365188346034E-002
+ At time   7.6972926314171302      and time step   4.9982370762584584E-002
+ At time   7.7472750021797143      and time step   4.9982382444166286E-002
+ At time   7.7972573846238804      and time step   4.9982367402853722E-002
+ At time   7.8472397520267343      and time step   4.9982365939636828E-002
+ At time   7.8972221179663711      and time step   4.9982378047081624E-002
+ At time   7.9472044960134527      and time step   4.9982374932181030E-002
+ At time   7.9971868709456340      and time step   4.9982366376872554E-002
+ At time   8.0471692373225068      and time step   4.9982371339917911E-002
+ At time   8.0971516086624256      and time step   4.9982387552147511E-002
+ At time   8.1471339962145723      and time step   4.9982371741758708E-002
+ At time   8.1971163679563315      and time step   4.9982369357992905E-002
+ At time   8.2470987373143245      and time step   4.9982380362774567E-002
+ At time   8.2970811176770987      and time step   4.9982381466368554E-002
+ At time   8.3470634991434665      and time step   4.9982371467827788E-002
+ At time   8.3970458706112936      and time step   4.9982374745916686E-002
+ At time   8.4470282453572096      and time step   4.9982391257819371E-002
+ At time   8.4970106366150286      and time step   4.9982376940616545E-002
+ At time   8.5469930135556460      and time step   4.9982372209789974E-002
+ At time   8.5969753857654361      and time step   4.9982380621068079E-002
+ At time   8.6469577663865049      and time step   4.9982385077399473E-002
+ At time   8.6969401514639042      and time step   4.9982372109212900E-002
+ At time   8.7469225235731169      and time step   4.9982372224300547E-002
+ At time   8.7969048957974181      and time step   4.9982385416710448E-002
+ At time   8.8468872812141282      and time step   4.9982373999418662E-002
+ At time   8.8968696552135462      and time step   4.9982365737289716E-002
+ At time   8.9468520209508355      and time step   4.9982370570638625E-002
+ At time   8.9968343915214746      and time step   3.1656084785254279E-003
+|-------------------------------------------------------------|
+|            Function            | #Calls |   Total  |  % of  |
+|              name              |        |   time   |  time  |
+|-------------------------------------------------------------|
+|ps                              |       1|   78.754s| 100.00%|
+|field I/O                       |      38|    0.675s|   0.86%|
+|field diagnostics I/O           |     182|    1.296s|   1.65%|
+|vor2vel                         |     545|   16.994s|  21.58%|
+|vorticity tendency              |     543|   12.303s|  15.62%|
+|advance                         |       1|   78.357s|  99.50%|
+|pressure calculation            |     181|    1.327s|   1.68%|
+|-------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Warning: Read the last time step.
+Found x-vorticity field input, reading ... done
+Found y-vorticity field input, reading ... done
+Found z-vorticity field input, reading ... done
+Found buoyancy field input, reading ... done
+ Calculated squared buoyancy frequency:   3.9999999999993485     
+ Hyperviscosity nu =  1.1952869E-07
+ At time   0.0000000000000000      and time step   4.9982382086996145E-002
+ At time   4.9982382086996145E-002 and time step   4.9982382370436555E-002
+ At time   9.9964764457432700E-002 and time step   4.9982383111076611E-002
+ At time  0.14994714756850930      and time step   4.9982384309146567E-002
+ At time  0.19992953187765586      and time step   4.9982385965247712E-002
+ At time  0.24991191784290356      and time step   4.9982388080286211E-002
+ At time  0.29989430592318977      and time step   4.9982390655451084E-002
+ At time  0.34987669657864084      and time step   4.9982389637751173E-002
+ At time  0.39985908621639199      and time step   4.9982387169176218E-002
+ At time  0.44984147338556824      and time step   4.9982385165190879E-002
+ At time  0.49982385855075911      and time step   4.9982383627971916E-002
+ At time  0.54980624217873109      and time step   4.9982382559831701E-002
+ At time  0.59978862473856276      and time step   4.9982381963176253E-002
+ At time  0.64977100670173904      and time step   4.9982381840462442E-002
+ At time  0.69975338854220148      and time step   4.9982382194155343E-002
+ At time  0.74973577073635678      and time step   4.9982383026686616E-002
+ At time  0.79971815376304334      and time step   4.9982384340415111E-002
+ At time  0.84970053810345847      and time step   4.9982386137590443E-002
+ At time  0.89968292424104890      and time step   4.9982388420320330E-002
+ At time  0.94966531266136922      and time step   4.9982390835079049E-002
+ At time  0.99964770349644827      and time step   4.9982388116721711E-002
+ At time   1.0496300916131700      and time step   4.9982385889516687E-002
+ At time   1.0996124775026868      and time step   4.9982384155080023E-002
+ At time   1.1495948616577667      and time step   4.9982382914798881E-002
+ At time   1.1995772445725656      and time step   4.9982382169829129E-002
+ At time   1.2495596267423947      and time step   4.9982381921098662E-002
+ At time   1.2995420086634935      and time step   4.9982382169316018E-002
+ At time   1.3495243908328094      and time step   4.9982382914983789E-002
+ At time   1.3995067737477931      and time step   4.9982384158416444E-002
+ At time   1.4494891579062095      and time step   4.9982385899761707E-002
+ At time   1.4994715438059711      and time step   4.9982388139024739E-002
+ At time   1.5494539319449958      and time step   4.9982390876094303E-002
+ At time   1.5994363228210902      and time step   4.9982391479331083E-002
+ At time   1.6494187143004213      and time step   4.9982389247774907E-002
+ At time   1.6994011035481962      and time step   4.9982387514837495E-002
+ At time   1.7493834910630337      and time step   4.9982386280262706E-002
+ At time   1.7993658773432963      and time step   4.9982385543772767E-002
+ At time   1.8493482628870690      and time step   4.9982385305085426E-002
+ At time   1.8993306481921544      and time step   4.9982385563926771E-002
+ At time   1.9493130337560811      and time step   4.9982386320039172E-002
+ At time   1.9992954200761204      and time step   4.9982387573183754E-002
+ At time   2.0492778076493043      and time step   4.9982389323137054E-002
+ At time   2.0992601969724416      and time step   4.9982391569681574E-002
+ At time   2.1492425885421231      and time step   4.9982394312589863E-002
+ At time   2.1992249828547128      and time step   4.9982397551602664E-002
+ At time   2.2492073804063155      and time step   4.9982396565231145E-002
+ At time   2.2991897769715468      and time step   4.9982394829663143E-002
+ At time   2.3491721718012100      and time step   4.9982393586392858E-002
+ At time   2.3991545653876027      and time step   4.9982392834425751E-002
+ At time   2.4491369582220286      and time step   4.9982392572545629E-002
+ At time   2.4991193507945741      and time step   4.9982392799270373E-002
+ At time   2.5491017435938446      and time step   4.9982393512806748E-002
+ At time   2.5990841371066513      and time step   4.9982394711005261E-002
+ At time   2.6490665318176565      and time step   4.9982396391316498E-002
+ At time   2.6990489282089731      and time step   4.9982398550750096E-002
+ At time   2.7490313267597233      and time step   4.9982401185837931E-002
+ At time   2.7990137279455611      and time step   4.9982404292602603E-002
+ At time   2.8489961322381636      and time step   4.9982406599706507E-002
+ At time   2.8989785388378699      and time step   4.9982404603903664E-002
+ At time   2.9489609434417736      and time step   4.9982403058000134E-002
+ At time   2.9989433464997739      and time step   4.9982401955943404E-002
+ At time   3.0489257484557175      and time step   4.9982401291196972E-002
+ At time   3.0989081497469146      and time step   4.9982401056768322E-002
+ At time   3.1488905508036829      and time step   4.9982401245248581E-002
+ At time   3.1988729520489314      and time step   4.9982401848863954E-002
+ At time   3.2488553538977953      and time step   4.9982402859539005E-002
+ At time   3.2988377567573344      and time step   4.9982404268971360E-002
+ At time   3.3488201610263055      and time step   4.9982406068717511E-002
+ At time   3.3988025670950233      and time step   4.9982408250288719E-002
+ At time   3.4487849753453119      and time step   4.9982410805256068E-002
+ At time   3.4987673861505679      and time step   4.9982408835306441E-002
+ At time   3.5487497949858744      and time step   4.9982406010688048E-002
+ At time   3.5987322009965625      and time step   4.9982403534651866E-002
+ At time   3.6487146045312144      and time step   4.9982401401143760E-002
+ At time   3.6986970059323583      and time step   4.9982399604818172E-002
+ At time   3.7486794055371764      and time step   4.9982398141157888E-002
+ At time   3.7986618036783342      and time step   4.9982397006589380E-002
+ At time   3.8486442006849235      and time step   4.9982396198591683E-002
+ At time   3.8986265968835152      and time step   4.9982395715796574E-002
+ At time   3.9486089925993118      and time step   4.9982395558077958E-002
+ At time   3.9985913881573896      and time step   4.9982395726628159E-002
+ At time   4.0485737838840175      and time step   4.9982396224019537E-002
+ At time   4.0985561801080372      and time step   4.9982394420247371E-002
+ At time   4.1485385745282848      and time step   4.9982389539519431E-002
+ At time   4.1985209640678045      and time step   4.9982385013517691E-002
+ At time   4.2485033490813224      and time step   4.9982380851396162E-002
+ At time   4.2984857299327182      and time step   4.9982377063654659E-002
+ At time   4.3484681069963731      and time step   4.9982373662076300E-002
+ At time   4.3984504806584495      and time step   4.9982370659644122E-002
+ At time   4.4484328513180937      and time step   4.9982368070437801E-002
+ At time   4.4984152193885318      and time step   4.9982365909511065E-002
+ At time   4.5483975852980425      and time step   4.9982364192751184E-002
+ At time   4.5983799494907940      and time step   4.9982362936721925E-002
+ At time   4.6483623124275155      and time step   4.9982362158492159E-002
+ At time   4.6983446745860080      and time step   4.9982361875452047E-002
+ At time   4.7483270364614603      and time step   4.9982357227280193E-002
+ At time   4.7983093936887409      and time step   4.9982352095412755E-002
+ At time   4.8482917457841532      and time step   4.9982347521411272E-002
+ At time   4.8982740933055648      and time step   4.9982343521508640E-002
+ At time   4.9482564368270738      and time step   4.9982340111164668E-002
+ At time   4.9982387769382388      and time step   4.9982337304873531E-002
+ At time   5.0482211142431126      and time step   4.9982335115980200E-002
+ At time   5.0982034493590929      and time step   4.9982333556509280E-002
+ At time   5.1481857829156024      and time step   4.9982332637008700E-002
+ At time   5.1981681155526109      and time step   4.9982332366410975E-002
+ At time   5.2481504479190217      and time step   4.9982332751914653E-002
+ At time   5.2981327806709366      and time step   4.9982333798887502E-002
+ At time   5.3481151144698238      and time step   4.9982335510793764E-002
+ At time   5.3980974499806171      and time step   4.9982332614282206E-002
+ At time   5.4480797825948990      and time step   4.9982329836705842E-002
+ At time   5.4980621124316045      and time step   4.9982327720848964E-002
+ At time   5.5480444401524531      and time step   4.9982326261574561E-002
+ At time   5.5980267664140273      and time step   4.9982325451920676E-002
+ At time   5.6480090918659478      and time step   4.9982325283194823E-002
+ At time   5.6979914171491428      and time step   4.9982325745092489E-002
+ At time   5.7479737428942350      and time step   4.9982326825838010E-002
+ At time   5.7979560697200734      and time step   4.9982328512345742E-002
+ At time   5.8479383982324187      and time step   4.9982330790399418E-002
+ At time   5.8979207290228182      and time step   4.9982333644846846E-002
+ At time   5.9479030626676650      and time step   4.9982337059806883E-002
+ At time   5.9978853997274717      and time step   4.9982341018886073E-002
+ At time   6.0478677407463577      and time step   4.9982339756421766E-002
+ At time   6.0978500805027798      and time step   4.9982338848821743E-002
+ At time   6.1478324193516016      and time step   4.9982338427300495E-002
+ At time   6.1978147577789020      and time step   4.9982338475982969E-002
+ At time   6.2477970962548852      and time step   4.9982338979667987E-002
+ At time   6.2977794352345535      and time step   4.9982339924023449E-002
+ At time   6.3477617751585766      and time step   4.9982341295766418E-002
+ At time   6.3977441164543434      and time step   4.9982343082825308E-002
+ At time   6.4477264595371686      and time step   4.9982345274481456E-002
+ At time   6.4977088048116505      and time step   4.9982347861488148E-002
+ At time   6.5476911526731385      and time step   4.9982350836165215E-002
+ At time   6.5976735035093039      and time step   4.9982354192467493E-002
+ At time   6.6476558577017713      and time step   4.9982356400324363E-002
+ At time   6.6976382141020956      and time step   4.9982354526787377E-002
+ At time   6.7476205686288830      and time step   4.9982353024595402E-002
+ At time   6.7976029216534783      and time step   4.9982351895141365E-002
+ At time   6.8475852735486198      and time step   4.9982351141356053E-002
+ At time   6.8975676246899758      and time step   4.9982350767605536E-002
+ At time   6.9475499754575809      and time step   4.9982350779565352E-002
+ At time   6.9975323262371463      and time step   4.9982351184073466E-002
+ At time   7.0475146774212201      and time step   4.9982351988964571E-002
+ At time   7.0974970294101842      and time step   4.9982353202888699E-002
+ At time   7.1474793826130734      and time step   4.9982354835116850E-002
+ At time   7.1974617374481902      and time step   4.9982356895337324E-002
+ At time   7.2474440943435274      and time step   4.9982359393446057E-002
+ At time   7.2974264537369731      and time step   4.9982358526325460E-002
+ At time   7.3474088122632981      and time step   4.9982355948336429E-002
+ At time   7.3973911682116347      and time step   4.9982353838819424E-002
+ At time   7.4473735220504542      and time step   4.9982352206415934E-002
+ At time   7.4973558742568702      and time step   4.9982351058907422E-002
+ At time   7.5473382253157775      and time step   4.9982350403051615E-002
+ At time   7.5973205757188289      and time step   4.9982350244438187E-002
+ At time   7.6473029259632668      and time step   4.9982350587366303E-002
+ At time   7.6972852765506330      and time step   4.9982351434746490E-002
+ At time   7.7472676279853792      and time step   4.9982352788028442E-002
+ At time   7.7972499807734073      and time step   4.9982354647156529E-002
+ At time   7.8472323354205642      and time step   4.9982357010553688E-002
+ At time   7.8972146924311177      and time step   4.9982359836856255E-002
+ At time   7.9471970522679740      and time step   4.9982357216375090E-002
+ At time   7.9971794094843487      and time step   4.9982355084716497E-002
+ At time   8.0471617645690650      and time step   4.9982353434543082E-002
+ At time   8.0971441180036088      and time step   4.9982352257396251E-002
+ At time   8.1471264702610053      and time step   4.9982351543851659E-002
+ At time   8.1971088218048571      and time step   4.9982351283695298E-002
+ At time   8.2470911730885526      and time step   4.9982351466117167E-002
+ At time   8.2970735245546692      and time step   4.9982352079919447E-002
+ At time   8.3470558766345881      and time step   4.9982353113735375E-002
+ At time   8.3970382297483237      and time step   4.9982354556255326E-002
+ At time   8.4470205843045783      and time step   4.9982356396456019E-002
+ At time   8.4970029407010337      and time step   4.9982358623828806E-002
+ At time   8.5469852993248630      and time step   4.9982358781704983E-002
+ At time   8.5969676581065677      and time step   4.9982355751125765E-002
+ At time   8.6469500138576940      and time step   4.9982353082246508E-002
+ At time   8.6969323669399401      and time step   4.9982350769585911E-002
+ At time   8.7469147177095259      and time step   4.9982348809217730E-002
+ At time   8.7968970665187438      and time step   4.9982347198904348E-002
+ At time   8.8468794137176481      and time step   4.9982345938204026E-002
+ At time   8.8968617596558524      and time step   4.9982345028549743E-002
+ At time   8.9468441046844021      and time step   4.9982344473298211E-002
+ At time   8.9968264491576999      and time step   3.1735508423000880E-003
+|-------------------------------------------------------------|
+|            Function            | #Calls |   Total  |  % of  |
+|              name              |        |   time   |  time  |
+|-------------------------------------------------------------|
+|ps                              |       1|  199.380s| 100.00%|
+|field I/O                       |      38|    1.696s|   0.85%|
+|field diagnostics I/O           |     182|    2.751s|   1.38%|
+|vor2vel                         |     545|   40.664s|  20.40%|
+|vorticity tendency              |     543|   30.921s|  15.51%|
+|advance                         |       1|  198.958s|  99.79%|
+|pressure calculation            |     181|    3.406s|   1.71%|
+|-------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Warning: Read the last time step.
+Found x-vorticity field input, reading ... done
+Found y-vorticity field input, reading ... done
+Found z-vorticity field input, reading ... done
+Found buoyancy field input, reading ... done
+ Calculated squared buoyancy frequency:   4.0000000000004876     
+ Hyperviscosity nu =  2.5908547E-08
+ At time   0.0000000000000000      and time step   4.9982360053259407E-002
+ At time   4.9982360053259407E-002 and time step   4.9982364201842780E-002
+ At time   9.9964724255102194E-002 and time step   4.9982360498369051E-002
+ At time  0.14994708475347124      and time step   4.9982362381414958E-002
+ At time  0.19992944713488620      and time step   4.9982361610571090E-002
+ At time  0.24991180874545729      and time step   4.9982361226880760E-002
+ At time  0.29989416997233803      and time step   4.9982363382640893E-002
+ At time  0.34987653335497892      and time step   4.9982360730978163E-002
+ At time  0.39985889408595710      and time step   4.9982365804806639E-002
+ At time  0.44984125989076373      and time step   4.9982360883855131E-002
+ At time  0.49982362077461884      and time step   4.9982364151033382E-002
+ At time  0.54980598492565225      and time step   4.9982361673861796E-002
+ At time  0.59978834659951408      and time step   4.9982362670839039E-002
+ At time  0.64977070927035308      and time step   4.9982363088694602E-002
+ At time  0.69975307235904771      and time step   4.9982361814240928E-002
+ At time  0.74973543417328870      and time step   4.9982365116714750E-002
+ At time  0.79971779929000342      and time step   4.9982361570066587E-002
+ At time  0.84970016086007005      and time step   4.9982366214324073E-002
+ At time  0.89968252707439411      and time step   4.9982361929385426E-002
+ At time  0.94966488900377954      and time step   4.9982364302156135E-002
+ At time  0.99964725330593573      and time step   4.9982362886703879E-002
+ At time   1.0496296161926395      and time step   4.9982362988618030E-002
+ At time   1.0996119791812575      and time step   4.9982364440899638E-002
+ At time   1.1495943436221572      and time step   4.9982362273663677E-002
+ At time   1.1995767058958209      and time step   4.9982366595802824E-002
+ At time   1.2495590724916237      and time step   4.9982362162284001E-002
+ At time   1.2995414346539076      and time step   4.9982365923807004E-002
+ At time   1.3495238005777146      and time step   4.9982362664582496E-002
+ At time   1.3995061632422972      and time step   4.9982364164821547E-002
+ At time   1.4494885274071188      and time step   4.9982363795388056E-002
+ At time   1.4994708912025068      and time step   4.9982363039266849E-002
+ At time   1.5494532542417736      and time step   4.9982365573408932E-002
+ At time   1.5994356198151825      and time step   4.9982362566700349E-002
+ At time   1.6494179823818829      and time step   4.9982367759083206E-002
+ At time   1.6994003501409660      and time step   4.9982362768986245E-002
+ At time   1.7493827129099522      and time step   4.9982365718625292E-002
+ At time   1.7993650786285775      and time step   4.9982363668611939E-002
+ At time   1.8493474422971894      and time step   4.9982364381698757E-002
+ At time   1.8993298066788882      and time step   4.9982365286787622E-002
+ At time   1.9493121719656759      and time step   4.9982363769091501E-002
+ At time   1.9992945357347673      and time step   4.9982367641459122E-002
+ At time   2.0492769033762266      and time step   4.9982363897798060E-002
+ At time   2.0992592672740247      and time step   4.9982368359696813E-002
+ At time   2.1492416356337216      and time step   4.9982364779085402E-002
+ At time   2.1992240004128072      and time step   4.9982367019224989E-002
+ At time   2.2492063674320324      and time step   4.9982366416790033E-002
+ At time   2.2991887338488226      and time step   4.9982366435689568E-002
+ At time   2.3491711002845124      and time step   4.9982368805973759E-002
+ At time   2.3991534690904861      and time step   4.9982366601566942E-002
+ At time   2.4491358356920530      and time step   4.9982371932048977E-002
+ At time   2.4991182076241021      and time step   4.9982367499365347E-002
+ At time   2.5491005751234672      and time step   4.9982371272223082E-002
+ At time   2.5990829463956904      and time step   4.9982369101443325E-002
+ At time   2.6490653154971335      and time step   4.9982370635314619E-002
+ At time   2.6990476861324479      and time step   4.9982371370445228E-002
+ At time   2.7490300575028930      and time step   4.9982370652783575E-002
+ At time   2.7990124281556765      and time step   4.9982374260353714E-002
+ At time   2.8489948024160303      and time step   4.9982371275696387E-002
+ At time   2.8989771736917267      and time step   4.9982376484460918E-002
+ At time   2.9489595501761876      and time step   4.9982372448530744E-002
+ At time   2.9989419226247183      and time step   4.9982375366119131E-002
+ At time   3.0489242979908373      and time step   4.9982374111518318E-002
+ At time   3.0989066721023555      and time step   4.9982374716971492E-002
+ At time   3.1488890468193271      and time step   4.9982376203379794E-002
+ At time   3.1988714230227071      and time step   4.9982374474941860E-002
+ At time   3.2488537974976488      and time step   4.9982378664316991E-002
+ At time   3.2988361761619660      and time step   4.9982374580444681E-002
+ At time   3.3488185507424109      and time step   4.9982378658155656E-002
+ At time   3.3988009294005663      and time step   4.9982374979567083E-002
+ At time   3.4487833043801333      and time step   4.9982376673629592E-002
+ At time   3.4987656810537628      and time step   4.9982375627135145E-002
+ At time   3.5487480566808980      and time step   4.9982374920200127E-002
+ At time   3.5987304316010982      and time step   4.9982376489490644E-002
+ At time   3.6487128080905888      and time step   4.9982373368196116E-002
+ At time   3.6986951814587852      and time step   4.9982377546821326E-002
+ At time   3.7486775590056065      and time step   4.9982372002764536E-002
+ At time   3.7986599310083711      and time step   4.9982374593649556E-002
+ At time   3.8486423056020205      and time step   4.9982370825424713E-002
+ At time   3.8986246764274450      and time step   4.9982370989242998E-002
+ At time   3.9486070474166879      and time step   4.9982369854866086E-002
+ At time   3.9985894172715541      and time step   4.9982367597389520E-002
+ At time   4.0485717848689440      and time step   4.9982369126921951E-002
+ At time   4.0985541539958659      and time step   4.9982364460572935E-002
+ At time   4.1485365184564387      and time step   4.9982367934218674E-002
+ At time   4.1985188863906577      and time step   4.9982361637325730E-002
+ At time   4.2485012480279831      and time step   4.9982362728157349E-002
+ At time   4.2984836107561408      and time step   4.9982359200189452E-002
+ At time   4.3484659699563304      and time step   4.9982357934952905E-002
+ At time   4.3984483278912831      and time step   4.9982357232932685E-002
+ At time   4.4484306851242161      and time step   4.9982353642939535E-002
+ At time   4.4984130387671559      and time step   4.9982355827158952E-002
+ At time   4.5483953945943147      and time step   4.9982349946946308E-002
+ At time   4.5983777445412608      and time step   4.9982352253805359E-002
+ At time   4.6483600967950665      and time step   4.9982346944245901E-002
+ At time   4.6983424437393122      and time step   4.9982347011037903E-002
+ At time   4.7483247907503499      and time step   4.9982344730335700E-002
+ At time   4.7983071354806857      and time step   4.9982342592771567E-002
+ At time   4.8482894780734576      and time step   4.9982343394770250E-002
+ At time   4.8982718214682279      and time step   4.9982339086060597E-002
+ At time   4.9482541605542885      and time step   4.9982343010734419E-002
+ At time   4.9982365035650229      and time step   4.9982336566479928E-002
+ At time   5.0482188401315025      and time step   4.9982338359664591E-002
+ At time   5.0982011784911672      and time step   4.9982335094919783E-002
+ At time   5.1481835135860869      and time step   4.9982334777263535E-002
+ At time   5.1981658483633506      and time step   4.9982334715130854E-002
+ At time   5.2481481830784817      and time step   4.9982332300079167E-002
+ At time   5.2981305153785607      and time step   4.9982335452147059E-002
+ At time   5.3481128508307076      and time step   4.9982330945318412E-002
+ At time   5.3980951817760259      and time step   4.9982334697580282E-002
+ At time   5.4480775164736057      and time step   4.9982330710657066E-002
+ At time   5.4980598471842628      and time step   4.9982332365583547E-002
+ At time   5.5480421795498467      and time step   4.9982331575036482E-002
+ At time   5.5980245111248834      and time step   4.9982331118952054E-002
+ At time   5.6480068422438352      and time step   4.9982333500380352E-002
+ At time   5.6979891757442154      and time step   4.9982330912894390E-002
+ At time   5.7479715066571098      and time step   4.9982336434118826E-002
+ At time   5.7979538430912285      and time step   4.9982331689359283E-002
+ At time   5.8479361747805880      and time step   4.9982335168933689E-002
+ At time   5.8979185099495215      and time step   4.9982333380497540E-002
+ At time   5.9479008433300189      and time step   4.9982334659237522E-002
+ At time   5.9978831779892561      and time step   4.9982335912487311E-002
+ At time   6.0478655139017432      and time step   4.9982334957519997E-002
+ At time   6.0978478488592636      and time step   4.9982339209499786E-002
+ At time   6.1478301880687631      and time step   4.9982335988330955E-002
+ At time   6.1978125240570945      and time step   4.9982340945136330E-002
+ At time   6.2477948650022306      and time step   4.9982337679854473E-002
+ At time   6.2977772026820853      and time step   4.9982340328148148E-002
+ At time   6.3477595430102332      and time step   4.9982339967326421E-002
+ At time   6.3977418829775594      and time step   4.9982340282241335E-002
+ At time   6.4477242232598009      and time step   4.9982342795871243E-002
+ At time   6.4977065660556725      and time step   4.9982340758070967E-002
+ At time   6.5476889068137432      and time step   4.9982346122619987E-002
+ At time   6.5976712529363635      and time step   4.9982341719086540E-002
+ At time   6.6476535946554502      and time step   4.9982345459836285E-002
+ At time   6.6976359401152870      and time step   4.9982343142412615E-002
+ At time   6.7476182832576992      and time step   4.9982344510951709E-002
+ At time   6.7976006277686505      and time step   4.9982345018844278E-002
+ At time   6.8475829727874951      and time step   4.9982344018018557E-002
+ At time   6.8975653168055135      and time step   4.9982347351983494E-002
+ At time   6.9475476641574971      and time step   4.9982343990393557E-002
+ At time   6.9975300081478906      and time step   4.9982348784953397E-002
+ At time   7.0475123569328444      and time step   4.9982344447544791E-002
+ At time   7.0974947013803895      and time step   4.9982346902651034E-002
+ At time   7.1474770482830410      and time step   4.9982345416464360E-002
+ At time   7.1974593936995053      and time step   4.9982345549456735E-002
+ At time   7.2474417392489618      and time step   4.9982346928676764E-002
+ At time   7.2974240861776387      and time step   4.9982344757949840E-002
+ At time   7.3474064309355889      and time step   4.9982349017048705E-002
+ At time   7.3973887799526379      and time step   4.9982344560420035E-002
+ At time   7.4473711245130580      and time step   4.9982348298714195E-002
+ At time   7.4973534728117723      and time step   4.9982344985778054E-002
+ At time   7.5473358177975500      and time step   4.9982346460257940E-002
+ At time   7.5973181642578078      and time step   4.9982346056813398E-002
+ At time   7.6473005103146212      and time step   4.9982345277237702E-002
+ At time   7.6972828555918591      and time step   4.9982347787989143E-002
+ At time   7.7472652033798486      and time step   4.9982344759165132E-002
+ At time   7.7972475481390138      and time step   4.9982349938186107E-002
+ At time   7.8472298980771997      and time step   4.9982344905218752E-002
+ At time   7.8972122429824188      and time step   4.9982347832213669E-002
+ At time   7.9471945908146324      and time step   4.9982345704002729E-002
+ At time   7.9971769365186347      and time step   4.9982346369876265E-002
+ At time   8.0471592828885115      and time step   4.9982347134199724E-002
+ At time   8.0971416300227119      and time step   4.9982345525070498E-002
+ At time   8.1471239755477818      and time step   4.9982349166092920E-002
+ At time   8.1971063247138751      and time step   4.9982345264318190E-002
+ At time   8.2470886699781936      and time step   4.9982349543084705E-002
+ At time   8.2970710195212778      and time step   4.9982345549423018E-002
+ At time   8.3470533650707015      and time step   4.9982347505103136E-002
+ At time   8.3970357125758053      and time step   4.9982346340674819E-002
+ At time   8.4470180589164805      and time step   4.9982345952230854E-002
+ At time   8.4970004048687109      and time step   4.9982347600382698E-002
+ At time   8.5469827524690931      and time step   4.9982344848633134E-002
+ At time   8.5969650973177263      and time step   4.9982349296492867E-002
+ At time   8.6469474466142184      and time step   4.9982344165861545E-002
+ At time   8.6969297907800804      and time step   4.9982347175183815E-002
+ At time   8.7469121379552650      and time step   4.9982343886118295E-002
+ At time   8.7968944818413828      and time step   4.9982344501862438E-002
+ At time   8.8468768263432445      and time step   4.9982344004964804E-002
+ At time   8.8968591703482094      and time step   4.9982342226027168E-002
+ At time   8.9468415125742364      and time step   4.9982344533258123E-002
+ At time   8.9968238571074952      and time step   3.1761428925047852E-003
+|-------------------------------------------------------------|
+|            Function            | #Calls |   Total  |  % of  |
+|              name              |        |   time   |  time  |
+|-------------------------------------------------------------|
+|ps                              |       1|  490.663s| 100.00%|
+|field I/O                       |      38|   12.370s|   2.52%|
+|field diagnostics I/O           |     182|    5.759s|   1.17%|
+|vor2vel                         |     545|   95.335s|  19.43%|
+|vorticity tendency              |     543|   83.237s|  16.96%|
+|advance                         |       1|  489.521s|  99.77%|
+|pressure calculation            |     181|    8.343s|   1.70%|
+|-------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Warning: Read the last time step.
+Found x-vorticity field input, reading ... done
+Found y-vorticity field input, reading ... done
+Found z-vorticity field input, reading ... done
+Found buoyancy field input, reading ... done
+ Calculated squared buoyancy frequency:   3.9999999999958593     
+ Hyperviscosity nu =  6.5031375E-10
+ At time   0.0000000000000000      and time step   4.9982338790816164E-002
+ At time   4.9982338790816164E-002 and time step   4.9982338940814518E-002
+ At time   9.9964677731630674E-002 and time step   4.9982339280263292E-002
+ At time  0.14994701701189397      and time step   4.9982339807890297E-002
+ At time  0.19992935681978427      and time step   4.9982340521788675E-002
+ At time  0.24991169734157295      and time step   4.9982340231812264E-002
+ At time  0.29989403757338523      and time step   4.9982340011984823E-002
+ At time  0.34987637758537005      and time step   4.9982339970570763E-002
+ At time  0.39985871755594082      and time step   4.9982340103669781E-002
+ At time  0.44984105765961058      and time step   4.9982340406996242E-002
+ At time  0.49982339806660681      and time step   4.9982340875972184E-002
+ At time  0.54980573894257900      and time step   4.9982341505826526E-002
+ At time  0.59978808044840548      and time step   4.9982342291700073E-002
+ At time  0.64977042274010555      and time step   4.9982342328440080E-002
+ At time  0.69975276506854567      and time step   4.9982342126651230E-002
+ At time  0.74973510719519687      and time step   4.9982342068491864E-002
+ At time  0.79971744926368871      and time step   4.9982342149684805E-002
+ At time  0.84969979141337348      and time step   4.9982342366340513E-002
+ At time  0.89968213377971396      and time step   4.9982342715043600E-002
+ At time  0.94966447649475760      and time step   4.9982343192929837E-002
+ At time  0.99964681968768743      and time step   4.9982343797750801E-002
+ At time   1.0496291634854382      and time step   4.9982344005490703E-002
+ At time   1.0996115074909290      and time step   4.9982343582677273E-002
+ At time   1.1495938510736061      and time step   4.9982343284224073E-002
+ At time   1.1995761943578302      and time step   4.9982343110462790E-002
+ At time   1.2495585374682929      and time step   4.9982343062454714E-002
+ At time   1.2995408805307476      and time step   4.9982343141971371E-002
+ At time   1.3495232236727190      and time step   4.9982343351459887E-002
+ At time   1.3995055670241789      and time step   4.9982343693993118E-002
+ At time   1.4494879107181720      and time step   4.9982344042755256E-002
+ At time   1.4994702547609271      and time step   4.9982343379216101E-002
+ At time   1.5494525981401432      and time step   4.9982342859404033E-002
+ At time   1.5994349409995472      and time step   4.9982342488064199E-002
+ At time   1.6494172834876113      and time step   4.9982342270182049E-002
+ At time   1.6993996257577932      and time step   4.9982342210877190E-002
+ At time   1.7493819679686704      and time step   4.9982342315294026E-002
+ At time   1.7993643102839645      and time step   4.9982342588490568E-002
+ At time   1.8493466528724551      and time step   4.9982343035328738E-002
+ At time   1.8993289959077839      and time step   4.9982342546796794E-002
+ At time   1.9493113384545808      and time step   4.9982342056363115E-002
+ At time   1.9992936805109440      and time step   4.9982341750808783E-002
+ At time   2.0492760222617528      and time step   4.9982341633444984E-002
+ At time   2.0992583638951978      and time step   4.9982341706954647E-002
+ At time   2.1492407056021525      and time step   4.9982341973328494E-002
+ At time   2.1992230475754808      and time step   4.9982342433814719E-002
+ At time   2.2492053900092954      and time step   4.9982343088883545E-002
+ At time   2.2991877330981789      and time step   4.9982343053839043E-002
+ At time   2.3491700761520180      and time step   4.9982342795936281E-002
+ At time   2.3991524189479545      and time step   4.9982342730110048E-002
+ At time   2.4491347616780645      and time step   4.9982342853948668E-002
+ At time   2.4991171045320133      and time step   4.9982343164302515E-002
+ At time   2.5490994476963160      and time step   4.9982343657336697E-002
+ At time   2.5990817913536528      and time step   4.9982344328597175E-002
+ At time   2.6490641356822500      and time step   4.9982345173089457E-002
+ At time   2.6990464808553396      and time step   4.9982345561602110E-002
+ At time   2.7490288264169416      and time step   4.9982345447414672E-002
+ At time   2.7990111718643562      and time step   4.9982345491313432E-002
+ At time   2.8489935173556695      and time step   4.9982345687138711E-002
+ At time   2.8989758630428084      and time step   4.9982346028665296E-002
+ At time   2.9489582090714737      and time step   4.9982346509716474E-002
+ At time   2.9989405555811901      and time step   4.9982347124276995E-002
+ At time   3.0489229027054670      and time step   4.9982347866602675E-002
+ At time   3.0989052505720696      and time step   4.9982348479184452E-002
+ At time   3.1488875990512541      and time step   4.9982348187659766E-002
+ At time   3.1988699472389137      and time step   4.9982348010549855E-002
+ At time   3.2488522952494634      and time step   4.9982347943913229E-002
+ At time   3.2988346431933766      and time step   4.9982347984491061E-002
+ At time   3.3488169911778676      and time step   4.9982348129763834E-002
+ At time   3.3987993393076312      and time step   4.9982348377993327E-002
+ At time   3.4487816876856248      and time step   4.9982348728249588E-002
+ At time   3.4987640364138746      and time step   4.9982349180422742E-002
+ At time   3.5487463855942973      and time step   4.9982348662370904E-002
+ At time   3.5987287342566683      and time step   4.9982348049064984E-002
+ At time   3.6487110823057334      and time step   4.9982347540989291E-002
+ At time   3.6986934298467227      and time step   4.9982347140904215E-002
+ At time   3.7486757769876267      and time step   4.9982346852252411E-002
+ At time   3.7986581238398789      and time step   4.9982346679090926E-002
+ At time   3.8486404705189696      and time step   4.9982346626012183E-002
+ At time   3.8986228171449819      and time step   4.9982346698056415E-002
+ At time   3.9486051638430384      and time step   4.9982346232078173E-002
+ At time   3.9985875100751165      and time step   4.9982345285027548E-002
+ At time   4.0485698553601441      and time step   4.9982344477804592E-002
+ At time   4.0985521998379486      and time step   4.9982343816300463E-002
+ At time   4.1485345436542493      and time step   4.9982343306388684E-002
+ At time   4.1985168869606380      and time step   4.9982342953823936E-002
+ At time   4.2484992299144615      and time step   4.9982342764145760E-002
+ At time   4.2984815726786074      and time step   4.9982342742588719E-002
+ At time   4.3484639154211964      and time step   4.9982342514758291E-002
+ At time   4.3984462579359542      and time step   4.9982341543786460E-002
+ At time   4.4484285994797403      and time step   4.9982340752979804E-002
+ At time   4.4984109402327199      and time step   4.9982340145886754E-002
+ At time   4.5483932803786065      and time step   4.9982339725456897E-002
+ At time   4.5983756201040631      and time step   4.9982339494012845E-002
+ At time   4.6483579595980755      and time step   4.9982339453234763E-002
+ At time   4.6983402990513099      and time step   4.9982339604159147E-002
+ At time   4.7483226386554689      and time step   4.9982339785239506E-002
+ At time   4.7983049784407088      and time step   4.9982339018224402E-002
+ At time   4.8482873174589329      and time step   4.9982338443024875E-002
+ At time   4.8982696559019576      and time step   4.9982338058517914E-002
+ At time   4.9482519939604757      and time step   4.9982337863084592E-002
+ At time   4.9982343318235607      and time step   4.9982337854671759E-002
+ At time   5.0482166696782320      and time step   4.9982338030861558E-002
+ At time   5.0981990077090940      and time step   4.9982338388945564E-002
+ At time   5.1481813460980392      and time step   4.9982338926003234E-002
+ At time   5.1981636850240420      and time step   4.9982338422594447E-002
+ At time   5.2481460234466368      and time step   4.9982338015602437E-002
+ At time   5.2981283614622390      and time step   4.9982337779483327E-002
+ At time   5.3481106992417224      and time step   4.9982337711173330E-002
+ At time   5.3980930369528961      and time step   4.9982337807753970E-002
+ At time   5.4480753747606503      and time step   4.9982338066518257E-002
+ At time   5.4980577128271682      and time step   4.9982338485029233E-002
+ At time   5.5480400513121975      and time step   4.9982339061169785E-002
+ At time   5.5980223903733677      and time step   4.9982338885525376E-002
+ At time   5.6480047292588926      and time step   4.9982338484375687E-002
+ At time   5.6979870677432682      and time step   4.9982338236720276E-002
+ At time   5.7479694059799886      and time step   4.9982338141843032E-002
+ At time   5.7979517441218320      and time step   4.9982338199447925E-002
+ At time   5.8479340823212800      and time step   4.9982338409648268E-002
+ At time   5.8979164207309278      and time step   4.9982338772946430E-002
+ At time   5.9478987595038744      and time step   4.9982339290202307E-002
+ At time   5.9978810987940765      and time step   4.9982339371101636E-002
+ At time   6.0478634381651784      and time step   4.9982338907908361E-002
+ At time   6.0978457770730863      and time step   4.9982338601904305E-002
+ At time   6.1478281156749910      and time step   4.9982338454892382E-002
+ At time   6.1978104541298835      and time step   4.9982338468798945E-002
+ At time   6.2477927925986823      and time step   4.9982338645608769E-002
+ At time   6.2977751312442907      and time step   4.9982338987299181E-002
+ At time   6.3477574702315902      and time step   4.9982339495775074E-002
+ At time   6.3977398097273657      and time step   4.9982339846273600E-002
+ At time   6.4477221495736394      and time step   4.9982339393694182E-002
+ At time   6.4977044889673339      and time step   4.9982339111993679E-002
+ At time   6.5476868280793274      and time step   4.9982339002381214E-002
+ At time   6.5976691670817083      and time step   4.9982339065743758E-002
+ At time   6.6476515061474517      and time step   4.9982339302610965E-002
+ At time   6.6976338454500626      and time step   4.9982339713128453E-002
+ At time   6.7476161851631913      and time step   4.9982340297040982E-002
+ At time   6.7975985254602325      and time step   4.9982340954951548E-002
+ At time   6.8475808664151838      and time step   4.9982340583687258E-002
+ At time   6.8975632069988713      and time step   4.9982340383491433E-002
+ At time   6.9475455473823624      and time step   4.9982340352717550E-002
+ At time   6.9975278877350799      and time step   4.9982340489364827E-002
+ At time   7.0475102282244446      and time step   4.9982340791114695E-002
+ At time   7.0974925690155590      and time step   4.9982341255375998E-002
+ At time   7.1474749102709350      and time step   4.9982341879336492E-002
+ At time   7.1974572521502713      and time step   4.9982342660019968E-002
+ At time   7.2474395948102917      and time step   4.9982342469066181E-002
+ At time   7.2974219372793581      and time step   4.9982342265536973E-002
+ At time   7.3474042795448948      and time step   4.9982342210962483E-002
+ At time   7.3973866217558575      and time step   4.9982342302290914E-002
+ At time   7.4473689640581480      and time step   4.9982342536596364E-002
+ At time   7.4973513065947444      and time step   4.9982342911140641E-002
+ At time   7.5473336495058847      and time step   4.9982343423430976E-002
+ At time   7.5973159929293157      and time step   4.9982344071272465E-002
+ At time   7.6472983370005885      and time step   4.9982344080752812E-002
+ At time   7.6972806810813417      and time step   4.9982343714621652E-002
+ At time   7.7472630247959637      and time step   4.9982343480061850E-002
+ At time   7.7972453682760259      and time step   4.9982343376242147E-002
+ At time   7.8472277116522680      and time step   4.9982343402770642E-002
+ At time   7.8972100550550390      and time step   4.9982343559700708E-002
+ At time   7.9471923986147397      and time step   4.9982343847526645E-002
+ At time   7.9971747424622661      and time step   4.9982344267170117E-002
+ At time   8.0471570867294364      and time step   4.9982344431930475E-002
+ At time   8.0971394311613665      and time step   4.9982343837201751E-002
+ At time   8.1471217749985687      and time step   4.9982343378229120E-002
+ At time   8.1971041183767976      and time step   4.9982343057211234E-002
+ At time   8.2470864614340087      and time step   4.9982342876607966E-002
+ At time   8.2970688043106158      and time step   4.9982342839085717E-002
+ At time   8.3470511471497009      and time step   4.9982342947459360E-002
+ At time   8.3970334900971597      and time step   4.9982343204631553E-002
+ At time   8.4470158333017906      and time step   4.9982343558111396E-002
+ At time   8.4969981768599023      and time step   4.9982342828632426E-002
+ At time   8.5469805196885353      and time step   4.9982342255173028E-002
+ At time   8.5969628619437088      and time step   4.9982341840486298E-002
+ At time   8.6469452037841954      and time step   4.9982341587151348E-002
+ At time   8.6969275453713468      and time step   4.9982341497525916E-002
+ At time   8.7469098868688722      and time step   4.9982341573705243E-002
+ At time   8.7968922284425766      and time step   4.9982341817487994E-002
+ At time   8.8468745702600646      and time step   4.9982342230351140E-002
+ At time   8.8968569124904153      and time step   4.9982341711598821E-002
+ At time   8.9468392542020148      and time step   4.9982341164765368E-002
+ At time   8.9968215953667805      and time step   3.1784046332195004E-003
+|-------------------------------------------------------------|
+|            Function            | #Calls |   Total  |  % of  |
+|              name              |        |   time   |  time  |
+|-------------------------------------------------------------|
+|ps                              |       1| 4346.285s| 100.00%|
+|field I/O                       |      38|  173.538s|   3.99%|
+|field diagnostics I/O           |     182|   55.109s|   1.27%|
+|vor2vel                         |     545|  927.894s|  21.35%|
+|vorticity tendency              |     543|  610.424s|  14.04%|
+|advance                         |       1| 4334.715s|  99.73%|
+|pressure calculation            |     181|   57.069s|   1.31%|
+|-------------------------------------------------------------|

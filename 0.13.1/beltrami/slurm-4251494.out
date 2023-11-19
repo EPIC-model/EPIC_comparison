@@ -1,0 +1,70 @@
+
+Lmod is automatically replacing "cce/15.0.0" with "gcc/11.2.0".
+
+
+Lmod is automatically replacing "PrgEnv-cray/8.3.3" with "PrgEnv-gnu/8.3.3".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) cray-mpich/8.1.23
+
+Node summary for    1 nodes:
+Node    0, hostname nid002484, mpi  24, omp   1, executable xthi_mpi_mp
+MPI summary: 24 ranks 
+Node    0, rank    0, thread   0, (affinity =    0) 
+Node    0, rank    1, thread   0, (affinity =    4) 
+Node    0, rank    2, thread   0, (affinity =    8) 
+Node    0, rank    3, thread   0, (affinity =  128) 
+Node    0, rank    4, thread   0, (affinity =  132) 
+Node    0, rank    5, thread   0, (affinity =  136) 
+Node    0, rank    6, thread   0, (affinity =    1) 
+Node    0, rank    7, thread   0, (affinity =    5) 
+Node    0, rank    8, thread   0, (affinity =    9) 
+Node    0, rank    9, thread   0, (affinity =  129) 
+Node    0, rank   10, thread   0, (affinity =  133) 
+Node    0, rank   11, thread   0, (affinity =  137) 
+Node    0, rank   12, thread   0, (affinity =    2) 
+Node    0, rank   13, thread   0, (affinity =    6) 
+Node    0, rank   14, thread   0, (affinity =   10) 
+Node    0, rank   15, thread   0, (affinity =  130) 
+Node    0, rank   16, thread   0, (affinity =  134) 
+Node    0, rank   17, thread   0, (affinity =  138) 
+Node    0, rank   18, thread   0, (affinity =    3) 
+Node    0, rank   19, thread   0, (affinity =    7) 
+Node    0, rank   20, thread   0, (affinity =   11) 
+Node    0, rank   21, thread   0, (affinity =  131) 
+Node    0, rank   22, thread   0, (affinity =  135) 
+Node    0, rank   23, thread   0, (affinity =  139) 
+ WARNING: No physical constants found! EPIC uses default values.
+ WARNING: Could not find a 'parameters' group in the provided
+          NetCDF file.
+          Note this will result in the boundary zeta flags being
+          set to false starting with parcels (which could well be
+          undesirable).
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    2210.958|    2210.958|    2210.960|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |    15996|  28.09%|     620.268|     621.144|     623.684|
+|grid2par                        |    15996|  35.94%|     783.270|     794.696|     803.405|
+|parcel split                    |     3199|   3.51%|      77.613|      77.674|      77.723|
+|parcel merge                    |     3199|   0.50%|      11.112|      11.161|      11.196|
+|laplace correction              |     6398|   7.34%|     162.206|     162.288|     162.374|
+|gradient correction             |     6398|   2.46%|      54.388|      54.418|      54.441|
+|net vorticity correction        |     3201|   0.11%|       2.443|       2.484|       2.535|
+|parcel initialisation           |        2|   0.00%|       0.009|       0.011|       0.013|
+|parcel diagnostics              |     3200|   3.37%|      73.432|      74.588|      76.539|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |      401|   0.01%|       0.000|       0.159|       3.816|
+|field I/O                       |       41|   0.18%|       3.839|       3.904|       3.957|
+|field diagnostics               |     3200|   0.02%|       0.210|       0.412|       0.741|
+|field diagnostics I/O           |      401|   0.00%|       0.000|       0.076|       1.817|
+|vor2vel                         |    15996|   4.52%|      99.698|      99.950|     100.385|
+|vorticity tendency              |    15996|   2.01%|      44.288|      44.468|      44.883|
+|parcel push                     |     3199|  34.73%|     759.289|     767.943|     776.159|
+|merge nearest                   |     3199|   1.39%|      30.284|      30.795|      31.132|
+|merge tree resolve              |     3193|   1.08%|      23.396|      23.773|      24.314|
+|p2g/v2g halo (non-excl.)        |    28792|   1.22%|      18.491|      27.044|      33.993|
+|------------------------------------------------------------------------------------------|

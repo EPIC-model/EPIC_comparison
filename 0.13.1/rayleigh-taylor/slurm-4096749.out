@@ -1,0 +1,404 @@
+
+Lmod is automatically replacing "cce/15.0.0" with "gcc/11.2.0".
+
+
+Lmod is automatically replacing "PrgEnv-cray/8.3.3" with "PrgEnv-gnu/8.3.3".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) cray-mpich/8.1.23
+
+Node summary for    2 nodes:
+Node    0, hostname nid004023, mpi  72, omp   1, executable xthi_mpi_mp
+Node    1, hostname nid004040, mpi  72, omp   1, executable xthi_mpi_mp
+MPI summary: 144 ranks 
+Node    0, rank    0, thread   0, (affinity =    0) 
+Node    0, rank    1, thread   0, (affinity =    4) 
+Node    0, rank    2, thread   0, (affinity =    8) 
+Node    0, rank    3, thread   0, (affinity =   12) 
+Node    0, rank    4, thread   0, (affinity =   16) 
+Node    0, rank    5, thread   0, (affinity =   20) 
+Node    0, rank    6, thread   0, (affinity =   24) 
+Node    0, rank    7, thread   0, (affinity =   28) 
+Node    0, rank    8, thread   0, (affinity =   32) 
+Node    0, rank    9, thread   0, (affinity =  128) 
+Node    0, rank   10, thread   0, (affinity =  132) 
+Node    0, rank   11, thread   0, (affinity =  136) 
+Node    0, rank   12, thread   0, (affinity =  140) 
+Node    0, rank   13, thread   0, (affinity =  144) 
+Node    0, rank   14, thread   0, (affinity =  148) 
+Node    0, rank   15, thread   0, (affinity =  152) 
+Node    0, rank   16, thread   0, (affinity =  156) 
+Node    0, rank   17, thread   0, (affinity =  160) 
+Node    0, rank   18, thread   0, (affinity =    1) 
+Node    0, rank   19, thread   0, (affinity =    5) 
+Node    0, rank   20, thread   0, (affinity =    9) 
+Node    0, rank   21, thread   0, (affinity =   13) 
+Node    0, rank   22, thread   0, (affinity =   17) 
+Node    0, rank   23, thread   0, (affinity =   21) 
+Node    0, rank   24, thread   0, (affinity =   25) 
+Node    0, rank   25, thread   0, (affinity =   29) 
+Node    0, rank   26, thread   0, (affinity =   33) 
+Node    0, rank   27, thread   0, (affinity =  129) 
+Node    0, rank   28, thread   0, (affinity =  133) 
+Node    0, rank   29, thread   0, (affinity =  137) 
+Node    0, rank   30, thread   0, (affinity =  141) 
+Node    0, rank   31, thread   0, (affinity =  145) 
+Node    0, rank   32, thread   0, (affinity =  149) 
+Node    0, rank   33, thread   0, (affinity =  153) 
+Node    0, rank   34, thread   0, (affinity =  157) 
+Node    0, rank   35, thread   0, (affinity =  161) 
+Node    0, rank   36, thread   0, (affinity =    2) 
+Node    0, rank   37, thread   0, (affinity =    6) 
+Node    0, rank   38, thread   0, (affinity =   10) 
+Node    0, rank   39, thread   0, (affinity =   14) 
+Node    0, rank   40, thread   0, (affinity =   18) 
+Node    0, rank   41, thread   0, (affinity =   22) 
+Node    0, rank   42, thread   0, (affinity =   26) 
+Node    0, rank   43, thread   0, (affinity =   30) 
+Node    0, rank   44, thread   0, (affinity =   34) 
+Node    0, rank   45, thread   0, (affinity =  130) 
+Node    0, rank   46, thread   0, (affinity =  134) 
+Node    0, rank   47, thread   0, (affinity =  138) 
+Node    0, rank   48, thread   0, (affinity =  142) 
+Node    0, rank   49, thread   0, (affinity =  146) 
+Node    0, rank   50, thread   0, (affinity =  150) 
+Node    0, rank   51, thread   0, (affinity =  154) 
+Node    0, rank   52, thread   0, (affinity =  158) 
+Node    0, rank   53, thread   0, (affinity =  162) 
+Node    0, rank   54, thread   0, (affinity =    3) 
+Node    0, rank   55, thread   0, (affinity =    7) 
+Node    0, rank   56, thread   0, (affinity =   11) 
+Node    0, rank   57, thread   0, (affinity =   15) 
+Node    0, rank   58, thread   0, (affinity =   19) 
+Node    0, rank   59, thread   0, (affinity =   23) 
+Node    0, rank   60, thread   0, (affinity =   27) 
+Node    0, rank   61, thread   0, (affinity =   31) 
+Node    0, rank   62, thread   0, (affinity =   35) 
+Node    0, rank   63, thread   0, (affinity =  131) 
+Node    0, rank   64, thread   0, (affinity =  135) 
+Node    0, rank   65, thread   0, (affinity =  139) 
+Node    0, rank   66, thread   0, (affinity =  143) 
+Node    0, rank   67, thread   0, (affinity =  147) 
+Node    0, rank   68, thread   0, (affinity =  151) 
+Node    0, rank   69, thread   0, (affinity =  155) 
+Node    0, rank   70, thread   0, (affinity =  159) 
+Node    0, rank   71, thread   0, (affinity =  163) 
+Node    1, rank   72, thread   0, (affinity =    0) 
+Node    1, rank   73, thread   0, (affinity =    4) 
+Node    1, rank   74, thread   0, (affinity =    8) 
+Node    1, rank   75, thread   0, (affinity =   12) 
+Node    1, rank   76, thread   0, (affinity =   16) 
+Node    1, rank   77, thread   0, (affinity =   20) 
+Node    1, rank   78, thread   0, (affinity =   24) 
+Node    1, rank   79, thread   0, (affinity =   28) 
+Node    1, rank   80, thread   0, (affinity =   32) 
+Node    1, rank   81, thread   0, (affinity =  128) 
+Node    1, rank   82, thread   0, (affinity =  132) 
+Node    1, rank   83, thread   0, (affinity =  136) 
+Node    1, rank   84, thread   0, (affinity =  140) 
+Node    1, rank   85, thread   0, (affinity =  144) 
+Node    1, rank   86, thread   0, (affinity =  148) 
+Node    1, rank   87, thread   0, (affinity =  152) 
+Node    1, rank   88, thread   0, (affinity =  156) 
+Node    1, rank   89, thread   0, (affinity =  160) 
+Node    1, rank   90, thread   0, (affinity =    1) 
+Node    1, rank   91, thread   0, (affinity =    5) 
+Node    1, rank   92, thread   0, (affinity =    9) 
+Node    1, rank   93, thread   0, (affinity =   13) 
+Node    1, rank   94, thread   0, (affinity =   17) 
+Node    1, rank   95, thread   0, (affinity =   21) 
+Node    1, rank   96, thread   0, (affinity =   25) 
+Node    1, rank   97, thread   0, (affinity =   29) 
+Node    1, rank   98, thread   0, (affinity =   33) 
+Node    1, rank   99, thread   0, (affinity =  129) 
+Node    1, rank  100, thread   0, (affinity =  133) 
+Node    1, rank  101, thread   0, (affinity =  137) 
+Node    1, rank  102, thread   0, (affinity =  141) 
+Node    1, rank  103, thread   0, (affinity =  145) 
+Node    1, rank  104, thread   0, (affinity =  149) 
+Node    1, rank  105, thread   0, (affinity =  153) 
+Node    1, rank  106, thread   0, (affinity =  157) 
+Node    1, rank  107, thread   0, (affinity =  161) 
+Node    1, rank  108, thread   0, (affinity =    2) 
+Node    1, rank  109, thread   0, (affinity =    6) 
+Node    1, rank  110, thread   0, (affinity =   10) 
+Node    1, rank  111, thread   0, (affinity =   14) 
+Node    1, rank  112, thread   0, (affinity =   18) 
+Node    1, rank  113, thread   0, (affinity =   22) 
+Node    1, rank  114, thread   0, (affinity =   26) 
+Node    1, rank  115, thread   0, (affinity =   30) 
+Node    1, rank  116, thread   0, (affinity =   34) 
+Node    1, rank  117, thread   0, (affinity =  130) 
+Node    1, rank  118, thread   0, (affinity =  134) 
+Node    1, rank  119, thread   0, (affinity =  138) 
+Node    1, rank  120, thread   0, (affinity =  142) 
+Node    1, rank  121, thread   0, (affinity =  146) 
+Node    1, rank  122, thread   0, (affinity =  150) 
+Node    1, rank  123, thread   0, (affinity =  154) 
+Node    1, rank  124, thread   0, (affinity =  158) 
+Node    1, rank  125, thread   0, (affinity =  162) 
+Node    1, rank  126, thread   0, (affinity =    3) 
+Node    1, rank  127, thread   0, (affinity =    7) 
+Node    1, rank  128, thread   0, (affinity =   11) 
+Node    1, rank  129, thread   0, (affinity =   15) 
+Node    1, rank  130, thread   0, (affinity =   19) 
+Node    1, rank  131, thread   0, (affinity =   23) 
+Node    1, rank  132, thread   0, (affinity =   27) 
+Node    1, rank  133, thread   0, (affinity =   31) 
+Node    1, rank  134, thread   0, (affinity =   35) 
+Node    1, rank  135, thread   0, (affinity =  131) 
+Node    1, rank  136, thread   0, (affinity =  135) 
+Node    1, rank  137, thread   0, (affinity =  139) 
+Node    1, rank  138, thread   0, (affinity =  143) 
+Node    1, rank  139, thread   0, (affinity =  147) 
+Node    1, rank  140, thread   0, (affinity =  151) 
+Node    1, rank  141, thread   0, (affinity =  155) 
+Node    1, rank  142, thread   0, (affinity =  159) 
+Node    1, rank  143, thread   0, (affinity =  163) 
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    1487.773|    1487.774|    1487.777|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |     8601|  19.02%|     276.095|     282.909|     290.540|
+|grid2par                        |     8601|  23.42%|     340.954|     348.409|     358.762|
+|parcel split                    |     1720|   2.26%|      32.502|      33.659|      33.948|
+|parcel merge                    |     1720|   0.29%|       4.092|       4.372|       4.527|
+|laplace correction              |     3440|   5.27%|      77.913|      78.377|      79.507|
+|gradient correction             |     3440|   1.60%|      23.506|      23.818|      24.033|
+|net vorticity correction        |     1722|   0.08%|       1.012|       1.182|       1.402|
+|parcel initialisation           |        2|   0.00%|       0.017|       0.062|       0.092|
+|parcel diagnostics              |     1721|   2.39%|      34.322|      35.569|      38.989|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.00%|       0.000|       0.062|       8.858|
+|field I/O                       |     1001|  25.46%|     375.524|     378.818|     380.600|
+|field diagnostics               |     1721|   0.05%|       0.629|       0.719|       1.069|
+|field diagnostics I/O           |     1001|   0.00%|       0.000|       0.033|       4.787|
+|vor2vel                         |     8601|   7.86%|     114.428|     117.008|     122.324|
+|vorticity tendency              |     8601|   3.86%|      57.077|      57.482|      58.225|
+|parcel push                     |     1720|  23.05%|     320.475|     342.912|     348.937|
+|merge nearest                   |     1720|   0.75%|       9.859|      11.135|      12.790|
+|merge tree resolve              |     1707|   1.56%|      22.878|      23.243|      23.705|
+|p2g/v2g halo (non-excl.)        |    15481|   2.22%|      19.275|      33.025|      46.430|
+|------------------------------------------------------------------------------------------|
+srun: Job 4096749 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 4096749
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    1977.525|    1977.526|    1977.531|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |     9911|  20.99%|     403.806|     415.054|     423.749|
+|grid2par                        |     9911|  26.36%|     509.636|     521.343|     545.461|
+|parcel split                    |     1982|   2.56%|      49.250|      50.681|      51.959|
+|parcel merge                    |     1982|   0.36%|       6.861|       7.158|       7.284|
+|laplace correction              |     3964|   5.83%|     113.930|     115.211|     116.726|
+|gradient correction             |     3964|   1.85%|      35.532|      36.508|      36.862|
+|net vorticity correction        |     1984|   0.09%|       1.480|       1.795|       2.443|
+|parcel initialisation           |        2|   0.00%|       0.017|       0.063|       0.096|
+|parcel diagnostics              |     1983|   2.69%|      51.658|      53.281|      61.271|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.00%|       0.000|       0.076|      10.981|
+|field I/O                       |     1001|  19.67%|     384.585|     389.076|     391.016|
+|field diagnostics               |     1983|   0.04%|       0.704|       0.809|       1.026|
+|field diagnostics I/O           |     1001|   0.00%|       0.000|       0.037|       5.396|
+|vor2vel                         |     9911|   6.58%|     123.945|     130.213|     141.378|
+|vorticity tendency              |     9911|   3.23%|      63.522|      63.833|      64.187|
+|parcel push                     |     1982|  25.86%|     488.521|     511.377|     522.497|
+|merge nearest                   |     1982|   0.92%|      17.216|      18.165|      18.860|
+|merge tree resolve              |     1969|   1.83%|      35.751|      36.277|      36.956|
+|p2g/v2g halo (non-excl.)        |    17839|   2.17%|      21.784|      42.844|      59.516|
+|------------------------------------------------------------------------------------------|
+srun: Job 4096749 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 4096749
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    3190.892|    3190.893|    3190.900|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |    14071|  23.12%|     714.197|     737.721|     749.617|
+|grid2par                        |    14071|  29.13%|     909.484|     929.545|    1005.189|
+|parcel split                    |     2814|   2.84%|      88.019|      90.771|      92.800|
+|parcel merge                    |     2814|   0.39%|      11.938|      12.360|      12.606|
+|laplace correction              |     5628|   6.30%|     198.134|     201.167|     205.328|
+|gradient correction             |     5628|   2.00%|      61.597|      63.818|      65.153|
+|net vorticity correction        |     2816|   0.10%|       2.741|       3.200|       4.304|
+|parcel initialisation           |        2|   0.00%|       0.017|       0.061|       0.091|
+|parcel diagnostics              |     2815|   2.98%|      92.291|      94.936|     113.187|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.00%|       0.000|       0.078|      11.261|
+|field I/O                       |     1001|  13.35%|     417.658|     425.929|     428.392|
+|field diagnostics               |     2815|   0.04%|       0.985|       1.159|       1.573|
+|field diagnostics I/O           |     1001|   0.00%|       0.000|       0.049|       7.126|
+|vor2vel                         |    14071|   5.86%|     177.838|     187.029|     209.572|
+|vorticity tendency              |    14071|   2.84%|      90.026|      90.474|      91.011|
+|parcel push                     |     2814|  28.81%|     848.844|     919.202|     938.391|
+|merge nearest                   |     2814|   1.16%|      35.326|      36.906|      38.930|
+|merge tree resolve              |     2797|   1.98%|      62.221|      63.176|      64.391|
+|p2g/v2g halo (non-excl.)        |    25327|   2.38%|      38.756|      75.978|      97.891|
+|------------------------------------------------------------------------------------------|
+srun: Job 4096749 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 4096749
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    4042.960|    4042.962|    4042.970|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |    13436|  24.19%|     941.709|     977.853|     994.328|
+|grid2par                        |    13436|  30.99%|    1211.250|    1252.773|    1320.550|
+|parcel split                    |     2687|   3.05%|     119.506|     123.501|     126.692|
+|parcel merge                    |     2687|   0.51%|      19.750|      20.531|      20.829|
+|laplace correction              |     5374|   6.52%|     260.208|     263.461|     267.846|
+|gradient correction             |     5374|   2.13%|      84.181|      86.000|      86.560|
+|net vorticity correction        |     2689|   0.13%|       4.259|       5.296|       6.851|
+|parcel initialisation           |        2|   0.00%|       0.011|       0.061|       0.095|
+|parcel diagnostics              |     2688|   3.17%|     123.884|     128.292|     153.263|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.00%|       0.000|       0.078|      11.210|
+|field I/O                       |     1001|  10.48%|     415.077|     423.561|     428.275|
+|field diagnostics               |     2688|   0.03%|       0.921|       1.149|       1.521|
+|field diagnostics I/O           |     1001|   0.00%|       0.000|       0.058|       8.421|
+|vor2vel                         |    13436|   4.43%|     168.142|     179.263|     213.192|
+|vorticity tendency              |    13436|   2.14%|      85.917|      86.346|      86.782|
+|parcel push                     |     2687|  30.36%|    1167.177|    1227.547|    1253.207|
+|merge nearest                   |     2687|   1.63%|      62.960|      65.780|      68.803|
+|merge tree resolve              |     2670|   2.21%|      87.742|      89.472|      91.865|
+|p2g/v2g halo (non-excl.)        |    24184|   2.18%|      32.439|      88.041|     123.225|
+|------------------------------------------------------------------------------------------|
+ WARNING: Using default value of 'standard_gravity'.
+ WARNING: Using default value of 'latent_heat_of_vaporization'.
+ WARNING: Using default value of 'specific_heat'.
+ WARNING: Using default value of 'temperature_at_sea_level'.
+ Found float attribute 'planetary_angular_velocity'.
+ WARNING: Using default value of 'saturation_specific_humidity_at_ground_level'.
+ Found boolean attribute 'planetary_vorticity'.
+ Found float attribute 'latitude_degrees'.
+ WARNING: Using default value of 'scale_height'.
+ Found character attribute 'ape_calculation'.
+ APE calculation using APE density function.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: You allow the gridded vertical vorticity component
+          at the boundaries to develop non-zero values.
+          Stop your simulation if this is not your intention.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the lower boundary.
+ WARNING: This simulation will not ensure that the gridded vertical
+          vorticity component is zero at the upper boundary.
+|------------------------------------------------------------------------------------------|
+|            Function            | #Calls  |  % of  |  Min time  | Mean time  |  Max time  |
+|              name              |         |  time  | in seconds | in seconds | in seconds |
+|------------------------------------------------------------------------------------------|
+|epic                            |        1| 100.00%|    7213.067|    7213.068|    7213.081|
+|parcel container resize         |        0|   0.00%|       0.000|       0.000|       0.000|
+|par2grid                        |    19321|  25.73%|    1791.898|    1856.084|    1878.149|
+|grid2par                        |    19321|  33.05%|    2311.868|    2383.790|    2493.579|
+|parcel split                    |     3864|   3.24%|     227.234|     233.796|     237.962|
+|parcel merge                    |     3864|   0.51%|      35.727|      36.959|      37.565|
+|laplace correction              |     7728|   6.80%|     485.162|     490.737|     496.776|
+|gradient correction             |     7728|   2.28%|     159.581|     164.125|     166.304|
+|net vorticity correction        |     3866|   0.17%|      10.486|      12.549|      17.332|
+|parcel initialisation           |        2|   0.00%|       0.011|       0.060|       0.092|
+|parcel diagnostics              |     3865|   3.37%|     235.218|     242.900|     282.077|
+|parcel I/O                      |        0|   0.00%|       0.000|       0.000|       0.000|
+|parcel diagnostics I/O          |     1001|   0.00%|       0.000|       0.078|      11.192|
+|field I/O                       |     1001|   6.32%|     441.424|     455.714|     464.014|
+|field diagnostics               |     3865|   0.02%|       1.293|       1.656|       2.266|
+|field diagnostics I/O           |     1001|   0.00%|       0.000|       0.058|       8.345|
+|vor2vel                         |    19321|   3.63%|     245.146|     261.710|     322.149|
+|vorticity tendency              |    19321|   1.72%|     123.585|     124.195|     124.877|
+|parcel push                     |     3864|  32.48%|    2224.965|    2342.550|    2387.362|
+|merge nearest                   |     3864|   1.97%|     138.079|     142.158|     145.563|
+|merge tree resolve              |     3845|   2.16%|     153.682|     156.097|     160.348|
+|p2g/v2g halo (non-excl.)        |    34777|   2.34%|      78.160|     168.712|     216.932|
+|------------------------------------------------------------------------------------------|

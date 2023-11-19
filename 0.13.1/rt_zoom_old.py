@@ -47,17 +47,17 @@ try:
 
         ncr.close()
 
-        encr.open('intersected_ellipses_step_12_from_moist_0000000012_parcels.nc')
+        encr.open('../mnt/archer2/epic3d-paper-runs/rayleigh-taylor/intersected_ellipses_step_2_from_epic_rt_384_0000000001_parcels.nc')
         dx = encr.get_box_extent() / encr.get_box_ncells()
-        x_pos = encr.get_dataset(11, 'x_position')
-        z_pos = encr.get_dataset(11, 'z_position')
+        x_pos = encr.get_dataset(0, 'x_position')
+        z_pos = encr.get_dataset(0, 'z_position')
         ind = np.argwhere((x_pos >= xlo - dx[0]) & (x_pos <= xhi + dx[0]) &
                           (z_pos >= ylo - dx[1]) & (z_pos <= yhi + dx[1]))
         ind = ind.squeeze()
-        hum = encr.get_dataset(11, 'humidity', indices=ind)
+        hum = encr.get_dataset(0, 'buoyancy', indices=ind)
         hum = hum * scale
         isort = np.argsort(hum)
-        ell = encr.get_ellipses(step=11, indices=ind[isort])
+        ell = encr.get_ellipses(step=0, indices=ind[isort])
         axins.add_collection(ell)
         ell.set_offset_transform(axins.transData)
         ell.set_clip_box(axins.bbox)
@@ -81,19 +81,19 @@ try:
         return axins
 
 
-    filename = 'extracted_step_12_from_moist_fields.nc'
-    loc = 128
+    filename = '../mnt/archer2/epic3d-paper-runs/rayleigh-taylor/extracted_steps_from_epic_rt_384_fields.nc'
+    loc = 192
     plane = 'xz'
-    step = 0
+    step = 5
 
     # 13 Dec 2022
     # https://stackoverflow.com/a/46778420
-    my_cmap = mpl.colors.LinearSegmentedColormap.from_list("", ["white", "darkblue"], 255)
+    my_cmap = cc.cm['coolwarm'] #mpl.colors.LinearSegmentedColormap.from_list("", ["white", "darkblue"], 255)
 
     # 13 Dec 2022
     # https://stackoverflow.com/questions/67605719/displaying-lowest-values-as-white
-    my_cmap = mpl.colors.LinearSegmentedColormap.from_list('', ['white',
-                                                                *plt.cm.Blues(np.arange(255))])
+#    my_cmap = mpl.colors.LinearSegmentedColormap.from_list('', ['white',
+ #                                                               *plt.cm.Blues(np.arange(255))])
 
 
     mpl.rcParams['figure.figsize'] = 9, 4
@@ -105,10 +105,10 @@ try:
 
     dpi = 960.0
 
-    left = 1250
-    right = 5250
-    top = 5000
-    bottom = 2000
+    left = -np.pi/2
+    right = np.pi/2
+    top = np.pi/2
+    bottom = -np.pi/2
 
     # 7 Feb 2022
     # https://matplotlib.org/devdocs/gallery/subplots_axes_and_figures/figure_size_units.html
@@ -117,14 +117,14 @@ try:
 
     ax = plt.gca()
 
-    encr.open('intersected_ellipses_step_12_from_moist_0000000012_parcels.nc')
+    encr.open('../mnt/archer2/epic3d-paper-runs/rayleigh-taylor/intersected_ellipses_step_2_from_epic_rt_384_0000000001_parcels.nc')
     dx = encr.get_box_extent() / encr.get_box_ncells()
-    x_pos = encr.get_dataset(11, 'x_position')
-    z_pos = encr.get_dataset(11, 'z_position')
+    x_pos = encr.get_dataset(0, 'x_position')
+    z_pos = encr.get_dataset(0, 'z_position')
     ind = np.argwhere((x_pos >= left - dx[0]) & (x_pos <= right + dx[0]) &
                       (z_pos >= bottom - dx[1]) & (z_pos <= top + dx[1]))
     ind = ind.squeeze()
-    hum = encr.get_dataset(11, 'humidity', indices=ind)
+    hum = encr.get_dataset(0, 'buoyancy', indices=ind)
 
     dmin = hum.min()
     dmax = hum.max()
@@ -132,15 +132,15 @@ try:
     encr.close()
 
     encr.open(filename)
-    data = encr.get_dataset(step, name='humidity')
+    data = encr.get_dataset(step, name='buoyancy')
 
     cs = get_plane(plane, loc, data)
     dmin = min(dmin, cs.min())
     dmax = max(dmax, cs.max())
 
     # vmin < dmin, vmax > dmax
-    vmin = 0.0
-    vmax = 0.09
+    vmin = -1.0
+    vmax = 1.0
     # scale data such that they are in vmin, vmax
     scale = vmax / dmax
     data = data * scale
@@ -170,9 +170,9 @@ try:
 
     encr.close()
 
-    encr.open('intersected_ellipses_step_12_from_moist_0000000012_parcels.nc')
+    encr.open('../mnt/archer2/epic3d-paper-runs/rayleigh-taylor/intersected_ellipses_step_2_from_epic_rt_384_0000000001_parcels.nc')
     isort = np.argsort(hum)
-    ell = encr.get_ellipses(step=11, indices=ind[isort])
+    ell = encr.get_ellipses(step=0, indices=ind[isort])
     ax.add_collection(ell)
     ell.set_offset_transform(ax.transData)
     ell.set_clip_box(ax.bbox)
@@ -186,7 +186,7 @@ try:
     axins = do_zoom(
         ncr = encr,
         step = step,
-        dset = 'humidity',
+        dset = 'buoyancy',
         loc=loc,
         plane=plane,
         cmap=my_cmap,
@@ -195,17 +195,17 @@ try:
         scale=scale,
         ax = ax,
         bounds = [1., 0.47, 0.6, 0.6],
-        xlo = 3700,
-        xhi = 4485,
-        ylo = 3400,
-        yhi = 4185,
+        xlo = -np.pi/4.0,
+        xhi =  np.pi/4.0,
+        ylo = -np.pi/4.0,
+        yhi =  np.pi/4.0,
         fname = filename)
 
     # sub region of the sub-region image, corresponds to 16 cells
     axins2 = do_zoom(
         ncr = encr,
         step = step,
-        dset = 'humidity',
+        dset = 'buoyancy',
         loc=loc,
         plane=plane,
         cmap=my_cmap,
@@ -214,17 +214,17 @@ try:
         scale=scale,
         ax = axins,
         bounds = [1.2, 0.06, 0.9, 0.9],
-        xlo = 3900,
-        xhi = 4292.5,
-        ylo = 3600,
-        yhi = 3992.5,
+        xlo = -np.pi/8.0,
+        xhi =  np.pi/8.0,
+        ylo = -np.pi/8.0,
+        yhi =  np.pi/8.0,
         fname = filename)
 
     # zoom of sub-sub-region, corresponds to 8 cells
     axins3 = do_zoom(
         ncr = encr,
         step = step,
-        dset = 'humidity',
+        dset = 'buoyancy',
         loc=loc,
         plane=plane,
         cmap=my_cmap,
@@ -234,17 +234,17 @@ try:
         ax = axins2,
         #bounds = [1.2, 0.05, 0.9, 0.9],
         bounds = [0.1, -1.04, 0.9, 0.9],
-        xlo = 4000,
-        xhi = 4196.25,
-        ylo = 3700,
-        yhi = 3896.25,
+        xlo = -np.pi/16.0,
+        xhi =  np.pi/16.0,
+        ylo = -np.pi/16.0,
+        yhi =  np.pi/16.0,
         fname = filename)
 
     # zoom of sub-sub-sub-region, corresponds to 4 cels
     do_zoom(
         ncr = encr,
         step = step,
-        dset = 'humidity',
+        dset = 'buoyancy',
         loc=loc,
         plane=plane,
         cmap=my_cmap,
@@ -253,10 +253,10 @@ try:
         scale=scale,
         ax = axins3,
         bounds = [-1.4, 0.06, 0.9, 0.9],
-        xlo = 4050,
-        xhi = 4148.125,
-        ylo = 3750,
-        yhi = 3848.125,
+        xlo = -np.pi/32.0,
+        xhi =  np.pi/32.0,
+        ylo = -np.pi/32.0,
+        yhi =  np.pi/32.0,
         fname = filename)
 
     ax.tick_params(
@@ -273,10 +273,10 @@ try:
     ax.spines['top'].set_visible(False)
     ax.set_rasterized(True)
 
-    plt.savefig('graphical_abstract.png',
+    plt.savefig('rt_zoom.png',
                 bbox_inches='tight', dpi=dpi)
 
-    os.system('convert graphical_abstract.png eps3:graphical_abstract.eps')
+    os.system('convert rt_zoom.png eps3:rt_zoom.eps')
 
     #os.chdir(cwd)
 
